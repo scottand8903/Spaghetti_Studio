@@ -1,2 +1,2 @@
-# Spaghetti_Studio
-CS 383 Spaghetti Studio
+# Spaghetti_Studios
+CS 383 Spaghetti Studios
