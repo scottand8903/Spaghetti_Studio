@@ -4,14 +4,14 @@ public class PlayerController : MonoBehaviour
 {
 
     // Private Variables
-    private Rigidbody2D _rb = null; 
+    private Rigidbody2D rb = null; 
 
-    [SerializeField] private float _moveSpeed = 10.0f;
+    [SerializeField] private float moveSpeed = 10.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -28,16 +28,16 @@ public class PlayerController : MonoBehaviour
         bool pressingRight = Input.GetKey(KeyCode.D);
         
         if(pressingUp){
-            transform.Translate(Vector2.up * Time.deltaTime * _moveSpeed); 
+            transform.Translate(Vector2.up * Time.deltaTime * moveSpeed); 
         }
         if(pressingDown){
-            transform.Translate(Vector2.down * Time.deltaTime * _moveSpeed); 
+            transform.Translate(Vector2.down * Time.deltaTime * moveSpeed); 
         }
         if(pressingRight){
-            transform.Translate(Vector2.right* Time.deltaTime * _moveSpeed); 
+            transform.Translate(Vector2.right* Time.deltaTime * moveSpeed); 
         }
         if(pressingLeft){
-            transform.Translate(Vector2.left * Time.deltaTime * _moveSpeed); 
+            transform.Translate(Vector2.left * Time.deltaTime * moveSpeed); 
         }
         return;
     }

@@ -1,19 +1,53 @@
+// UI script 
+// mm - main menu element
+// pm - pause menun element
+
+
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+
+
+
 
 public class UI : MonoBehaviour
 {
-    // Private Variables
-    private Canvas _canvas = GetComponent<Canvas>();
+    public Button mmToPause;
+    public Button pmToMainMenu;
+    public GameObject pausePanel;
+    public GameObject MainMenuPanel;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (mmToPause != null)
+        {
+            mmToPause.onClick.AddListener(() => OnButtonClick(1));
+            //myButton.onClick.AddListener(() => OnButtonClick("Button Clicked!"));        
+        }
+        if (pmToMainMenu != null)
+        {
+            pmToMainMenu.onClick.AddListener(() => OnButtonClick(2));
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnButtonClick(int button)
     {
-        
+        switch(button){
+
+            case 1:
+                if (pausePanel != null && MainMenuPanel != null){
+                    MainMenuPanel.SetActive(false);
+                    pausePanel.SetActive(true);
+                }
+            break;
+            
+            case 2:
+                if (pausePanel != null && MainMenuPanel != null){
+                    pausePanel.SetActive(false);
+                    MainMenuPanel.SetActive(true);
+                }
+            break;
+        }
     }
 }
