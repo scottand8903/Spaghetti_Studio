@@ -18,6 +18,7 @@ public class GameController: MonoBehaviour
     public Button pmToMainMenu;
     public GameObject pausePanel;
     public GameObject MainMenuPanel;
+    public GameObject Inventory;
 
     public bool GameRunning;
 
@@ -30,6 +31,7 @@ public class GameController: MonoBehaviour
         GameRunning = false;
         MainMenuPanel.SetActive(true);
         pausePanel.SetActive(false);
+        Inventory.SetActive(false);
 
 
         if (mmToPause != null)
@@ -48,18 +50,19 @@ public class GameController: MonoBehaviour
     {
         switch(button){
 
-            case 1:
+            case 1: // Pause
                     MainMenuPanel.SetActive(false);
                     pausePanel.SetActive(true);
             break;
             
-            case 2:
+            case 2: // MainMenu
                     pausePanel.SetActive(false);
                     MainMenuPanel.SetActive(true);
             break;
 
             case 3: // Play Game
                 MainMenuPanel.SetActive(false);
+                Inventory.SetActive(true);
                 GameRunning = true;
             break;
         }
