@@ -1,0 +1,84 @@
+{
+    "dishes": [
+        {
+            "dishName": "Spaghetti Carbonara",
+            "ingredients": ["spaghetti", "eggs", "pancetta"]
+        },
+        {
+            "dishName": "Fettuccine Alfredo",
+            "ingredients": ["fettuccine", "butter", "parmesan"]
+        },
+        {
+            "dishName": "Penne Arrabbiata",
+            "ingredients": ["penne", "tomato sauce", "chili flakes"]
+        },
+        {
+            "dishName": "Mac and Cheese",
+            "ingredients": ["macaroni", "cheddar cheese", "milk"]
+        },
+        {
+            "dishName": "Lasagna",
+            "ingredients": ["lasagna noodles", "beef", "ricotta"]
+        },
+        {
+            "dishName": "Linguine with Clam Sauce",
+            "ingredients": ["linguine", "clams", "garlic"]
+        },
+        {
+            "dishName": "Baked Ziti",
+            "ingredients": ["ziti", "marinara sauce", "mozzarella"]
+        },
+        {
+            "dishName": "Pasta Primavera",
+            "ingredients": ["rotini", "bell peppers", "zucchini"]
+        },
+        {
+            "dishName": "Tuna Casserole",
+            "ingredients": ["egg noodles", "tuna", "cream of mushroom soup"]
+        },
+        {
+            "dishName": "Spaghetti with Meatballs",
+            "ingredients": ["spaghetti", "meatballs", "marinara sauce"]
+        },
+        {
+            "dishName": "Penne alla Vodka",
+            "ingredients": ["penne", "vodka sauce", "heavy cream"]
+        },
+        {
+            "dishName": "Orecchiette with Broccoli Rabe",
+            "ingredients": ["orecchiette", "broccoli", "garlic"]
+        },
+        {
+            "dishName": "Pasta Puttanesca",
+            "ingredients": ["spaghetti", "olives", "capers"]
+        },
+        {
+            "dishName": "Cajun Chicken Pasta",
+            "ingredients": ["fettuccine", "chicken", "cajun seasoning"]
+        },
+        {
+            "dishName": "Chicken Parmesan Pasta",
+            "ingredients": ["penne", "chicken", "marinara sauce"]
+        },
+        {
+            "dishName": "Lobster Mac and Cheese",
+            "ingredients": ["macaroni", "lobster", "gruyère cheese"]
+        },
+        {
+            "dishName": "Shrimp Scampi",
+            "ingredients": ["linguine", "shrimp", "white wine"]
+        },
+        {
+            "dishName": "Beef Stroganoff Pasta",
+            "ingredients": ["egg noodles", "beef", "sour cream"]
+        },
+        {
+            "dishName": "Pasta alla Norma",
+            "ingredients": ["rigatoni", "eggplant", "ricotta"]
+        },
+        {
+            "dishName": "Pesto Pasta",
+            "ingredients": ["spaghetti", "basil", "pine nuts"]
+        }
+    ]
+}
