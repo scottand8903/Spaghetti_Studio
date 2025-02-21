@@ -1,0 +1,364 @@
+{
+    "ingredients": [
+        {
+            "id": 0,
+            "name": "Spaghetti",
+            "riddles": [
+                "Long and thin, a classic sight, twirled on a fork, a taste delight. What am I?",
+                "I’m a noodle, thin and round, in meatballs and sauce, I am found. What am I?"
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Fettuccine",
+            "riddles": [
+                "I'm flat and wide but not too long, in creamy sauce, I do belong. What am I?",
+                "Not too thin, not too thick, Alfredo loves me—take your pick! What am I?"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Penne",
+            "riddles": [
+                "With slanted ends, I stand with pride, a hollow tube, I'm open wide. What am I?",
+                "I have no curves, I have no bends, with pointed tips at both my ends. What am I?"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Macaroni",
+            "riddles": [
+                "I’m short and curved, a little C, in cheesy sauce, I’m meant to be. What am I?",
+                "A tiny tube with a playful bend, in kids’ favorite dish, I’m a lifelong friend. What am I?"
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Lasagna Noodles",
+            "riddles": [
+                "I’m flat and wide with ridges neat, stacked up high for layers to meet. What am I?",
+                "I don’t twist, and I don’t roll, I help build a dish as a whole. What am I?"
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Linguine",
+            "riddles": [
+                "I’m like spaghetti, but flatter you see, seafood and sauces pair well with me. What am I?",
+                "I’m thin and flat, but not too wide, in creamy or red sauce, I’ll slide. What am I?"
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Ziti",
+            "riddles": [
+                "I’m like penne, but my ends are straight, baked in sauce, I taste great. What am I?",
+                "A tube of pasta, smooth and round, in baked dishes, I am found. What am I?"
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Rotini",
+            "riddles": [
+                "I twist and twirl, a spiral fun, I hold the sauce for everyone. What am I?",
+                "I look like a spring, all curled tight, in pasta salads, I’m a delight. What am I?"
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Egg Noodles",
+            "riddles": [
+                "Soft and wavy, light and thin, in soups and stroganoff, I fit in. What am I?",
+                "I’m golden yellow, thin or wide, made with eggs, I can’t hide. What am I?"
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Orecchiette",
+            "riddles": [
+                "My name means ‘little ears,’ you see, a pasta shape that looks like me. What am I?",
+                "Small and round with a little dip, I hold the sauce so none will slip. What am I?"
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Rigatoni",
+            "riddles": [
+                "I’m like ziti, but larger in size, with ridges along my sides. What am I?",
+                "A tube-shaped pasta, big and bold, with lines to catch the sauce I hold. What am I?"
+            ]
+        },
+        {
+            "id": 11,
+            "name": "Beef",
+            "riddles": [
+                "I come from a cow, in burgers I'm great, grilled or roasted, I’m on your plate. What am I?",
+                "Steaks and stews, I make them nice, a juicy cut, at any price. What am I?"
+            ]
+        },
+        {
+            "id": 12,
+            "name": "Clams",
+            "riddles": [
+                "I live in a shell, down in the sea, steamed or in chowder, you’ll love me. What am I?",
+                "I open up when cooked just right, in butter or broth, I’m a delight. What am I?"
+            ]
+        },
+        {
+            "id": 13,
+            "name": "Tuna",
+            "riddles": [
+                "I swim in the sea, I'm canned or fresh, in sandwiches or sushi, I'm the best. What am I?",
+                "A fish you know, both pink and lean, in salad or steak, I’m often seen. What am I?"
+            ]
+        },
+        {
+            "id": 14,
+            "name": "Meatballs",
+            "riddles": [
+                "Round and small, I’m served with delight, in pasta or subs, I’m a tasty bite. What am I?",
+                "Made of beef or pork combined, in marinara, I’m defined. What am I?"
+            ]
+        },
+        {
+            "id": 15,
+            "name": "Chicken",
+            "riddles": [
+                "I cluck and peck, but once I’m cooked, I’m grilled, fried, or nicely brooked. What am I?",
+                "White or dark, I taste just right, baked or fried, a true delight. What am I?"
+            ]
+        },
+        {
+            "id": 16,
+            "name": "Lobster",
+            "riddles": [
+                "I crawl in the sea with two big claws, dipped in butter, I get applause. What am I?",
+                "A seafood treat, both red and grand, cracked open fresh, I taste so bland—until you add butter! What am I?"
+            ]
+        },
+        {
+            "id": 17,
+            "name": "Shrimp",
+            "riddles": [
+                "Small and pink, from ocean deep, in pasta or grill, I make you weep (with joy!). What am I?",
+                "I’m curled and small, in cocktail or stew, my shell peels off, to give flavor to you. What am I?"
+            ]
+        },
+        {
+            "id": 18,
+            "name": "Pancetta",
+            "riddles": [
+                "Like bacon but not quite the same, in pasta and soups, you’ll know my name. What am I?",
+                "I’m pork, I’m cured, but I don’t fry, in carbonara, I’m the reason why. What am I?"
+            ]
+        },
+        {
+            "id": 19,
+            "name": "Tomato Sauce",
+            "riddles": [
+                "I'm red and rich, a classic treat, on pasta and pizza, I can't be beat. What am I?",
+                "Made from fruit but not so sweet, with herbs and spice, I make dishes complete. What am I?"
+            ]
+        },
+        {
+            "id": 20,
+            "name": "Marinara Sauce",
+            "riddles": [
+                "I'm red like tomato sauce, but lighter and quick, with garlic and herbs, I do the trick. What am I?",
+                "I’m simple and bright, with garlic I shine, over pasta or seafood, my taste is divine. What am I?"
+            ]
+        },
+        {
+            "id": 21,
+            "name": "Vodka Sauce",
+            "riddles": [
+                "I’m creamy and pink, with a little zing, a splash of booze gives me my thing. What am I?",
+                "Tomato and cream, I blend just right, with a hint of spirits, I’m a pasta delight. What am I?"
+            ]
+        },
+        {
+            "id": 22,
+            "name": "White Wine",
+            "riddles": [
+                "I’m poured in a glass or into a pan, I add depth to sauce like no one else can. What am I?",
+                "I’m not red, but I still pair well, in cooking or sipping, I cast a spell. What am I?"
+            ]
+        },
+        {
+            "id": 23,
+            "name": "Ricotta",
+            "riddles": [
+                "Soft and white, I’m creamy and light, in lasagna I hide, but I make it just right. What am I?",
+                "Made from whey, I’m fluffy and sweet, in stuffed pasta or desserts, I’m quite a treat. What am I?"
+            ]
+        },
+        {
+            "id": 24,
+            "name": "Gruyere Cheese",
+            "riddles": [
+                "Melt me down and I taste divine, in fondue and French toast, I shine. What am I?",
+                "I’m rich and nutty, smooth to the taste, in a croque monsieur, I’m never replaced. What am I?"
+            ]
+        },
+        {
+            "id": 25,
+            "name": "Mozzarella",
+            "riddles": [
+                "I’m stretchy and soft, on pizza I lay, melted to perfection, I make your day. What am I?",
+                "I’m white and mild, in caprese I sit, fresh or melted, I’m a cheesy hit. What am I?"
+            ]
+        },
+        {
+            "id": 26,
+            "name": "Cheddar Cheese",
+            "riddles": [
+                "From white to orange, sharp or mild, in burgers and nachos, I drive people wild. What am I?",
+                "I can be sharp, I can be sweet, on sandwiches and crackers, I’m the cheese to beat. What am I?"
+            ]
+        },
+        {
+            "id": 27,
+            "name": "Parmesan",
+            "riddles": [
+                "I’m hard and aged, I’m often shaved, on top of pasta, I’m always craved. What am I?",
+                "Grated or shaved, I’m full of might, in alfredo sauce, I add delight. What am I?"
+            ]
+        },
+        {
+            "id": 28,
+            "name": "Basil",
+            "riddles": [
+                "I’m a leafy herb, fresh and bright, in pesto and pasta, I bring delight. What am I?",
+                "Green and fragrant, with a peppery twist, in Caprese salad, I can't be missed. What am I?"
+            ]
+        },
+        {
+            "id": 29,
+            "name": "Pine Nuts",
+            "riddles": [
+                "Small and light, I add a crunch, in pesto and salads, I pack a punch. What am I?",
+                "I may be tiny, but don’t be fooled, in sauces and spreads, I make flavors ruled. What am I?"
+            ]
+        },
+        {
+            "id": 30,
+            "name": "Eggplant",
+            "riddles": [
+                "Purple and plump, I roast up nice, in parmigiana, I add some spice. What am I?",
+                "Though called an egg, I don’t belong in a nest, grilled or fried, I taste the best. What am I?"
+            ]
+        },
+        {
+            "id": 31,
+            "name": "Sour Cream",
+            "riddles": [
+                "I’m thick and tangy, smooth and white, in dips and tacos, I’m just right. What am I?",
+                "Dollop me on a baked potato, for a creamy delight, I’m rich yet mellow. What am I?"
+            ]
+        },
+        {
+            "id": 32,
+            "name": "Cajun",
+            "riddles": [
+                "Spicy and bold, with flavors grand, from Louisiana, I take a stand. What am I?",
+                "With paprika and spice, I add some heat, on shrimp or chicken, I’m hard to beat. What am I?"
+            ]
+        },
+        {
+            "id": 33,
+            "name": "Capers",
+            "riddles": [
+                "I’m small and briny, a tangy treat, in Mediterranean dishes, I make them complete. What am I?",
+                "Pickled and tiny, I bring some zing, in pasta and fish, I’m just the thing. What am I?"
+            ]
+        },
+        {
+            "id": 34,
+            "name": "Olives",
+            "riddles": [
+                "Black or green, in jars I stay, in salads and pizzas, I make my way. What am I?",
+                "Briny and bold, with a pit inside, in martinis or tapenade, I add some pride. What am I?"
+            ]
+        },
+        {
+            "id": 35,
+            "name": "Broccoli",
+            "riddles": [
+                "I look like a tree but small in size, in stir-fries and soups, I’m healthy and wise. What am I?",
+                "I’m green and crisp, with florets to eat, steamed or roasted, I’m a nutritious treat. What am I?"
+            ]
+        },
+        {
+            "id": 36,
+            "name": "Garlic",
+            "riddles": [
+                "I keep vampires far away, with pungent smell that loves to stay. What am I?",
+                "A little clove, a lot of taste, in pasta and bread, I’m never waste. What am I?"
+            ]
+        },
+        {
+            "id": 37,
+            "name": "Heavy Cream",
+            "riddles": [
+                "Thicker than milk, smooth and rich, in soups and sauces, I make them thick. What am I?",
+                "I whip up nice or thicken a dish, in desserts and pasta, I grant your wish. What am I?"
+            ]
+        },
+        {
+            "id": 38,
+            "name": "Cream of Mushroom Soup",
+            "riddles": [
+                "From a can or made from scratch, I make casseroles a perfect match. What am I?",
+                "I’m creamy and smooth with mushrooms inside, in sauces and stews, I help flavors collide. What am I?"
+            ]
+        },
+        {
+            "id": 39,
+            "name": "Zucchini",
+            "riddles": [
+                "Green and long, I grill up great, in pasta and bread, I’m on your plate. What am I?",
+                "I’m soft when cooked, but firm when raw, in stir-fries and fritters, I get an 'Awe!' What am I?"
+            ]
+        },
+        {
+            "id": 40,
+            "name": "Bell Peppers",
+            "riddles": [
+                "Red, yellow, orange, or green, in stir-fries and salads, I’m always seen. What am I?",
+                "Crisp and sweet or roasted and bold, in fajitas and sauces, my story is told. What am I?"
+            ]
+        },
+        {
+            "id": 41,
+            "name": "Milk",
+            "riddles": [
+                "White and smooth, I help you grow, in coffee and cereal, I love to flow. What am I?",
+                "From cows or nuts, I fill your cup, in baking and cooking, I help fluff things up. What am I?"
+            ]
+        },
+        {
+            "id": 42,
+            "name": "Chili Flakes",
+            "riddles": [
+                "A little shake, a lot of heat, on pizza and pasta, I make them complete. What am I?",
+                "I’m tiny and red, but don’t be misled, a sprinkle of me might turn your face red! What am I?"
+            ]
+        },
+        {
+            "id": 43,
+            "name": "Butter",
+            "riddles": [
+                "Golden and smooth, I melt with grace, in pastries and sauces, I know my place. What am I?",
+                "I make things rich, I make them sweet, in toast and cakes, I can’t be beat. What am I?"
+            ]
+        },
+        {
+            "id": 44,
+            "name": "Eggs",
+            "riddles": [
+                "Crack my shell and find inside, a golden yolk, a tasty guide. What am I?",
+                "Scrambled or boiled, I start your day, in baking and cooking, I lead the way. What am I?"
+            ]
+        }  
+    ]
+}
