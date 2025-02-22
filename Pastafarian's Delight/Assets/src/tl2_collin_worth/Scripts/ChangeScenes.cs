@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//THIS SCRIPT IS NOT BEIGN USED YET
+///
+////
+////
+
 //THIS SCRIPT IS FOR CHANGING THE SCENE BETWEEN LEVELS IF NEEDED AND FOR THE UI BUTTONS TO PLAY GAME OR CHEKPOINZ SCENEZ UPON CLICKING A BUTTON
 
 public class changeScene : MonoBehaviour
