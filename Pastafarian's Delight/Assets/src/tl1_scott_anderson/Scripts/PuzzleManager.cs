@@ -36,24 +36,50 @@ public class Puzzle : PuzzleManager
     public Puzzle(PastaDish[] dishes) : base(dishes)
     {
         currentDish = PickPastaDish();
+        // Debug.Log($"Selected Pasta Dish: {currentDish.dishName}");
+        // Debug.Log($"Current Dish ingredient 1: {currentDish.ingredients[0]}");
 
         if(currentDish != null)
         {
-            Debug.Log("Selected Dish: " + currentDish.dishName);
+            PrintCurrentDish();
+        }
+        else
+        {
+            Debug.LogError("No dish was selected");
+        }
+    }
+
+    public void PrintCurrentDish()
+    {
+        if(currentDish == null)
+        {
+            Debug.LogError("No current dish to display");
+            return;
+        }
+        
+        Debug.Log($"Selected Pasta Dish: {currentDish.dishName}");
+        foreach(Ingredient ingredient in currentDish.ingredients)
+        {
+            Debug.Log($"Ingredient: {ingredient.name}  (ID: {ingredient.id})");
+
+            for(int i = 0; i < ingredient.riddles.Length; i++)
+            {
+                
+                Debug.Log($"Riddle {i + 1}: {ingredient.riddles[i]}");
+            }
         }
     }
 }
-
 
 
 [System.Serializable]
 public class PastaDish
 {
     public string dishName;
-    // public List<string> ingredients {get; set; }
-    public string[] ingredients = new string[3];
+    // public string[] ingredients = new string[3];
+    public Ingredient[] ingredients;
 
-    public PastaDish(string name, string[] ingred)
+    public PastaDish(string name, Ingredient[] ingred)
     {
         this.dishName = name;
         this.ingredients = ingred;
@@ -62,7 +88,22 @@ public class PastaDish
 
 
 [System.Serializable]
+public class PastaDishData
+{
+    public string dishName;
+    public string[] ingredients;
+}
+
+
+[System.Serializable]
 public class PastaDishList
 {
     public PastaDish[] dishes;
+}
+
+
+[System.Serializable]
+public class PastaDishListWrapper
+{
+    public PastaDishData[] dishes;
 }

@@ -54,7 +54,7 @@
         },
         {
             "dishName": "Cajun Chicken Pasta",
-            "ingredients": ["fettuccine", "chicken", "cajun seasoning"]
+            "ingredients": ["fettuccine", "chicken", "cajun"]
         },
         {
             "dishName": "Chicken Parmesan Pasta",
@@ -62,7 +62,7 @@
         },
         {
             "dishName": "Lobster Mac and Cheese",
-            "ingredients": ["macaroni", "lobster", "gruyère cheese"]
+            "ingredients": ["macaroni", "lobster", "gruyere cheese"]
         },
         {
             "dishName": "Shrimp Scampi",
