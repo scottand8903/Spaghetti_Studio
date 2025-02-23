@@ -29,9 +29,18 @@ public class GameController: MonoBehaviour
     // Private Variables
     private int MAX_HEALTH = 5;
     private int currentHealth;
+    
+    // Pasta dishes
+    //private PastaDish currentDish;
+
+    // Other scripts
+    private Puzzle puzzle;
 
     void Start()
     {
+
+        //PastaDish currentDish = new PastaDish;
+
         // Initialize Game
         GameRunning = false;
         MainMenuPanel.SetActive(true);
@@ -55,7 +64,33 @@ public class GameController: MonoBehaviour
         else{
             Debug.Log("pmToMainMenu button doesnt exist");
         }
-        
+
+        // PUZZLE MANAGER STUFF
+        PastaDish[] dishes = new PastaDish[1]; // Example with one dish
+        puzzle = new Puzzle(dishes);
+
+        // Get PastaDish from the puzzle instance
+        PastaDish currentDish = puzzle.GetPastaDish();
+        if (currentDish != null)
+        {
+            Debug.Log($"Printing from GameController: {currentDish.dishName}");
+            foreach (Ingredient ingredient in currentDish.ingredients)
+            {
+                Debug.Log($"Ingredient: {ingredient.name}");
+                for (int i = 0; i < ingredient.riddles.Length; i++)
+                {
+                    Debug.Log($"Riddle {i + 1}: {ingredient.riddles[i]}");
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError("No pasta dish selected in Puzzle!");
+        }
+        Debug.Log("PRINTING FROM GAMECONTROLLER!!!:");
+        puzzle.PrintCurrentDish();
+ 
+    
     }
 
     void OnButtonClick(int button)

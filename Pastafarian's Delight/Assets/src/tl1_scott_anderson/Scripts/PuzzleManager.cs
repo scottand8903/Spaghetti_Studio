@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleManager
+public class PuzzleManager : MonoBehaviour // Collin Added
 {
+    
+
     protected List<PastaDish> pastaDishes = new List<PastaDish>();
 
     public PuzzleManager(PastaDish[] dishes)
@@ -31,6 +33,9 @@ public class PuzzleManager
 
 public class Puzzle : PuzzleManager
 {
+    //Collin added
+    public static Puzzle Instance;
+
     private PastaDish currentDish;
 
     public Puzzle(PastaDish[] dishes) : base(dishes)
