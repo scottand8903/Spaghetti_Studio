@@ -28,6 +28,7 @@ public class GameController: MonoBehaviour
     public TextMeshProUGUI ingredient2TXT;
     public TextMeshProUGUI ingredient3TXT;
 
+
     public bool GameRunning;
 
     // Private Variables
