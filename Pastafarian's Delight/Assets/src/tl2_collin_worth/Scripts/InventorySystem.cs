@@ -8,7 +8,7 @@ public class InventorySystem : MonoBehaviour
     public Sprite emptyImage;
     public Sprite[] itemSprites; 
     private int[] inventory;
-    private int MAX_SPACE;
+    private int MAX_SPACE = 5;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,7 +34,7 @@ public class InventorySystem : MonoBehaviour
     // Id is used to know whats there
     // itemSprite is the image that will be shown
     public int addItem(int id, Sprite itemSprite){
-
+        Debug.Log("Trying to add item");
         if(id < 50){ // Item is an ingredient
             // Check slot
             int emptySlot = nextEmpty();

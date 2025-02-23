@@ -5,6 +5,12 @@ public class PlayerController : MonoBehaviour
 
     // Private Variables
     private Rigidbody2D rb = null; 
+    
+
+    //Test script
+    private InventorySystem inventorySystem;
+    public Sprite circleSprite;
+    //////
 
     [SerializeField] private float moveSpeed = 10.0f;
 
@@ -12,6 +18,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+
+        //Test inventory
+
     }
 
     // Update is called once per frame
@@ -19,6 +29,12 @@ public class PlayerController : MonoBehaviour
     {
        GetPlayerMovement();
 
+
+        //Test for adding to inventory
+        if(Input.GetKey(KeyCode.I)){
+            Debug.Log("sending request to add item");
+            inventorySystem.addItem(1, circleSprite);
+        }
     }
 
     void GetPlayerMovement(){
