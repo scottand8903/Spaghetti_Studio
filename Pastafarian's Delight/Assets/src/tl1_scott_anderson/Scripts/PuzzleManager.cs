@@ -49,6 +49,15 @@ public class Puzzle : PuzzleManager
         }
     }
 
+    public PastaDish GetPastaDish()
+    {
+        if(currentDish == null)
+        {
+            return null;
+        }
+        return currentDish;
+    }
+
     public void PrintCurrentDish()
     {
         if(currentDish == null)
