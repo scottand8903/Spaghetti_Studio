@@ -78,6 +78,7 @@ public class GameController: MonoBehaviour
         {
             Debug.Log("PRINTING FROM GAMECONTROLLER!!!:");
             Puzzle.Instance.PrintCurrentDish();
+            Debug.Log($"Ingredient 2 : {Puzzle.Instance.currentDish.ingredients[1].name}");
         }
         else
         {

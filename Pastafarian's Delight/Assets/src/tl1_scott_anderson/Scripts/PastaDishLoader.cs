@@ -3,7 +3,6 @@ using System.IO;
 
 public class PastaDishLoader : MonoBehaviour
 {
-    // public Puzzle puzzle;
     private IngredientLoader ingredientLoader;
     private Ingredient[] allIngredients;
     public PastaDish[] loadedDishes;
@@ -28,7 +27,6 @@ public class PastaDishLoader : MonoBehaviour
         if(loadedDishes != null)
         {
             Puzzle.CreateInstance(loadedDishes);
-            // puzzle = new Puzzle(loadedDishes);
             Debug.Log($"Loaded {loadedDishes.Length} pasta dishes into the puzzle");
         }
         else
@@ -40,7 +38,6 @@ public class PastaDishLoader : MonoBehaviour
     private PastaDish[] LoadPastaDishesFromJson()
     {
         TextAsset jsonFile = Resources.Load<TextAsset>("pastaDishes");
-
 
         if(jsonFile == null)
         {
@@ -101,7 +98,7 @@ public class PastaDishLoader : MonoBehaviour
             // Debug.Log($"Checking ingredient: {ingredient.name}");
             if(ingredient.name.Equals(name, System.StringComparison.OrdinalIgnoreCase))
             {
-                // Debug.Log($"✅ Found ingredient: {ingredient.name} (ID: {ingredient.id})");
+                // Debug.Log($"Found ingredient: {ingredient.name} (ID: {ingredient.id})");
                 return ingredient;
             }
         }

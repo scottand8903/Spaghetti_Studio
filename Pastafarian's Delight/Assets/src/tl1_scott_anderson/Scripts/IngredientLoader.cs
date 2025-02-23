@@ -45,27 +45,4 @@ public class IngredientLoader : MonoBehaviour
     {
         return ingredients;
     }
-
-
-    // private void PrintRandomIngredient()
-    // {
-    //     if (ingredients == null || ingredients.Length == 0)
-    //     {
-    //         Debug.LogError("No ingredients available to print.");
-    //         return;
-    //     }
-
-    //     int randomIndex = Random.Range(0, ingredients.Length);
-    //     Ingredient randomIngredient = ingredients[randomIndex];
-
-    //     Debug.Log($"Random Index: {randomIndex}");
-    //     Debug.Log($"ID: {randomIngredient.id}");
-    //     Debug.Log($"Name: {randomIngredient.name}");
-
-    //     for (int i = 0; i < randomIngredient.riddles.Length; i++)
-    //     {
-    //         Debug.Log($"Riddle {i + 1}: {randomIngredient.riddles[i]}");
-    //     }
-    // }
-
 }
