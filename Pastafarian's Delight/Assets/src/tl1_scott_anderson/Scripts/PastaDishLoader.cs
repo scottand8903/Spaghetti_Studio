@@ -3,9 +3,10 @@ using System.IO;
 
 public class PastaDishLoader : MonoBehaviour
 {
-    private Puzzle puzzle;
+    // public Puzzle puzzle;
     private IngredientLoader ingredientLoader;
     private Ingredient[] allIngredients;
+    public PastaDish[] loadedDishes;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,11 +24,12 @@ public class PastaDishLoader : MonoBehaviour
             return;
         }
 
-        PastaDish[] loadedDishes = LoadPastaDishesFromJson();
+        loadedDishes = LoadPastaDishesFromJson();
         if(loadedDishes != null)
         {
-            puzzle = new Puzzle(loadedDishes);
-            // Debug.Log($"Loaded {loadedDishes.Length} pasta dishes into the puzzle");
+            Puzzle.CreateInstance(loadedDishes);
+            // puzzle = new Puzzle(loadedDishes);
+            Debug.Log($"Loaded {loadedDishes.Length} pasta dishes into the puzzle");
         }
         else
         {
