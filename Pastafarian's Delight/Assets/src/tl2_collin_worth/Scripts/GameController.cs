@@ -21,12 +21,14 @@ public class GameController: MonoBehaviour
     public Button mmQuit;
     public GameObject pausePanel;
     public GameObject MainMenuPanel;
-    public GameObject Inventory;
+    public GameObject HUD;
+    public GameObject[] healthSprites;
 
     public bool GameRunning;
 
     // Private Variables
-
+    private int MAX_HEALTH = 5;
+    private int currentHealth;
 
     void Start()
     {
@@ -34,7 +36,9 @@ public class GameController: MonoBehaviour
         GameRunning = false;
         MainMenuPanel.SetActive(true);
         pausePanel.SetActive(false);
-        Inventory.SetActive(false);
+        HUD.SetActive(false);
+        
+        currentHealth = MAX_HEALTH;
 
 
         if (mmQuit != null && mmStartGame != null){
@@ -70,7 +74,7 @@ public class GameController: MonoBehaviour
 
             case 3: // Play Game
                     MainMenuPanel.SetActive(false);
-                    Inventory.SetActive(true);
+                    HUD.SetActive(true);
                     GameRunning = true;
             break;
 
@@ -82,17 +86,39 @@ public class GameController: MonoBehaviour
 
     void Update(){
         
-        //Debug.Log("Up")
         // Pause menu 
         if (Input.GetKeyDown(KeyCode.Escape)){
-            Debug.Log("hitting escape");
                 if (!GameRunning){
-                    Debug.Log("going to resume");
                     Resume();
                 }else{
-                    Debug.Log("going to pause");
                     Pause();
                 }
+        }
+    }
+    
+    public int GetHealth(){
+        return currentHealth;
+    }
+
+    public void updateHealth(int healthChange){
+        if((currentHealth + healthChange) <= MAX_HEALTH){
+            currentHealth += healthChange;
+            
+        }else{
+            currentHealth = MAX_HEALTH;
+        }
+
+        updateHealthSprites();
+
+        if(currentHealth < 1){
+            QuitGame(); // change to endGame later
+        }
+    }
+
+    void updateHealthSprites(){
+
+        for (int i = 0; i < healthSprites.Length; i++){
+            healthSprites[i].SetActive(i < currentHealth);
         }
     }
 
@@ -103,7 +129,6 @@ public class GameController: MonoBehaviour
     }
 
     void Pause(){
-        Debug.Log("Pausing the game");
         pausePanel.SetActive(true);
         Time.timeScale = 0f;
         GameRunning = false;
