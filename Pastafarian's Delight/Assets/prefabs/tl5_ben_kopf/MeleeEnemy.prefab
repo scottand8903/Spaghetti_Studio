@@ -82,8 +82,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2804f62f62dc444b2e2cd9d40a4f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  health: 10
+  baseSpeed: 3
+  baseHealth: 3
   viewDistance: 15
   enemyType: None
   changeDirectionTime: 3
