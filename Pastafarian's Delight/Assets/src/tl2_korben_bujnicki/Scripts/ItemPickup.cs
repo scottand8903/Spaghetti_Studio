@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public int itemId;
+    public int itemId = 1;
     public Sprite itemSprite;
 
     private bool isPlayerNearby = false;
