@@ -858,6 +858,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &509978087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 509978089}
+  m_Layer: 0
+  m_Name: InventorySystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &509978089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509978087}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.001723, y: 0.16492371, z: -4.379753}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &517287927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,6 +1175,8 @@ GameObject:
   - component: {fileID: 537433294}
   - component: {fileID: 537433293}
   - component: {fileID: 537433295}
+  - component: {fileID: 537433297}
+  - component: {fileID: 537433298}
   m_Layer: 0
   m_Name: Ingredient
   m_TagString: Untagged
@@ -1267,6 +1300,45 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
+--- !u!114 &537433297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537433292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e2a37a875479824fae91ccfa06cfa80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 1
+  itemSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!114 &537433298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537433292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2ca7d87822c4b59a0add145d2457b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySlotsImages:
+  - {fileID: 1168993509}
+  - {fileID: 1819805936}
+  - {fileID: 1150797665}
+  - {fileID: 232064718}
+  - {fileID: 1636470857}
+  emptyImage: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  itemSprites:
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &597320445
 GameObject:
   m_ObjectHideFlags: 0
@@ -4609,7 +4681,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1955994761}
   - component: {fileID: 1955994760}
-  - component: {fileID: 1955994759}
   m_Layer: 0
   m_Name: HUD
   m_TagString: Untagged
@@ -4617,25 +4688,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1955994759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1955994758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d2ca7d87822c4b59a0add145d2457b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventorySlotsImages: []
-  emptyImage: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  itemSprites:
-  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &1955994760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4871,3 +4923,4 @@ SceneRoots:
   - {fileID: 1955994761}
   - {fileID: 537433294}
   - {fileID: 1082979975}
+  - {fileID: 509978089}

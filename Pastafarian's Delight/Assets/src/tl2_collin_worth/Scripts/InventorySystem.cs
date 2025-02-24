@@ -10,14 +10,37 @@ public class InventorySystem : MonoBehaviour
     private int[] inventory;
     private int MAX_SPACE = 5;
 
-    public static InventorySystem Instance;
+    public static InventorySystem Instance {get; private set; }
+
+
+    void Awake(){
+        if (Instance == null)
+        {
+            Instance = this;  // ✅ Correct singleton assignment
+            DontDestroyOnLoad(gameObject); // Optional: Keeps instance across scenes
+        }
+        else
+        {
+            Destroy(gameObject); // Prevents multiple instances
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        initInventory();
-        CreateInstance();
-
+    //if (inventorySlotsImages == null || inventorySlotsImages.Length == 0)
+    //{
+    //    Debug.LogError("inventorySlotsImages is EMPTY! Check Unity Inspector.");
+    //}
+    //else
+    //{
+        Debug.Log($"inventorySlotsImages has {inventorySlotsImages.Length} elements.");
+        for (int i = 0; i < inventorySlotsImages.Length; i++)
+        {
+            Debug.Log($"Slot {i}: {inventorySlotsImages[i]}");
+        }
+    //}
+    initInventory();
     }
 
     // Update is called once per frame
@@ -27,9 +50,14 @@ public class InventorySystem : MonoBehaviour
     }
 
     void initInventory(){
+        
         inventory = new int[MAX_SPACE];
         for(int i = 0; i < MAX_SPACE; i ++){
             inventory[i] = 0;
+        }
+        if (inventory == null || inventory.Length != MAX_SPACE)
+        {
+            Debug.LogError("inventory array is not initialized correctly!");
         }
     }
 
@@ -45,6 +73,16 @@ public class InventorySystem : MonoBehaviour
                 return 0; 
             }
             // Add ingredient
+            if (emptySlot >= inventorySlotsImages.Length)
+            {
+                Debug.LogError("emptySlot index is out of bounds!");
+                return 0;
+            }
+            if (inventorySlotsImages[emptySlot] == null)
+            {
+                Debug.LogError($"inventorySlotsImages[{emptySlot}] is null!");
+                return 0;
+            }
             inventory[emptySlot] = id; 
             inventorySlotsImages[emptySlot].sprite = itemSprite;
             return 1;
@@ -52,23 +90,11 @@ public class InventorySystem : MonoBehaviour
         return 0;
     }
 
-    public static void CreateInstance()
-    {
-        Debug.Log("Attempting to create invnetory");
-        if(Instance == null)
-        {
-            Instance = new InventorySystem();
-            Debug.Log("Inventory instance created");
-        }
-        else
-        {
-            Debug.LogWarning("inventory instance already exists!");
-        }
-    }
-
     int nextEmpty(){
         for(int i = 0; i < MAX_SPACE; i ++){
             if(inventory[i] == 0){
+                Debug.Log("returning next empty:");
+                Debug.Log(i);
                 return i;
             }
         }
