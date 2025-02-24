@@ -10,10 +10,13 @@ public class InventorySystem : MonoBehaviour
     private int[] inventory;
     private int MAX_SPACE = 5;
 
+    public static InventorySystem Instance;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         initInventory();
+        CreateInstance();
 
     }
 
@@ -47,6 +50,20 @@ public class InventorySystem : MonoBehaviour
             return 1;
         }
         return 0;
+    }
+
+    public static void CreateInstance()
+    {
+        Debug.Log("Attempting to create invnetory");
+        if(Instance == null)
+        {
+            Instance = new InventorySystem();
+            Debug.Log("Inventory instance created");
+        }
+        else
+        {
+            Debug.LogWarning("inventory instance already exists!");
+        }
     }
 
     int nextEmpty(){
