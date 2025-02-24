@@ -3197,7 +3197,6 @@ GameObject:
   - component: {fileID: 1807658894}
   - component: {fileID: 1807658897}
   - component: {fileID: 1807658896}
-  - component: {fileID: 1807658898}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3258,6 +3257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e471d43b797f835649951e0d8bcaa8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadedDishes: []
 --- !u!114 &1807658897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3268,18 +3268,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03113b0b0fc67ecc49725fdfcf62d738, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1807658898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807658893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 102f2b772b795e1fcb8995b78338bb2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1819805934
@@ -3562,9 +3550,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945726092}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.18446602}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1093351248}
@@ -3573,9 +3561,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 723.76514, y: 433.27908}
-  m_SizeDelta: {x: 1366, y: 768}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1945726094
 MonoBehaviour:
   m_ObjectHideFlags: 0
