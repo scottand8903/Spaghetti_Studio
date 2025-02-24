@@ -3,101 +3,68 @@ using UnityEngine.UI;
 
 public class InventorySystem : MonoBehaviour
 {
-    
     public Image[] inventorySlotsImages;
     public Sprite emptyImage;
-    public Sprite[] itemSprites; 
+    public Sprite[] itemSprites;
     private int[] inventory;
     private int MAX_SPACE = 5;
 
-    public static InventorySystem Instance {get; private set; }
+    public static InventorySystem Instance { get; private set; }
 
-
-    void Awake(){
+    void Awake()
+    {
         if (Instance == null)
         {
-            Instance = this;  // ✅ Correct singleton assignment
-            DontDestroyOnLoad(gameObject); // Optional: Keeps instance across scenes
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Keeps inventory across scenes
         }
         else
         {
-            Destroy(gameObject); // Prevents multiple instances
+            Destroy(gameObject);
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-    //if (inventorySlotsImages == null || inventorySlotsImages.Length == 0)
-    //{
-    //    Debug.LogError("inventorySlotsImages is EMPTY! Check Unity Inspector.");
-    //}
-    //else
-    //{
-        Debug.Log($"inventorySlotsImages has {inventorySlotsImages.Length} elements.");
-        for (int i = 0; i < inventorySlotsImages.Length; i++)
-        {
-            Debug.Log($"Slot {i}: {inventorySlotsImages[i]}");
-        }
-    //}
-    initInventory();
+        initInventory();
     }
 
-    // Update is called once per frame
-    void Update()
+    void initInventory()
     {
-        
-    }
-
-    void initInventory(){
-        
         inventory = new int[MAX_SPACE];
-        for(int i = 0; i < MAX_SPACE; i ++){
+        for (int i = 0; i < MAX_SPACE; i++)
+        {
             inventory[i] = 0;
         }
-        if (inventory == null || inventory.Length != MAX_SPACE)
-        {
-            Debug.LogError("inventory array is not initialized correctly!");
-        }
     }
 
-    // Adds item to inventory if there is no availble space it returns 0(not successful) else returns 1(successful)
-    // Id is used to know whats there
-    // itemSprite is the image that will be shown
-    public int addItem(int id, Sprite itemSprite){
+    public int addItem(int id, Sprite itemSprite)
+    {
         Debug.Log("Trying to add item");
-        if(id < 50){ // Item is an ingredient
-            // Check slot
+        if (id < 50) // Item is an ingredient
+        {
             int emptySlot = nextEmpty();
-            if(emptySlot < 0){
-                return 0; 
-            }
-            // Add ingredient
-            if (emptySlot >= inventorySlotsImages.Length)
+            if (emptySlot < 0)
             {
-                Debug.LogError("emptySlot index is out of bounds!");
-                return 0;
+                return 0; // Inventory is full
             }
-            if (inventorySlotsImages[emptySlot] == null)
-            {
-                Debug.LogError($"inventorySlotsImages[{emptySlot}] is null!");
-                return 0;
-            }
-            inventory[emptySlot] = id; 
+
+            inventory[emptySlot] = id;
             inventorySlotsImages[emptySlot].sprite = itemSprite;
-            return 1;
+            return 1; // Successfully added
         }
         return 0;
     }
 
-    int nextEmpty(){
-        for(int i = 0; i < MAX_SPACE; i ++){
-            if(inventory[i] == 0){
-                Debug.Log("returning next empty:");
-                Debug.Log(i);
+    int nextEmpty()
+    {
+        for (int i = 0; i < MAX_SPACE; i++)
+        {
+            if (inventory[i] == 0)
+            {
                 return i;
             }
         }
         return -1;
-    } 
+    }
 }
