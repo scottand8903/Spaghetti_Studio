@@ -6,7 +6,7 @@ public class Item : MonoBehaviour
     public Sprite itemSprite;
 
     private bool isPlayerNearby = false;
-    private InventorySystem inventorySystem;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void OnTriggerEnter2D(Collider2D other)
@@ -36,9 +36,9 @@ public class Item : MonoBehaviour
 
     void TryPickUp()
     {
-        if (inventorySystem != null)
+        if (InventorySystem.Instance != null)
         {
-            int result = inventorySystem.addItem(itemId, itemSprite);
+            int result = InventorySystem.Instance.addItem(itemId, itemSprite);
             if (result == 1)
             {
                 Debug.Log("Item picked up and added to inventory!");
