@@ -23,23 +23,20 @@ public class GameController: MonoBehaviour
     public GameObject MainMenuPanel;
     public GameObject HUD;
     public GameObject[] healthSprites;
+    public TextMeshProUGUI dishNameTXT;
+    public TextMeshProUGUI ingredient1TXT;
+    public TextMeshProUGUI ingredient2TXT;
+    public TextMeshProUGUI ingredient3TXT;
+
 
     public bool GameRunning;
 
     // Private Variables
     private int MAX_HEALTH = 5;
     private int currentHealth;
-    
-    // Pasta dishes
-    //private PastaDish currentDish;
-
-    // Other scripts
-    // private Puzzle puzzle;
 
     void Start()
     {
-
-        //PastaDish currentDish = new PastaDish;
 
         // Initialize Game
         GameRunning = false;
@@ -66,48 +63,21 @@ public class GameController: MonoBehaviour
         }
 
         // PUZZLE MANAGER STUFF
-        // PastaDish[] dishes = new PastaDish[1]; // Example with one dish
-        // puzzle = new Puzzle(dishes);
-
-        // Get PastaDish from the puzzle instance
-        // PastaDish currentDish = Puzzle.Instance?.GetPastaDish(); // scott changed
-        
-        // puzzle = puzzle.GetPuzzle();
-
         if(Puzzle.Instance != null)
         {
-            Debug.Log("PRINTING FROM GAMECONTROLLER!!!:");
-            Puzzle.Instance.PrintCurrentDish();
-            Debug.Log($"Ingredient 2 : {Puzzle.Instance.currentDish.ingredients[1].name}");
+            
+            // Display dish and ingredients
+            dishNameTXT.text = Puzzle.Instance.currentDish.dishName;
+            ingredient1TXT.text = Puzzle.Instance.currentDish.ingredients[0].name;
+            ingredient2TXT.text = Puzzle.Instance.currentDish.ingredients[1].name;
+            ingredient3TXT.text = Puzzle.Instance.currentDish.ingredients[2].name;
+
         }
         else
         {
             Debug.LogError("(GameController)Puzzle instance is not initialized!");
         }
 
-
-        // if (puzzle.currentDish != null)
-        // {
-        //     Debug.Log($"puzzle.currentDish is null");
-        //     // Debug.Log($"Printing from GameController: {puzzle.currentDish.dishName}");
-        //     // foreach (Ingredient ingredient in puzzle.currentDish.ingredients)
-        //     // {
-        //     //     Debug.Log($"Ingredient: {puzzle.currentDish.ingredient.name}");
-        //     //     for (int i = 0; i < puzzle.currentDish.ingredient.riddles.Length; i++)
-        //     //     {
-        //     //         Debug.Log($"Riddle {i + 1}: {puzzle.currentDish.ingredient.riddles[i]}");
-        //     //     }
-        //     // }
-        // }
-        // else
-        // {
-        //     Debug.LogError("No pasta dish selected in Puzzle!");
-        // }
-
-        // Debug.Log("PRINTING FROM GAMECONTROLLER!!!:");
-        // Puzzle.Instance.PrintCurrentDish();
- 
-    
     }
 
     void OnButtonClick(int button)
