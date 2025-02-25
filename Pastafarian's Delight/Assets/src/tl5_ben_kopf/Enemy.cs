@@ -12,7 +12,8 @@ public class Enemy : MonoBehaviour
     //[SerializeField] protected float baseTankHealth = 5.0f; // Health of the tank enemies
     [SerializeField] protected float viewDistance = 15.0f;
     [SerializeField] protected string enemyType = "None";
-    [SerializeField] protected float changeDirectionTime = 3.0f;
+    [SerializeField] protected float wanderTimer = 3.0f;
+    [SerializeField] protected float wanderRadius = 10f;
 
     protected float speed;
     protected float health;
@@ -23,15 +24,21 @@ public class Enemy : MonoBehaviour
 
     protected Transform target;
     protected Rigidbody2D rb = null;
+    protected NavMeshAgent agent;
 
-    public GameController gameController;
+    protected GameController gameController = null;
+    
 
     private void Start()
     {
-        gameController = GetComponent<GameController>();
-        if (gameController.GameRunning == true)
+        GameObject controllerObject = GameObject.FindGameObjectWithTag("GameController");
+        if (controllerObject != null)
         {
-            ChangeDirection();
+            gameController = controllerObject.GetComponent<GameController>();
+        }
+        else
+        {
+            Debug.LogError("GameController GameObject with tag not found");
         }
     }
 

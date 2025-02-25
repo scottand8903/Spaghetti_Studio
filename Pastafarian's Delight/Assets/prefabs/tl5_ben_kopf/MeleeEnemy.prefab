@@ -84,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 3
   baseHealth: 3
-  viewDistance: 15
+  viewDistance: 10
   enemyType: None
   changeDirectionTime: 3
+  gameController: {fileID: 0}
