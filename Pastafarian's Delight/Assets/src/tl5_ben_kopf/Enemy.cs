@@ -11,9 +11,11 @@ public class Enemy : MonoBehaviour
    //[SerializeField] protected float baseSpeedHealth = 1.5f; //Health of the fast enemies
     //[SerializeField] protected float baseTankHealth = 5.0f; // Health of the tank enemies
     [SerializeField] protected float viewDistance = 15.0f;
+    [SerializeField] protected float agroRange = 5.0f;
     [SerializeField] protected string enemyType = "None";
     [SerializeField] protected float wanderTimer = 3.0f;
     [SerializeField] protected float wanderRadius = 10f;
+    public Transform player;
 
     protected float speed;
     protected float health;
@@ -40,14 +42,15 @@ public class Enemy : MonoBehaviour
         {
             Debug.LogError("GameController GameObject with tag not found");
         }
+
     }
 
-    protected void ChangeDirection()
-    {
-        print("getting new direction from ENEMY");
-        float angle = Random.Range(0f, 360f);
-        moveDirection = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
-    }
+    //protected void ChangeDirection()
+    //{
+     //   print("getting new direction from ENEMY");
+     //   float angle = Random.Range(0f, 360f);
+     //   moveDirection = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
+    //}
 
     public void updateEnemyHealth(int damage)
     {

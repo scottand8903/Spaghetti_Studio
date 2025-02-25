@@ -86,5 +86,5 @@ MonoBehaviour:
   baseHealth: 3
   viewDistance: 10
   enemyType: None
-  changeDirectionTime: 3
-  gameController: {fileID: 0}
+  wanderTimer: 3
+  wanderRadius: 100

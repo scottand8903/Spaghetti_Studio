@@ -18,13 +18,30 @@ public class MeleeEnemy : Enemy
         agent.updateUpAxis = false;
 
         timer = wanderTimer;
-    }
+
+		if (player == null)
+		{
+			GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+			if (playerObj != null)
+			{
+				player = playerObj.transform;
+			}
+		}
+	}
 
     // Update is called once per frame
     void Update()
     {
-        
-        
+        if (player != null)
+        {
+            float distanceToPlayer = Vector2.Distance(rb.position, player.position);
+            if (distanceToPlayer <= agroRange ) {
+                target = player;
+            }
+            if(distanceToPlayer >= viewDistance)
+            {
+                target = null;
+            }
             //Idle movement when the enemy has no target
             if (target == null)
             {
@@ -46,6 +63,11 @@ public class MeleeEnemy : Enemy
                     timer = 0f;
                 }
             }
+            else
+            {
+                agent.SetDestination((Vector3)target.position);
+            }
+        }
       
     }
 

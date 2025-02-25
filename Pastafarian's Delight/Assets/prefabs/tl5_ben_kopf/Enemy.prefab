@@ -108,8 +108,7 @@ MonoBehaviour:
   viewDistance: 10
   enemyType: None
   wanderTimer: 3
-  wanderRadius: 10
-  gameController: {fileID: 0}
+  wanderRadius: 100
 --- !u!61 &-5818999393762078035
 BoxCollider2D:
   m_ObjectHideFlags: 0
