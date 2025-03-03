@@ -13,7 +13,7 @@ public class MeleeAttack : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0))
         {
             Attack();
-            print("Check");
+ 
         }
     }
         

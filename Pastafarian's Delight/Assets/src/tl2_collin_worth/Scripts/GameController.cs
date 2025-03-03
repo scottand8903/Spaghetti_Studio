@@ -40,6 +40,7 @@ public class GameController: MonoBehaviour
 
         // Initialize Game
         GameRunning = false;
+        Pause();
         MainMenuPanel.SetActive(true);
         pausePanel.SetActive(false);
         HUD.SetActive(false);
@@ -98,6 +99,7 @@ public class GameController: MonoBehaviour
                     MainMenuPanel.SetActive(false);
                     HUD.SetActive(true);
                     GameRunning = true;
+                    Resume();
             break;
 
             case 4:
@@ -146,12 +148,14 @@ public class GameController: MonoBehaviour
 
     void Resume(){
         pausePanel.SetActive(false);
+        HUD.SetActive(true);
         Time.timeScale = 1f; 
         GameRunning = true;
     }
 
     void Pause(){
         pausePanel.SetActive(true);
+        HUD.SetActive(false);
         Time.timeScale = 0f;
         GameRunning = false;
     }
