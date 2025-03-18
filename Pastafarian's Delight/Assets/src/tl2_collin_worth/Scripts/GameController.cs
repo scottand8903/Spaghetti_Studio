@@ -19,8 +19,11 @@ public class GameController: MonoBehaviour
     public Button pmToMainMenu;
     public Button pmResume;
     public Button mmQuit;
+    public Button mmSettings;
+    public Button sBackButton;
     public GameObject pausePanel;
     public GameObject MainMenuPanel;
+    public GameObject SettingsPanel;
     public GameObject HUD;
     public GameObject[] healthSprites;
     public TextMeshProUGUI dishNameTXT;
@@ -44,29 +47,37 @@ public class GameController: MonoBehaviour
         if (MainMenuPanel == null) Debug.LogError("MainMenuPanel is NOT assigned!");
         if (pausePanel == null) Debug.LogError("pausePanel is NOT assigned!");
         if (HUD == null) Debug.LogError("HUD is NOT assigned!");
+        if (SettingsPanel== null) Debug.LogError("SettingsPanel is NOT assigned!");
 
         GameRunning = false;
         Pause();
         MainMenuPanel.SetActive(true);
+        SettingsPanel.SetActive(false);
         pausePanel.SetActive(false);
         HUD.SetActive(false);
         
         currentHealth = MAX_HEALTH;
 
 
-        if (mmQuit != null && mmStartGame != null){
+        if (mmQuit != null && mmStartGame != null && mmSettings != null){
             mmQuit.onClick.AddListener(() => OnButtonClick(1));
             mmStartGame.onClick.AddListener(() => OnButtonClick(3));
+            mmSettings.onClick.AddListener(() => OnButtonClick(5));
         }
         else{
-            Debug.Log("mmQuit button doesnt exist");
+            Debug.Log("mm button doesnt exist");
         }
         if (pmToMainMenu != null && pmResume != null){
             pmToMainMenu.onClick.AddListener(() => OnButtonClick(2));
             pmResume.onClick.AddListener(() => OnButtonClick(4));
         }
         else{
-            Debug.Log("pmToMainMenu button doesnt exist");
+            Debug.Log("pm button doesnt exist");
+        }
+        if(sBackButton != null){
+            sBackButton.onClick.AddListener(() => OnButtonClick(6));
+        }else{
+            Debug.Log("s button doesnt exist");
         }
 
         // PUZZLE MANAGER STUFF
@@ -110,6 +121,20 @@ public class GameController: MonoBehaviour
 
             case 4:
                     Resume();
+            break;
+
+            case 5:
+                    MainMenuPanel.SetActive(false);
+                    SettingsPanel.SetActive(true);
+            break;
+
+            case 6:
+                    SettingsPanel.SetActive(false);
+                    MainMenuPanel.SetActive(true);
+            break;
+
+            default:
+                    Debug.Log("Switch error");
             break;
         }
     }
