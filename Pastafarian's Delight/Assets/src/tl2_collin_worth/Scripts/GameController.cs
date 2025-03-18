@@ -39,6 +39,12 @@ public class GameController: MonoBehaviour
     {
 
         // Initialize Game
+        Debug.Log("GameController Start called");
+
+        if (MainMenuPanel == null) Debug.LogError("MainMenuPanel is NOT assigned!");
+        if (pausePanel == null) Debug.LogError("pausePanel is NOT assigned!");
+        if (HUD == null) Debug.LogError("HUD is NOT assigned!");
+
         GameRunning = false;
         Pause();
         MainMenuPanel.SetActive(true);
@@ -146,14 +152,14 @@ public class GameController: MonoBehaviour
         }
     }
 
-    void Resume(){
+    public void Resume(){
         pausePanel.SetActive(false);
         HUD.SetActive(true);
         Time.timeScale = 1f; 
         GameRunning = true;
     }
 
-    void Pause(){
+    public void Pause(){
         pausePanel.SetActive(true);
         HUD.SetActive(false);
         Time.timeScale = 0f;
@@ -162,7 +168,9 @@ public class GameController: MonoBehaviour
 
     public void QuitGame(){
         Application.Quit(); // For Built version of game
-        EditorApplication.isPlaying = false; // For editor version of game
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // For editor version
+        #endif
     }
     
     public void ResetGame(){
