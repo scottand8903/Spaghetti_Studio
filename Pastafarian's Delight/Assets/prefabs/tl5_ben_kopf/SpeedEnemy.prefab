@@ -56,12 +56,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8601932992456053491, guid: 5fc9badda99877c49a2985690d23f873, type: 3}
+      propertyPath: m_Speed
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8993586168897300115, guid: 5fc9badda99877c49a2985690d23f873, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3708424734429895438, guid: 5fc9badda99877c49a2985690d23f873, type: 3}
+    - {fileID: 5986703839167783594, guid: 5fc9badda99877c49a2985690d23f873, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 501354679249227260, guid: 5fc9badda99877c49a2985690d23f873, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: -404319343477129332}
   m_SourcePrefab: {fileID: 100100000, guid: 5fc9badda99877c49a2985690d23f873, type: 3}
+--- !u!1 &215507524630271890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 501354679249227260, guid: 5fc9badda99877c49a2985690d23f873, type: 3}
+  m_PrefabInstance: {fileID: 290633492077976174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-404319343477129332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215507524630271890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d64f126b17a109468aae15c4716e623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSpeed: 3
+  baseHealth: 3
+  baseSpeedHealth: 1.5
+  baseTankHealth: 5
+  viewDistance: 15
+  agroRange: 5
+  enemyType: None
+  wanderTimer: 3
+  wanderRadius: 10
+  hitCooldown: 1
+  player: {fileID: 0}

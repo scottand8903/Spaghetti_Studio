@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6126104360696232386, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7616919692404458439, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -85,6 +89,8 @@ MonoBehaviour:
   baseSpeed: 3
   baseHealth: 3
   viewDistance: 10
+  agroRange: 5
   enemyType: None
   wanderTimer: 3
   wanderRadius: 100
+  player: {fileID: 0}

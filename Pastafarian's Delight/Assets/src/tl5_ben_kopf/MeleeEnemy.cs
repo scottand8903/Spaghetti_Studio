@@ -6,22 +6,16 @@ using static Enemy;
 
 public class MeleeEnemy : Enemy
 {
-    private void Start()
+    protected override void Start()
     {
-		agent = GetComponent<NavMeshAgent>();
-		agent.updateRotation = false;
-		agent.updateUpAxis = false;
-		rb = GetComponent<Rigidbody2D>();
-		health = baseHealth;
-        speed = baseSpeed;
-        timer = wanderTimer;
-		findPlayer();
-	}
+        base.Start();
+    }
 
-	// Update is called once per frame
-	private void Update()
+    // Update is called once per frame
+    private void Update()
 	{
-		if (player != null)
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+        if (player != null)
 		{
 			float distanceToPlayer = Vector2.Distance(rb.position, player.position);
 			if (distanceToPlayer <= agroRange)
@@ -47,4 +41,9 @@ public class MeleeEnemy : Enemy
 	{
 		agent.SetDestination((Vector3)target.position);
 	}
+    //Collision Damage
+    protected override void OnCollisionEnter2D(Collision2D collision)
+    {
+        base.OnCollisionEnter2D(collision);
+    }
 }

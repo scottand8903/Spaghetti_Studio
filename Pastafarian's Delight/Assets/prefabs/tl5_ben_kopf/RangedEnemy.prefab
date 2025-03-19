@@ -60,8 +60,42 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2267675953791291600, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6126104360696232386, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: -1941546778182794499}
   m_SourcePrefab: {fileID: 100100000, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+--- !u!1 &2808098515337050881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6126104360696232386, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+  m_PrefabInstance: {fileID: 8357578981401313987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-1941546778182794499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2808098515337050881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e9775a078c54e44b58f768bf9b2a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSpeed: 3
+  baseHealth: 3
+  baseSpeedHealth: 1.5
+  baseTankHealth: 5
+  viewDistance: 15
+  agroRange: 5
+  enemyType: None
+  wanderTimer: 3
+  wanderRadius: 10
+  hitCooldown: 1
+  player: {fileID: 0}
+  stopDistance: 5
+  tooClose: 3
