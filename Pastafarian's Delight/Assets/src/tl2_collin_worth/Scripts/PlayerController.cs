@@ -97,16 +97,13 @@ public class PlayerController : MonoBehaviour
     public void updateHealth(int healthChange){
         if((currentHealth + healthChange) <= MAX_HEALTH){
             currentHealth += healthChange;
-            
         }else{
             currentHealth = MAX_HEALTH;
         }
-        // Need to change to call in game controller
-        //updateHealthSprites();
+        GameController.Instance.updateHealthSprites();
 
         if(currentHealth < 1){
-            // Need to change to call in gamecontroller
-            //QuitGame(); // change to endGame later
+            GameController.Instance.QuitGame(); // change to endGame later
         }
     }
 //////

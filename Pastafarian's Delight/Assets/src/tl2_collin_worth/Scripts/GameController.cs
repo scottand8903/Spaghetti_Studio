@@ -35,6 +35,23 @@ public class GameController: MonoBehaviour
     public bool GameRunning;
 
     // Private Variables
+
+
+
+
+    public static GameController Instance { get; private set; }
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }else
+        {
+            Destroy(gameObject);
+        }
+    }
     
 
     void Start()
@@ -164,11 +181,10 @@ public class GameController: MonoBehaviour
     
     
 
-    void updateHealthSprites(){
+    public void updateHealthSprites(){
 
         for (int i = 0; i < healthSprites.Length; i++){
-            // Need to update with new get health functions
-            //healthSprites[i].SetActive(i < currentHealth);
+            healthSprites[i].SetActive(i < PlayerController.Instance.GetHealth());
         }
     }
 
