@@ -34,7 +34,7 @@ public class Item : MonoBehaviour
         }
     }
 
-    void TryPickUp()
+    public void TryPickUp()
     {
         if (InventorySystem.Instance != null)
         {
