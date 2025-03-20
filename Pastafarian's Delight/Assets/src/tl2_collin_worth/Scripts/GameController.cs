@@ -35,8 +35,7 @@ public class GameController: MonoBehaviour
     public bool GameRunning;
 
     // Private Variables
-    private int MAX_HEALTH = 5;
-    private int currentHealth;
+    
 
     void Start()
     {
@@ -56,7 +55,6 @@ public class GameController: MonoBehaviour
         pausePanel.SetActive(false);
         HUD.SetActive(false);
         
-        currentHealth = MAX_HEALTH;
 
 
         if (mmQuit != null && mmStartGame != null && mmSettings != null){
@@ -94,6 +92,19 @@ public class GameController: MonoBehaviour
         else
         {
             Debug.LogError("(GameController)Puzzle instance is not initialized!");
+        }
+
+
+        // Player Health test
+        if(PlayerController.Instance != null)
+        {
+            Debug.Log("currentHealth: " + PlayerController.Instance.GetHealth());
+            PlayerController.Instance.updateHealth(-1);
+            Debug.Log("currentHealth: " + PlayerController.Instance.GetHealth());
+        }
+        else
+        {
+            Debug.LogError("(GameController)PlayerController instance is not initialized!");
         }
 
     }
@@ -151,29 +162,13 @@ public class GameController: MonoBehaviour
         }
     }
     
-    public int GetHealth(){
-        return currentHealth;
-    }
-
-    public void updateHealth(int healthChange){
-        if((currentHealth + healthChange) <= MAX_HEALTH){
-            currentHealth += healthChange;
-            
-        }else{
-            currentHealth = MAX_HEALTH;
-        }
-
-        updateHealthSprites();
-
-        if(currentHealth < 1){
-            QuitGame(); // change to endGame later
-        }
-    }
+    
 
     void updateHealthSprites(){
 
         for (int i = 0; i < healthSprites.Length; i++){
-            healthSprites[i].SetActive(i < currentHealth);
+            // Need to update with new get health functions
+            //healthSprites[i].SetActive(i < currentHealth);
         }
     }
 

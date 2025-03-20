@@ -6,16 +6,35 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb = null; 
     private Vector3 moveDirection;
 
+    private int MAX_HEALTH = 5;
+    private int currentHealth;
+
+    [SerializeField] private float moveSpeed = 10.0f;
+
     // Test script
     private InventorySystem inventorySystem;
     public Sprite circleSprite;
+
+    public static PlayerController Instance { get; private set; }
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }else
+        {
+            Destroy(gameObject);
+        }
+    }
     
-    [SerializeField] private float moveSpeed = 10.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        currentHealth = MAX_HEALTH;
     }
 
     // Update is called once per frame
@@ -68,6 +87,26 @@ public class PlayerController : MonoBehaviour
         {
             // Stop movement by zeroing the Rigidbody velocity
             rb.linearVelocity = Vector2.zero;
+        }
+    }
+
+    public int GetHealth(){
+        return currentHealth;
+    }
+
+    public void updateHealth(int healthChange){
+        if((currentHealth + healthChange) <= MAX_HEALTH){
+            currentHealth += healthChange;
+            
+        }else{
+            currentHealth = MAX_HEALTH;
+        }
+        // Need to change to call in game controller
+        //updateHealthSprites();
+
+        if(currentHealth < 1){
+            // Need to change to call in gamecontroller
+            //QuitGame(); // change to endGame later
         }
     }
 //////
