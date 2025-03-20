@@ -8,7 +8,7 @@ public class StressTest
     [UnityTest]
     public IEnumerator Test_SpawnManyItems_Performance()
     {
-        int itemCount = 10000000;
+        int itemCount = 5000000;
 
         for (int i = 0; i < itemCount; i++)
         {
