@@ -42,7 +42,10 @@ public class Enemy : MonoBehaviour
     //   float angle = Random.Range(0f, 360f);
     //   moveDirection = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
     //}
-
+    public float getHealth()
+    {
+        return health;
+    }
     protected virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -111,13 +114,32 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void updateEnemyHealth(int damage)
+    public float getSpeed()
+    {
+        return agent.speed;
+    }
+
+    public void updateEnemySpeed(float speed)
+    {
+        agent.speed += speed;
+        if (agent.speed <= 0)
+        {
+            agent.speed = 1;
+        }
+        if (agent.speed > 100000)
+        {
+            agent.speed = 100;
+        }
+    }
+
+    public void updateEnemyHealth(float damage)
     {
 		Debug.Log(gameObject.name + "Health Before" + health);
         health += damage;
 		Debug.Log(gameObject.name + "Health After" + health);
         if(health <= 0)
         {
+            health = 0;
 			Die();
         }
     }

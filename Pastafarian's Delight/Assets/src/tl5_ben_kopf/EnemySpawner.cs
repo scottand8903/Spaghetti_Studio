@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab; // Assign the enemy prefab in the Inspector
-    [SerializeField] private Transform[] spawnPoints; // Assign multiple spawn points
-    [SerializeField] private float spawnInterval = 2f; // Time between spawns
+    [SerializeField] public GameObject enemyPrefab; // Assign the enemy prefab in the Inspector
+    [SerializeField] public Transform[] spawnPoints; // Assign multiple spawn points
+    [SerializeField] protected float spawnInterval = 2f; // Time between spawns
     [SerializeField] private int maxEnemies = 10; // Limit the number of enemies
 
     [SerializeField] private int currentEnemyCount = 0;
@@ -14,8 +14,9 @@ public class EnemySpawner : MonoBehaviour
         InvokeRepeating(nameof(SpawnEnemy), spawnInterval, spawnInterval);
     }
 
-    private void SpawnEnemy()
+    public void SpawnEnemy()
     {
+
         if (currentEnemyCount >= maxEnemies)
             return;
 
