@@ -2,61 +2,78 @@ using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEngine.SceneManagement;
 
-public class GameControllerTests
+public class GameControllerTests : MonoBehaviour
 {
     private GameController gameController;
-    private GameObject mainMenuPanel;
-    private GameObject pausePanel;
-    private GameObject hud;
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject SettingsPanel;
+    [SerializeField] private GameObject hud;
 
     private GameObject gameControllerObject;
 
-    [SetUp]
-    public void Setup()
+    [OneTimeSetUp]
+    public void LoadScene()
     {
-        // Create GameObjects for UI elements
-        mainMenuPanel = new GameObject("MainMenuPanel");
-        pausePanel = new GameObject("PausePanel");
-        hud = new GameObject("HUD");
+        SceneManager.LoadScene("SampleScene");
+    } 
 
-        // Add CanvasRenderer (or any necessary components)
-        mainMenuPanel.AddComponent<CanvasRenderer>();
-        pausePanel.AddComponent<CanvasRenderer>();
-        hud.AddComponent<CanvasRenderer>();
+/*
+   [UnityTest]
+    public IEnumerator StressTest_RapidPauseResume()
+    {
+        for (int i = 0; i < 1; i++)
+        {
+            Debug.Log($"Iteration: {i}");
+            gameController.Pause();
+            yield return null; // Let Unity process
 
-        // Create GameController object and add the component
-        gameControllerObject = new GameObject();
-        gameController = gameControllerObject.AddComponent<GameController>();
+            Assert.IsFalse(gameController.Instance.GameRunning, "Game should be paused");
+            Assert.IsTrue(gameController.Instance.pausePanel.activeSelf, "Pause panel should be active");
 
-        // Assign UI GameObjects to the GameController
-        gameController.MainMenuPanel = mainMenuPanel;
-        gameController.pausePanel = pausePanel;
-        gameController.HUD = hud;
-    }
+            gameController.Resume();
+            yield return null; // Let Unity process
 
+            Assert.IsTrue(gameController.Instance.GameRunning, "Game should be running");
+            Assert.IsFalse(gameController.Instance.pausePanel.activeSelf, "Pause panel should be inactive");
+        }
+
+        yield return null; // Ensure Unity test completes
+    } 
+*/
     [UnityTest]
     public IEnumerator StressTest_RapidPauseResume()
     {
-        for (int i = 0; i < 100; i++)
+        int iterations = 10000;
+        float waitTime = 0.05f; // Start with a reasonable delay
+        float minWaitTime = 0.00000001f; // Set a minimum limit
+        float decreaseAmount = 0.005f; // Decrease by this amount per iteration
+
+        for (int i = 0; i < iterations; i++)
         {
+            var gameController = GameObject.FindObjectOfType<GameController>();
+
+            Debug.Log($"Iteration: {i}, Wait Time: {waitTime}");
+
+            // Rapidly pause and resume the game
             gameController.Pause();
+            yield return new WaitForSecondsRealtime(waitTime);
+
             Assert.IsFalse(gameController.GameRunning, "Game should be paused");
+            Assert.IsTrue(gameController.pausePanel.activeSelf, "Pause panel should be active");
 
             gameController.Resume();
             Assert.IsTrue(gameController.GameRunning, "Game should be running");
+            Assert.IsFalse(gameController.pausePanel.activeSelf, "Pause panel should be inactive");
+
+            //yield return null;
+
+            // Decrease wait time by a fixed amount, ensuring it doesn't go below minWaitTime
+            waitTime = Mathf.Max(waitTime - decreaseAmount, minWaitTime);
         }
 
-        yield return null;
-    }
-
-    [TearDown]
-    public void Teardown()
-    {
-        // Clean up after test
-        GameObject.Destroy(gameControllerObject);
-        GameObject.Destroy(mainMenuPanel);
-        GameObject.Destroy(pausePanel);
-        GameObject.Destroy(hud);
+        Debug.Log("Stress test completed!");
     }
 }

@@ -46,11 +46,14 @@ public class InventorySystem : MonoBehaviour
             int emptySlot = nextEmpty();
             if (emptySlot < 0)
             {
+                Debug.Log("No Free Slots In Inventory");
                 return 0; // Inventory is full
             }
 
             inventory[emptySlot] = id;
             inventorySlotsImages[emptySlot].sprite = itemSprite;
+
+            Debug.Log("Item Added");
             return 1; // Successfully added
         }
         return 0;
