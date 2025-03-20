@@ -1,4 +1,3 @@
-using NUnit.Framework.Internal;
 using UnityEngine;
 
 public class ItemUse : MonoBehaviour
@@ -6,7 +5,7 @@ public class ItemUse : MonoBehaviour
     [SerializeField] public int id;
     [SerializeField] public string itemName;
     [SerializeField] public string description;
-    [SerializeField] public int isAvailable; 
+    [SerializeField] public int isAvailable;
     [SerializeField] public Sprite itemSprite;
 
     private void Start()
@@ -19,6 +18,14 @@ public class ItemUse : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Player collided with " + itemName);
+
+            PowerUp powerUp = GetComponent<PowerUp>();
+            if (powerUp != null)
+            {
+                powerUp.ApplyEffect(collision.gameObject);
+            }
+
+            Destroy(gameObject); // Remove item after collection
         }
     }
 }

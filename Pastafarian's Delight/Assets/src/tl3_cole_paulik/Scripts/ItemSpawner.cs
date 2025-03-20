@@ -3,16 +3,27 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    public GameObject itemPrefab; // Drag your ItemPrefab here in the Unity Editor
+    public GameObject itemPrefab; // Assign this in Unity
     private List<GameObject> spawnedItems = new List<GameObject>();
 
-    // Removed maxItems limit for stress testing
+    public bool limitEnabled = true; // Default: limit enforced
+    private const int MAX_ITEMS = 1000;
+
     public void SpawnItems(int count)
     {
-        for (int i = 0; i < count; i++)
+        int spawnCount = count;
+
+        // Apply the item limit only if enabled
+        if (limitEnabled)
         {
-            GameObject newItem = Instantiate(itemPrefab,
-                new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0),
+            int availableSpots = MAX_ITEMS - spawnedItems.Count;
+            spawnCount = Mathf.Min(count, availableSpots); // Prevent exceeding MAX_ITEMS
+        }
+
+        for (int i = 0; i < spawnCount; i++)
+        {
+            GameObject newItem = Instantiate(itemPrefab, 
+                new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0), 
                 Quaternion.identity);
 
             newItem.name = "Item_" + (spawnedItems.Count + 1);
@@ -31,4 +42,3 @@ public class ItemSpawner : MonoBehaviour
         spawnedItems.Clear();
     }
 }
-
