@@ -29,12 +29,14 @@ public class ItemSpawnerTests
     [UnityTest]
     public IEnumerator SpawnItems_ExceedsLimit_StopsAtMax()
     {
+        itemSpawner.limitEnabled = true; // Ensure limit is applied
         itemSpawner.SpawnItems(1001);
 
         yield return null; // Wait a frame
 
         Assert.AreEqual(1000, itemSpawner.transform.childCount, "Spawner should not exceed 1000 items.");
     }
+
 
     [TearDown]
     public void Teardown()
