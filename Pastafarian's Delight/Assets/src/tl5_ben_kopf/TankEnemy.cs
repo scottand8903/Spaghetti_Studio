@@ -7,8 +7,7 @@ public class TankEnemy : MeleeEnemy
     protected override void Start()
     {
         base.Start();
-        health = baseTankHealth;
-        agent.speed *= .5f;
+        enemyhandler.setHealth(baseTankHealth);
         Debug.Log(gameObject.name + " spawned with " + health + " health.");
 
     }

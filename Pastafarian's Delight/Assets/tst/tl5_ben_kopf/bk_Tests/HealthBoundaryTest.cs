@@ -17,16 +17,16 @@ public class HealthBoundaryTest
     [UnityTest]
     public IEnumerator HealthBoundaryTestWithEnumeratorPasses()
     {
-        var enemy = GameObject.FindObjectOfType<MeleeEnemy>();
+        var enemy = GameObject.FindObjectOfType<TankEnemy>();
         Assert.IsNotNull(enemy, "Enemy Not found in this scene");
 
-        while (enemy.getHealth() > 1)
+        while (enemy.enemyhandler.getHealth() > 1)
         {
-            enemy.updateEnemyHealth(-1);
+            enemy.TakeDamage(-1);
             yield return null;
         }
-        Assert.AreEqual(1, enemy.getHealth());
-        enemy.updateEnemyHealth(float.MinValue);
+        Assert.AreEqual(1, enemy.enemyhandler.getHealth());
+        enemy.TakeDamage(float.MinValue);
         yield return null;
         Assert.False(enemy);
         yield return null;

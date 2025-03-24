@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     //[SerializeField] private float baseSpeedSpeed = 4.5f; //Speed of the fast enemies
     //[SerializeField] private float baseTankSpeed = 1.5f;  //Speed of the tank enemies
     [SerializeField] protected float baseHealth = 3.0f;
-   [SerializeField] protected float baseSpeedHealth = 1.5f; //Health of the fast enemies
+    [SerializeField] protected float baseSpeedHealth = 1.5f; //Health of the fast enemies
     [SerializeField] protected float baseTankHealth = 5.0f; // Health of the tank enemies
     [SerializeField] protected float viewDistance = 15.0f;
     [SerializeField] protected float agroRange = 5.0f;
@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float wanderRadius = 10f;
     [SerializeField] protected float hitCooldown = 1f;
     public Transform player;
+    public EnemyHandlerBC enemyhandler;
 	//public GameObject gameController;
 	//public event Action OnDeath;
 
@@ -42,21 +43,17 @@ public class Enemy : MonoBehaviour
     //   float angle = Random.Range(0f, 360f);
     //   moveDirection = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
     //}
-    public float getHealth()
-    {
-        return health;
-    }
     protected virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         rb = GetComponent<Rigidbody2D>();
-        health = baseHealth;
         agent.speed = baseSpeed;
         timer = wanderTimer;
         findPlayer();
-        //Debug.Log(health);
+        enemyhandler = new EnemyHandler();
+        enemyhandler.setHealth(baseHealth);
     }
 
     protected void findPlayer()
@@ -102,7 +99,11 @@ public class Enemy : MonoBehaviour
             Debug.Log(gameObject.name + " Player Hit " + lastHitTime);
             //gameController.updateHealth(-1);
             lastHitTime = Time.time;
-            updateEnemyHealth(-1);
+            enemyhandler.updateHealth(-1);
+            if(enemyhandler.getHealth() <= 0)
+            {
+                Die();
+            }
         }
 
         // Check if the enemy collided with a wall
@@ -132,24 +133,21 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void updateEnemyHealth(float damage)
+    public void TakeDamage(float damage)
     {
-		Debug.Log(gameObject.name + "Health Before" + health);
-        health += damage;
-		Debug.Log(gameObject.name + "Health After" + health);
-        if(health <= 0)
+        enemyhandler.updateHealth(damage);
+        if(enemyhandler.getHealth() <= 0)
         {
-            health = 0;
-			Die();
+            Die();
         }
     }
-
-	private void Die()
-	{
+    private void Die()
+    {
         Debug.Log(gameObject.name + "Died with " + health + " health");
-		//add animator stuff here when that happens
-		Destroy(gameObject);
-	}
+        //add animator stuff here when that happens
+        Destroy(gameObject);
+    }
+
 }
 
 
