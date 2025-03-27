@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/EastRoom.unity
+    guid: 58dfe862e79f3d1629919740bb10bf97
+  - enabled: 1
+    path: Assets/Scenes/SouthRoom.unity
+    guid: 116a893fc0e0fba51aee28256d10449f
+  - enabled: 1
+    path: Assets/Scenes/WestRoom.unity
+    guid: b5a4343fdce42ab42bccb639cc63a8f2
+  - enabled: 0
+    path: Assets/Scenes/MainRoom.unity
+    guid: 65d91f91fa7ceb13bbe7d1ff767a5392
+  - enabled: 1
     path: Assets/Scenes/tl5_ben_kopf/EnemyTests.unity
     guid: c35248fbf8f18424193c1db6691ce8c9
   m_configObjects:
