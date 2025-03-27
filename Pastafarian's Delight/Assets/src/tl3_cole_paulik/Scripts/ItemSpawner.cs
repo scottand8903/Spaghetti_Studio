@@ -1,44 +1,40 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    public GameObject itemPrefab; // Assign this in Unity
-    private List<GameObject> spawnedItems = new List<GameObject>();
-
-    public bool limitEnabled = true; // Default: limit enforced
-    private const int MAX_ITEMS = 1000;
+    public GameObject itemPrefab; // Assign this in the Unity Inspector
+    public bool limitEnabled = false;
+    public int maxItems = 1000;
+    private int currentItemCount = 0;
 
     public void SpawnItems(int count)
     {
-        int spawnCount = count;
-
-        // Apply the item limit only if enabled
-        if (limitEnabled)
+        if (itemPrefab == null)
         {
-            int availableSpots = MAX_ITEMS - spawnedItems.Count;
-            spawnCount = Mathf.Min(count, availableSpots); // Prevent exceeding MAX_ITEMS
+            Debug.LogError("Item Prefab is not assigned in the ItemSpawner script!");
+            return;
         }
 
-        for (int i = 0; i < spawnCount; i++)
+        for (int i = 0; i < count; i++)
         {
-            GameObject newItem = Instantiate(itemPrefab, 
-                new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0), 
-                Quaternion.identity);
+            if (limitEnabled && currentItemCount >= maxItems)
+            {
+                Debug.LogWarning("Item spawn limit reached.");
+                break;
+            }
 
-            newItem.name = "Item_" + (spawnedItems.Count + 1);
-            newItem.transform.parent = transform;
-
-            spawnedItems.Add(newItem);
+            Vector3 randomPosition = GetRandomPosition();
+            GameObject newItem = Instantiate(itemPrefab, randomPosition, Quaternion.identity, transform);
+            currentItemCount++;
+            Debug.Log($"Spawned {newItem.name} at position {randomPosition}");
         }
     }
 
-    public void ClearItems()
+    private Vector3 GetRandomPosition()
     {
-        foreach (var item in spawnedItems)
-        {
-            Destroy(item);
-        }
-        spawnedItems.Clear();
+        // Define your spawning area here. For example:
+        float x = Random.Range(-5f, 5f);
+        float y = Random.Range(-5f, 5f);
+        return new Vector3(x, y, 0f);
     }
 }

@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class HealthBoost : PowerUp
 {
-    public int healthIncrease = 20;
+    public int healthIncrease = 1;  // Default value
 
     public override void ApplyEffect(GameObject player)
     {
-        /*PlayerHealth health = player.GetComponent<PlayerHealth>();
-        if (health != null)
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        if (playerController != null)
         {
-            health.Heal(healthIncrease);
-        }*/
-        Destroy(gameObject); // Remove power-up after use
+            playerController.updateHealth(healthIncrease);  // Call the existing updateHealth method
+            Debug.Log("Health Boost applied! Increased by " + healthIncrease);
+        }
+
+        Destroy(gameObject);  // Remove the power-up after use
     }
 }

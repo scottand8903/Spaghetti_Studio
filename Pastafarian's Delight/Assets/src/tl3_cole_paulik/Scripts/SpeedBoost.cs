@@ -1,17 +1,22 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class SpeedBoost : PowerUp
 {
-    public float speedIncrease = 2f;
-    public float duration = 5f;
-
+    private float speedIncrease;
+    private float duration;
+    
+    public SpeedBoost(float speed, float time)
+    {
+        speedIncrease = speed;
+        duration = time;
+    }
+    
     public override void ApplyEffect(GameObject player)
     {
-        /*PlayerController controller = player.GetComponent<PlayerController>();
+        PlayerController controller = player.GetComponent<PlayerController>();
         if (controller != null)
         {
             controller.StartCoroutine(controller.IncreaseSpeed(speedIncrease, duration));
-        }*/
-        Destroy(gameObject); // Remove power-up after use
+        }
     }
-}
+}*/

@@ -3,16 +3,38 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    public List<ItemUse> items = new List<ItemUse>();
+    public GameObject healthItemPrefab; // Assign in Unity
+    public float spawnInterval = 10f; // Time between health item spawns
+
+    private List<GameObject> spawnedItems = new List<GameObject>();
 
     private void Start()
     {
-        // Example of manually adding items
-        items.Add(new ItemUse { id = 51, itemName = "Sample Item", description = "It's a sample item... It doesn't do much", isAvailable = 1 });
+        // Start periodic spawning of health items
+        InvokeRepeating(nameof(SpawnHealthItem), spawnInterval, spawnInterval);
+    }
 
-        foreach (var item in items)
+    private void SpawnHealthItem()
+    {
+        if (healthItemPrefab == null)
         {
-            Debug.Log("Item: " + item.itemName + " | Availability: " + item.isAvailable);
+            Debug.LogWarning("Health item prefab not assigned!");
+            return;
         }
+
+        // Random spawn position within a defined range
+        Vector3 spawnPosition = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
+        GameObject newItem = Instantiate(healthItemPrefab, spawnPosition, Quaternion.identity);
+
+        spawnedItems.Add(newItem);
+    }
+
+    public void ClearItems()
+    {
+        foreach (var item in spawnedItems)
+        {
+            Destroy(item);
+        }
+        spawnedItems.Clear();
     }
 }

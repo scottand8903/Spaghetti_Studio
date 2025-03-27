@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ItemUse : MonoBehaviour
+public class GameItem : MonoBehaviour
 {
     [SerializeField] public int id;
     [SerializeField] public string itemName;

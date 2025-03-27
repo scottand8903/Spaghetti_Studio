@@ -1,7 +1,9 @@
 using UnityEngine;
 
-// Base class for power-ups
-public abstract class PowerUp : MonoBehaviour
+public class PowerUp : MonoBehaviour
 {
-    public abstract void ApplyEffect(GameObject player);
+    public virtual void ApplyEffect(GameObject player)
+    {
+        Debug.Log("PowerUp applied to " + player.name);
+    }
 }
