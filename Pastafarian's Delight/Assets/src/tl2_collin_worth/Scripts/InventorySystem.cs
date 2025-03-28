@@ -31,11 +31,21 @@ public class InventorySystem : MonoBehaviour
 
     void initInventory()
     {
-        inventory = new int[MAX_SPACE];
-        for (int i = 0; i < MAX_SPACE; i++)
+        // Check if inventory data exists in PlayerPrefs
+        if (PlayerPrefs.HasKey("inventoryData"))
         {
-            inventory[i] = 0;
+            LoadInventory();
         }
+        else
+        {
+            inventory = new int[MAX_SPACE];
+            for (int i = 0; i < MAX_SPACE; i++)
+            {
+                inventory[i] = 0; // Empty slot
+            }
+        }
+
+        UpdateUI();
     }
 
     public int addItem(int id, Sprite itemSprite)
@@ -53,6 +63,9 @@ public class InventorySystem : MonoBehaviour
             inventory[emptySlot] = id;
             inventorySlotsImages[emptySlot].sprite = itemSprite;
 
+            SaveInventory();
+            UpdateUI();
+
             Debug.Log("Item Added");
             return 1; // Successfully added
         }
@@ -69,5 +82,40 @@ public class InventorySystem : MonoBehaviour
             }
         }
         return -1;
+    }
+
+    void SaveInventory()
+    {
+        // Save the inventory to PlayerPrefs
+        for (int i = 0; i < MAX_SPACE; i++)
+        {
+            PlayerPrefs.SetInt("inventorySlot" + i, inventory[i]);
+        }
+        PlayerPrefs.Save();
+    }
+
+    void LoadInventory()
+    {
+        // Load the inventory from PlayerPrefs
+        inventory = new int[MAX_SPACE];
+        for (int i = 0; i < MAX_SPACE; i++)
+        {
+            inventory[i] = PlayerPrefs.GetInt("inventorySlot" + i, 0);
+        }
+    }
+
+    void UpdateUI()
+    {
+        for (int i = 0; i < MAX_SPACE; i++)
+        {
+            if (inventory[i] != 0)
+            {
+                inventorySlotsImages[i].sprite = itemSprites[inventory[i]];
+            }
+            else
+            {
+                inventorySlotsImages[i].sprite = emptyImage;
+            }
+        }
     }
 }

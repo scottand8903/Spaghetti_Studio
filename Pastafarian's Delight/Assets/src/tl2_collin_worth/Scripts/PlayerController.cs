@@ -11,9 +11,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 10.0f;
 
-    // Test script
-    private InventorySystem inventorySystem;
-    public Sprite circleSprite;
 
     public static PlayerController Instance { get; private set; }
 
@@ -28,7 +25,7 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,12 +39,6 @@ public class PlayerController : MonoBehaviour
     {
         GetPlayerMovement();
 
-        // Test for adding to inventory
-        if (Input.GetKey(KeyCode.I))
-        {
-            Debug.Log("sending request to add item");
-            inventorySystem.addItem(1, circleSprite);
-        }
     }
 
     void GetPlayerMovement()
