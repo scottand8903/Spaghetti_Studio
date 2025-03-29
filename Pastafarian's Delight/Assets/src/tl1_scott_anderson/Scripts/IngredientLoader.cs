@@ -4,7 +4,7 @@ using System.IO;
 public class IngredientLoader : MonoBehaviour
 {
 
-    private Ingredient[] ingredients;
+    public Ingredient[] ingredients;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

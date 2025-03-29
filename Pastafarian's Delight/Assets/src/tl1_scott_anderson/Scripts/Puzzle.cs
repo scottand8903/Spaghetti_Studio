@@ -1,8 +1,12 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Puzzle : PuzzleManager
 {
     private static Puzzle _instance;
+    public PastaDish currentDish;
+    private IngredientLoader ingredientLoader;
     public static Puzzle Instance
     {
         get
@@ -15,10 +19,13 @@ public class Puzzle : PuzzleManager
         }
     }
 
-    public PastaDish currentDish;
-
-    public Puzzle(PastaDish[] dishes) : base(dishes)
+    public Puzzle(PastaDish[] dishes, IngredientLoader loader) : base(dishes)
     {
+        ingredientLoader = loader;
+        if(ingredientLoader == null)
+        {
+            Debug.LogError("Ingredientload is null");
+        }
 
         currentDish = PickPastaDish();
 
@@ -32,12 +39,12 @@ public class Puzzle : PuzzleManager
         }
     }
 
-    public static void CreateInstance(PastaDish[] dishes)
+    public static void CreateInstance(PastaDish[] dishes, IngredientLoader loader)
     {
         Debug.Log("Attempting to create Puzzle instance...");
         if(_instance == null)
         {
-            _instance = new Puzzle(dishes);
+            _instance = new Puzzle(dishes, loader);
             Debug.Log("Puzzle instance created");
         }
         else
@@ -53,6 +60,17 @@ public class Puzzle : PuzzleManager
             return null;
         }
         return currentDish;
+    }
+
+    public List<Ingredient> GetAllIngredients()
+    {
+        if(ingredientLoader == null)
+        {
+            Debug.LogError("ingredientloader is not set in puzzle");
+            return new List<Ingredient>();
+        }
+
+        return ingredientLoader.GetIngredients().ToList();
     }
 
     public void PrintCurrentDish()

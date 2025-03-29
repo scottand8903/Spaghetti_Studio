@@ -26,7 +26,7 @@ public class PastaDishLoader : MonoBehaviour
         loadedDishes = LoadPastaDishesFromJson();
         if(loadedDishes != null)
         {
-            Puzzle.CreateInstance(loadedDishes);
+            Puzzle.CreateInstance(loadedDishes, ingredientLoader);
             Debug.Log($"Loaded {loadedDishes.Length} pasta dishes into the puzzle");
         }
         else

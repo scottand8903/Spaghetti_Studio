@@ -56,5 +56,8 @@ TagManager:
   - name: Enemies
     uniqueID: 1258789385
     locked: 0
+  - name: Foreground
+    uniqueID: 3858168005
+    locked: 0
   m_RenderingLayers:
   - Default
