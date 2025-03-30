@@ -83,11 +83,11 @@ public class ItemSpawnPoints : MonoBehaviour
         }
         else if(roomName == "SouthRoom")
         {
-            filteredIngredients = availIngredients.Where(ing => ing.id >= 11 && ing.id <= 27).ToList();
+            filteredIngredients = availIngredients.Where(ing => ing.id >= 11 && ing.id <= 28).ToList();
         }
         else if(roomName == "WestRoom")
         {
-            filteredIngredients = availIngredients.Where(ing => ing.id >= 28 && ing.id <= 44).ToList();
+            filteredIngredients = availIngredients.Where(ing => ing.id >= 29 && ing.id <= 44).ToList();
         }
         else
         {
