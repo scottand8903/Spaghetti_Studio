@@ -230,6 +230,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4806761675255241094, guid: 071af8e2c6032430394603f306e2e7bc, type: 3}
+      propertyPath: roomName
+      value: WestRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806761675255241094, guid: 071af8e2c6032430394603f306e2e7bc, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 6234322664852686568}
