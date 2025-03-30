@@ -6,7 +6,7 @@ public class SpeedEnemy : MeleeEnemy
     protected override void Start()
     {
         base.Start();
-        agent.speed *= 1.5f;
+        agent.speed *= 2f;
         enemyhandler.setHealth(baseSpeedHealth);
         Debug.Log(gameObject.name + " spawned with " + health + " health.");
 
