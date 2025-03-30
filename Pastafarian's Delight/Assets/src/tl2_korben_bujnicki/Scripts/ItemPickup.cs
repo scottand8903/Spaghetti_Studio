@@ -3,6 +3,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public int itemId = 1;
+    public int ingredientID;
     public Sprite itemSprite;
 
     private bool isPlayerNearby = false;
@@ -42,6 +43,7 @@ public class Item : MonoBehaviour
             if (result == 1)
             {
                 Debug.Log("Item picked up and added to inventory!");
+                GameStateManager.Instance.CollectIngredient(ingredientID);
                 Destroy(gameObject); // Remove item from the scene
             }
             else
