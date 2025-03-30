@@ -8,7 +8,7 @@ public class ItemSpawnPoints : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject ingredientPrefab;
 
-    public Sprite testSprite;
+    // public Sprite testSprite;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -64,18 +64,18 @@ public class ItemSpawnPoints : MonoBehaviour
             SetIngredientToFront(ingredientObj);
             ingredientObj.name = selectedIngredients[i].name;
 
-            // IngredientDisplay display = ingredientObj.GetComponent<IngredientDisplay>();
-            // if(display != null)
-            // {
-            //     display.SetIngredient(selectedIngredients[i]);
-            // }
-
-
-            SpriteRenderer spriteRenderer = ingredientObj.GetComponent<SpriteRenderer>();
-            if(spriteRenderer != null)
+            IngredientDisplay display = ingredientObj.GetComponent<IngredientDisplay>();
+            if(display != null)
             {
-                spriteRenderer.sprite = testSprite;
+                display.SetIngredient(selectedIngredients[i]);
             }
+
+
+            // SpriteRenderer spriteRenderer = ingredientObj.GetComponent<SpriteRenderer>();
+            // if(spriteRenderer != null)
+            // {
+            //     spriteRenderer.sprite = testSprite;
+            // }
         }
     }
 }

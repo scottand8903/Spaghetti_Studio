@@ -6,7 +6,7 @@ public class Ingredient
     public int id;
     public string name;
     public string[] riddles;
-    public Sprite sprite;
+    public string sprite;
 }
 
 
