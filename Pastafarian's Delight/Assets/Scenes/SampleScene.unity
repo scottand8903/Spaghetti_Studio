@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 1
+  ingredientID: 0
   itemSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!61 &130167783
 BoxCollider2D:
@@ -382,6 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 1
+  ingredientID: 0
   itemSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!61 &248415234
 BoxCollider2D:
@@ -902,6 +904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 0
+  ingredientID: 0
   itemSprite: {fileID: -6806624230246934245, guid: 8d1ceb6a392a7c34681c5a790f66b109, type: 3}
 --- !u!1 &619394800
 GameObject:
@@ -1122,6 +1125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 1
+  ingredientID: 0
   itemSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!61 &1141510111
 BoxCollider2D:
@@ -1635,6 +1639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 1
+  ingredientID: 0
   itemSprite: {fileID: 5541072601233260413, guid: 8076a5916689b33308d61b86376334f5, type: 3}
 --- !u!61 &1388401060
 BoxCollider2D:
@@ -1811,6 +1816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 1
+  ingredientID: 0
   itemSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!61 &1533831838
 BoxCollider2D:
@@ -2880,6 +2886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 1
+  ingredientID: 0
   itemSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!61 &2119931754
 BoxCollider2D:
