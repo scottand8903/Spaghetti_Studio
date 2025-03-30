@@ -7,7 +7,7 @@ public class ItemSpawnPoints : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject ingredientPrefab;
     public string roomName;
-    private List<Ingredient> currentRoomIngredients;
+    private Dictionary<int, Ingredient> currentRoomIngredients;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,15 +38,32 @@ public class ItemSpawnPoints : MonoBehaviour
 
         // check for existing ingredients for room
         currentRoomIngredients = GameStateManager.Instance.GetRoomIngredients(roomName);
-
-        if(currentRoomIngredients == null)
+        if(currentRoomIngredients == null || currentRoomIngredients.Count == 0)
         {
             // no saved ingredients, generate new ones
-            currentRoomIngredients = GenerateIngredients();
+            List<Ingredient> newIngredients = GenerateIngredients();
+            currentRoomIngredients = new Dictionary<int, Ingredient>();
+
+            for(int i = 0; i < newIngredients.Count; i++)
+            {
+                currentRoomIngredients[i] = newIngredients[i];
+            }
+
             GameStateManager.Instance.SaveRoomIngredients(roomName, currentRoomIngredients);
         }
 
-        SpawnIngredients(currentRoomIngredients);
+        // Log stored ingredients
+        Debug.Log($"Room {roomName} - Loaded {currentRoomIngredients.Count} ingredients from saved data.");
+
+        // Filter out collected ingredients
+        Dictionary<int, Ingredient> remainingIngredients = currentRoomIngredients
+            .Where(kvp => !GameStateManager.Instance.IsIngredientCollected(kvp.Value.id))
+            .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+
+        // Log remaining ingredients
+        Debug.Log($"Room {roomName} - Remaining Ingredients after filtering collected ones: {remainingIngredients.Count}");
+
+        SpawnIngredients(remainingIngredients);
     }
 
     List<Ingredient> GenerateIngredients()
@@ -58,21 +75,6 @@ public class ItemSpawnPoints : MonoBehaviour
             Debug.LogError("ingredient list is empty");
             return new List<Ingredient>();
         }
-
-        // // Get one correct ingredient from the current dish
-        // Ingredient correctIngredient = Puzzle.Instance.GetPastaDish().ingredients[Random.Range(0, Puzzle.Instance.GetPastaDish().ingredients.Length)];
-
-        // // Get four incorrect ingredients
-        // List<Ingredient> incorrectIngredients = availIngredients
-        //     .Where(ing => !Puzzle.Instance.GetPastaDish().ingredients.Contains(ing)) // Exclude correct ingredients
-        //     .OrderBy(x => Random.value) // Shuffle
-        //     .Take(4) // Select four
-        //     .ToList();
-
-        // // Combine and shuffle
-        // List<Ingredient> selectedIngredients = new List<Ingredient> { correctIngredient };
-        // selectedIngredients.AddRange(incorrectIngredients);
-        // selectedIngredients = selectedIngredients.OrderBy(x => Random.value).ToList(); // Shuffle
 
         // Filter ingredients based on room
         List<Ingredient> filteredIngredients = new List<Ingredient>();
@@ -119,24 +121,46 @@ public class ItemSpawnPoints : MonoBehaviour
         // Pick 4 incorrect ingredients from the filtered list
         selectedIngredients.AddRange(filteredIngredients.OrderBy(x => Random.value).Take(4));
 
-        return selectedIngredients;
+        // Shuffle order of selected ingredients and return
+        return selectedIngredients.OrderBy(x => Random.value).ToList();
 
     }
 
-    void SpawnIngredients(List<Ingredient> ingredients)
+    void SpawnIngredients(Dictionary<int, Ingredient> ingredientData)
     {
-        for(int i = 0; i < ingredients.Count && i < spawnPoints.Length; i++)
+        Debug.Log($"Spawning {ingredientData.Count} ingredients in {roomName}");
+
+        foreach(var kvp in ingredientData)
         {
-            GameObject ingredientObj = Instantiate(ingredientPrefab, spawnPoints[i].position, Quaternion.identity);
+            int spawnPointIndex = kvp.Key;
+            Ingredient ingredient = kvp.Value;
+
+            if (spawnPointIndex < 0 || spawnPointIndex >= spawnPoints.Length)
+            {
+                Debug.LogWarning($"Invalid spawn point index {spawnPointIndex}, skipping.");
+                continue;
+            }
+
+            Transform spawnPoint = spawnPoints[spawnPointIndex];
+            Debug.Log($"Spawning {ingredient.name} at SpawnPoint[{spawnPointIndex}] {spawnPoint.position}");            
+
+            GameObject ingredientObj = Instantiate(ingredientPrefab, spawnPoint.position, Quaternion.identity);
             SetIngredientToFront(ingredientObj);
-            ingredientObj.name = ingredients[i].name;
+            ingredientObj.name = ingredient.name;
 
             IngredientDisplay display = ingredientObj.GetComponent<IngredientDisplay>();
             if(display != null)
             {
-                display.SetIngredient(ingredients[i]);
+                display.SetIngredient(ingredient);
+            }
+
+            Item pickup = ingredientObj.GetComponent<Item>();
+            if(pickup != null)
+            {
+                pickup.ingredientID = ingredient.id;
             }
         }
+
     }
 
 }

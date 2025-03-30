@@ -2,7 +2,7 @@
     "dishes": [
         {
             "dishName": "Spaghetti Carbonara",
-            "ingredients": ["spaghetti", "eggs", "pancetta"]
+            "ingredients": ["spaghetti", "pancetta", "eggs"]
         },
         {
             "dishName": "Fettuccine Alfredo",
