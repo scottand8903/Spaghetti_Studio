@@ -7,7 +7,7 @@
                 "Long and thin, a classic sight, twirled on a fork, a taste delight. What am I?",
                 "I’m a noodle, thin and round, in meatballs and sauce, I am found. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 1,
@@ -106,7 +106,7 @@
                 "I come from a cow, in burgers I'm great, grilled or roasted, I’m on your plate. What am I?",
                 "Steaks and stews, I make them nice, a juicy cut, at any price. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "11_beef"
         },
         {
             "id": 12,
@@ -124,7 +124,7 @@
                 "I swim in the sea, I'm canned or fresh, in sandwiches or sushi, I'm the best. What am I?",
                 "A fish you know, both pink and lean, in salad or steak, I’m often seen. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "13_tuna"
         },
         {
             "id": 14,
@@ -142,7 +142,7 @@
                 "I cluck and peck, but once I’m cooked, I’m grilled, fried, or nicely brooked. What am I?",
                 "White or dark, I taste just right, baked or fried, a true delight. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "15_chicken"
         },
         {
             "id": 16,
@@ -178,7 +178,7 @@
                 "I'm red and rich, a classic treat, on pasta and pizza, I can't be beat. What am I?",
                 "Made from fruit but not so sweet, with herbs and spice, I make dishes complete. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "19_tomato_sauce"
         },
         {
             "id": 20,
@@ -187,7 +187,7 @@
                 "I'm red like tomato sauce, but lighter and quick, with garlic and herbs, I do the trick. What am I?",
                 "I’m simple and bright, with garlic I shine, over pasta or seafood, my taste is divine. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "20_marinara_sauce"
         },
         {
             "id": 21,
@@ -223,7 +223,7 @@
                 "Red, yellow, orange, or green, in stir-fries and salads, I’m always seen. What am I?",
                 "Crisp and sweet or roasted and bold, in fajitas and sauces, my story is told. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "24_bell_peppers"
         },
         {
             "id": 25,
