@@ -16,7 +16,7 @@
                 "I'm flat and wide but not too long, in creamy sauce, I do belong. What am I?",
                 "Not too thin, not too thick, Alfredo loves me—take your pick! What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@
                 "With slanted ends, I stand with pride, a hollow tube, I'm open wide. What am I?",
                 "I have no curves, I have no bends, with pointed tips at both my ends. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 3,
@@ -34,7 +34,7 @@
                 "I’m short and curved, a little C, in cheesy sauce, I’m meant to be. What am I?",
                 "A tiny tube with a playful bend, in kids’ favorite dish, I’m a lifelong friend. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 4,
@@ -43,7 +43,7 @@
                 "I’m flat and wide with ridges neat, stacked up high for layers to meet. What am I?",
                 "I don’t twist, and I don’t roll, I help build a dish as a whole. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 5,
@@ -52,7 +52,7 @@
                 "I’m like spaghetti, but flatter you see, seafood and sauces pair well with me. What am I?",
                 "I’m thin and flat, but not too wide, in creamy or red sauce, I’ll slide. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 6,
@@ -61,7 +61,7 @@
                 "I’m like penne, but my ends are straight, baked in sauce, I taste great. What am I?",
                 "A tube of pasta, smooth and round, in baked dishes, I am found. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 7,
@@ -70,7 +70,7 @@
                 "I twist and twirl, a spiral fun, I hold the sauce for everyone. What am I?",
                 "I look like a spring, all curled tight, in pasta salads, I’m a delight. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 8,
@@ -79,7 +79,7 @@
                 "Soft and wavy, light and thin, in soups and stroganoff, I fit in. What am I?",
                 "I’m golden yellow, thin or wide, made with eggs, I can’t hide. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 9,
@@ -88,7 +88,7 @@
                 "My name means ‘little ears,’ you see, a pasta shape that looks like me. What am I?",
                 "Small and round with a little dip, I hold the sauce so none will slip. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 10,
@@ -97,7 +97,7 @@
                 "I’m like ziti, but larger in size, with ridges along my sides. What am I?",
                 "A tube-shaped pasta, big and bold, with lines to catch the sauce I hold. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 11,
@@ -115,7 +115,7 @@
                 "I live in a shell, down in the sea, steamed or in chowder, you’ll love me. What am I?",
                 "I open up when cooked just right, in butter or broth, I’m a delight. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 13,
@@ -133,7 +133,7 @@
                 "Round and small, I’m served with delight, in pasta or subs, I’m a tasty bite. What am I?",
                 "Made of beef or pork combined, in marinara, I’m defined. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 15,
@@ -151,7 +151,7 @@
                 "I crawl in the sea with two big claws, dipped in butter, I get applause. What am I?",
                 "A seafood treat, both red and grand, cracked open fresh, I taste so bland—until you add butter! What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 17,
@@ -160,7 +160,7 @@
                 "Small and pink, from ocean deep, in pasta or grill, I make you weep (with joy!). What am I?",
                 "I’m curled and small, in cocktail or stew, my shell peels off, to give flavor to you. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 18,
@@ -169,7 +169,7 @@
                 "Like bacon but not quite the same, in pasta and soups, you’ll know my name. What am I?",
                 "I’m pork, I’m cured, but I don’t fry, in carbonara, I’m the reason why. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 19,
@@ -196,7 +196,7 @@
                 "I’m creamy and pink, with a little zing, a splash of booze gives me my thing. What am I?",
                 "Tomato and cream, I blend just right, with a hint of spirits, I’m a pasta delight. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 22,
@@ -205,7 +205,7 @@
                 "From white to orange, sharp or mild, in burgers and nachos, I drive people wild. What am I?",
                 "I can be sharp, I can be sweet, on sandwiches and crackers, I’m the cheese to beat. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 23,
@@ -214,7 +214,7 @@
                 "Golden and smooth, I melt with grace, in pastries and sauces, I know my place. What am I?",
                 "I make things rich, I make them sweet, in toast and cakes, I can’t be beat. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 24,
@@ -232,7 +232,7 @@
                 "I look like a tree but small in size, in stir-fries and soups, I’m healthy and wise. What am I?",
                 "I’m green and crisp, with florets to eat, steamed or roasted, I’m a nutritious treat. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 26,
@@ -241,7 +241,7 @@
                 "Black or green, in jars I stay, in salads and pizzas, I make my way. What am I?",
                 "Briny and bold, with a pit inside, in martinis or tapenade, I add some pride. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 27,
@@ -250,7 +250,7 @@
                 "Purple and plump, I roast up nice, in parmigiana, I add some spice. What am I?",
                 "Though called an egg, I don’t belong in a nest, grilled or fried, I taste the best. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 28,
@@ -259,7 +259,7 @@
                 "I’m a leafy herb, fresh and bright, in pesto and pasta, I bring delight. What am I?",
                 "Green and fragrant, with a peppery twist, in Caprese salad, I can't be missed. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 29,
@@ -268,7 +268,7 @@
                 "Crack my shell and find inside, a golden yolk, a tasty guide. What am I?",
                 "Scrambled or boiled, I start your day, in baking and cooking, I lead the way. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 30,
@@ -277,7 +277,7 @@
                 "I’m hard and aged, I’m often shaved, on top of pasta, I’m always craved. What am I?",
                 "Grated or shaved, I’m full of might, in alfredo sauce, I add delight. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 31,
@@ -286,7 +286,7 @@
                 "A little shake, a lot of heat, on pizza and pasta, I make them complete. What am I?",
                 "I’m tiny and red, but don’t be misled, a sprinkle of me might turn your face red! What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 32,
@@ -295,7 +295,7 @@
                 "White and smooth, I help you grow, in coffee and cereal, I love to flow. What am I?",
                 "From cows or nuts, I fill your cup, in baking and cooking, I help fluff things up. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 33,
@@ -304,7 +304,7 @@
                 "Soft and white, I’m creamy and light, in lasagna I hide, but I make it just right. What am I?",
                 "Made from whey, I’m fluffy and sweet, in stuffed pasta or desserts, I’m quite a treat. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 34,
@@ -313,7 +313,7 @@
                 "I keep vampires far away, with pungent smell that loves to stay. What am I?",
                 "A little clove, a lot of taste, in pasta and bread, I’m never waste. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 35,
@@ -322,7 +322,7 @@
                 "I’m stretchy and soft, on pizza I lay, melted to perfection, I make your day. What am I?",
                 "I’m white and mild, in caprese I sit, fresh or melted, I’m a cheesy hit. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 36,
@@ -331,7 +331,7 @@
                 "Green and long, I grill up great, in pasta and bread, I’m on your plate. What am I?",
                 "I’m soft when cooked, but firm when raw, in stir-fries and fritters, I get an 'Awe!' What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 37,
@@ -340,7 +340,7 @@
                 "From a can or made from scratch, I make casseroles a perfect match. What am I?",
                 "I’m creamy and smooth with mushrooms inside, in sauces and stews, I help flavors collide. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 38,
@@ -349,7 +349,7 @@
                 "Thicker than milk, smooth and rich, in soups and sauces, I make them thick. What am I?",
                 "I whip up nice or thicken a dish, in desserts and pasta, I grant your wish. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 39,
@@ -358,7 +358,7 @@
                 "I’m small and briny, a tangy treat, in Mediterranean dishes, I make them complete. What am I?",
                 "Pickled and tiny, I bring some zing, in pasta and fish, I’m just the thing. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 40,
@@ -367,7 +367,7 @@
                 "Spicy and bold, with flavors grand, from Louisiana, I take a stand. What am I?",
                 "With paprika and spice, I add some heat, on shrimp or chicken, I’m hard to beat. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 41,
@@ -376,7 +376,7 @@
                 "Melt me down and I taste divine, in fondue and French toast, I shine. What am I?",
                 "I’m rich and nutty, smooth to the taste, in a croque monsieur, I’m never replaced. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 42,
@@ -385,7 +385,7 @@
                 "I’m poured in a glass or into a pan, I add depth to sauce like no one else can. What am I?",
                 "I’m not red, but I still pair well, in cooking or sipping, I cast a spell. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 43,
@@ -394,7 +394,7 @@
                 "I’m thick and tangy, smooth and white, in dips and tacos, I’m just right. What am I?",
                 "Dollop me on a baked potato, for a creamy delight, I’m rich yet mellow. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 44,
@@ -403,7 +403,7 @@
                 "Small and light, I add a crunch, in pesto and salads, I pack a punch. What am I?",
                 "I may be tiny, but don’t be fooled, in sauces and spreads, I make flavors ruled. What am I?"
             ],
-            "sprite": "test_art"
+            "sprite": "0_spaghetti"
         }  
     ]
 }
