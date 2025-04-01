@@ -42,8 +42,8 @@ public class MeleeEnemy : Enemy
 		agent.SetDestination((Vector3)target.position);
 	}
     //Collision Damage
-    protected override void OnCollisionEnter2D(Collision2D collision)
-    {
-        base.OnCollisionEnter2D(collision);
-    }
+    //protected override void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    base.OnCollisionEnter2D(collision);
+    //}
 }

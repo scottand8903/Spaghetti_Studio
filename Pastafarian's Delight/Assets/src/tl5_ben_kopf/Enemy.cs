@@ -6,8 +6,6 @@ public class Enemy : MonoBehaviour
 {
     
     [SerializeField] protected float baseSpeed = 3.0f;
-    //[SerializeField] private float baseSpeedSpeed = 4.5f; //Speed of the fast enemies
-    //[SerializeField] private float baseTankSpeed = 1.5f;  //Speed of the tank enemies
     [SerializeField] protected float baseHealth = 3.0f;
     [SerializeField] protected float baseSpeedHealth = 1.5f; //Health of the fast enemies
     [SerializeField] protected float baseTankHealth = 5.0f; // Health of the tank enemies
@@ -19,8 +17,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float hitCooldown = 1f;
     public Transform player;
     public EnemyHandlerBC enemyhandler;
-	//public GameObject gameController;
-	//public event Action OnDeath;
 
     protected float speed;
     protected float health;
@@ -34,15 +30,7 @@ public class Enemy : MonoBehaviour
     protected Rigidbody2D rb = null;
     protected NavMeshAgent agent;
     private float lastHitTime = 0f;
-    //protected GameObject this_enemy;
 
-
-    //protected void ChangeDirection()
-    //{
-    //   print("getting new direction from ENEMY");
-    //   float angle = Random.Range(0f, 360f);
-    //   moveDirection = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
-    //}
     protected virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -89,18 +77,20 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
-    //collision damage
 
+    //collision damage
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log("Ouch");
+        //Detects player collision
         if (collision.gameObject.CompareTag("Player") && Time.time > lastHitTime + hitCooldown)
         {
-            Debug.Log(gameObject.name + " Player Hit " + lastHitTime);
-            //gameController.updateHealth(-1);
-            lastHitTime = Time.time;
-            enemyhandler.updateHealth(-1);
-            if(enemyhandler.getHealth() <= 0)
+			lastHitTime = Time.time; //Tracks the last time the player was hit
+			Debug.Log(gameObject.name + " Player Hit " + lastHitTime);
+            PlayerController.Instance.updateHealth(-1); //Damages player
+            enemyhandler.updateHealth(-1); // Damages enemy
+            Debug.Log(enemyhandler.getHealth());
+            if (enemyhandler.getHealth() <= 0)
             {
                 Die();
             }
@@ -115,11 +105,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //Returns the speed of an enemy
     public float getSpeed()
     {
         return agent.speed;
     }
 
+
+    //Updates Enemy speed
     public void updateEnemySpeed(float speed)
     {
         agent.speed += speed;
@@ -141,7 +134,7 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
-    private void Die()
+    protected void Die()
     {
         Debug.Log(gameObject.name + "Died with " + health + " health");
         //add animator stuff here when that happens

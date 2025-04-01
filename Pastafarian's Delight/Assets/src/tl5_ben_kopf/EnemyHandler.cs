@@ -40,7 +40,7 @@ public class EnemyHandler : EnemyHandlerBC
     }
     public override void updateHealth(float damage)
     {
-        Debug.Log("Update Health called from sub class");
+        Debug.Log("Update Health called from sub class:");
         base.health += damage;
     }
 }

@@ -62,11 +62,12 @@ PrefabInstance:
       objectReference: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
     m_RemovedComponents:
     - {fileID: -7538177485671332832, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+    - {fileID: -2267675953791291600, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6126104360696232386, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
-      insertIndex: 3
+      insertIndex: 2
       addedObject: {fileID: 5986703839167783594}
   m_SourcePrefab: {fileID: 100100000, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
 --- !u!1 &501354679249227260 stripped
@@ -88,9 +89,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 3
   baseHealth: 3
+  baseSpeedHealth: 1.5
+  baseTankHealth: 5
   viewDistance: 10
   agroRange: 5
   enemyType: None
   wanderTimer: 3
   wanderRadius: 100
+  hitCooldown: 1
   player: {fileID: 0}
