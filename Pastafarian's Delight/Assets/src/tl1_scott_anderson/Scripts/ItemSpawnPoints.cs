@@ -2,24 +2,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+/// <summary>
+/// Handles the spawning of ingredients in specific rooms based on the current puzzle state.
+/// </summary>
 public class ItemSpawnPoints : MonoBehaviour
 {
+    // Array of spawn points where ingredients can appear
     public Transform[] spawnPoints;
+
+    // Prefab for the ingredient GameObject
     public GameObject ingredientPrefab;
+
+    // Name of the room this script is associated with
     public string roomName;
+
+    // Dictionary to store the ingredients currently associated with this room
     private Dictionary<int, Ingredient> currentRoomIngredients;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    /// <summary>
+    /// Called once before the first frame update. Initializes the ingredient spawning process.
+    /// </summary>
     void Start()
     {
         LoadOrSpawnIngredients();
     }
 
+    /// <summary>
+    /// Sets the ingredient GameObject to appear in the foreground by adjusting its sorting layer and order.
+    /// </summary>
+    /// <param name="ingredient">The ingredient GameObject to modify.</param>
     void SetIngredientToFront(GameObject ingredient)
     {
         SpriteRenderer spriteRenderer = ingredient.GetComponent<SpriteRenderer>();
-        if(spriteRenderer != null)
+        if (spriteRenderer != null)
         {
             // Set Sorting Layer to "Foreground"
             spriteRenderer.sortingLayerName = "Foreground"; 
@@ -27,67 +42,76 @@ public class ItemSpawnPoints : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Loads existing ingredients for the room from saved data or generates new ones if none exist.
+    /// </summary>
     void LoadOrSpawnIngredients()
     {
-        if(Puzzle.Instance == null || Puzzle.Instance.currentDish == null)
+        // Ensure there is an active puzzle and dish
+        if (Puzzle.Instance == null || Puzzle.Instance.currentDish == null)
         {
-            Debug.LogWarning("no active puzzle or dish found");
+            Debug.LogWarning("No active puzzle or dish found");
             return;
         }
 
-        // check for existing ingredients for room
+        // Attempt to load saved ingredients for the room
         currentRoomIngredients = GameStateManager.Instance.GetRoomIngredients(roomName);
-        if(currentRoomIngredients == null || currentRoomIngredients.Count == 0)
+        if (currentRoomIngredients == null || currentRoomIngredients.Count == 0)
         {
-            // no saved ingredients, generate new ones
+            // Generate new ingredients if none are saved
             List<Ingredient> newIngredients = GenerateIngredients();
             currentRoomIngredients = new Dictionary<int, Ingredient>();
 
-            for(int i = 0; i < newIngredients.Count; i++)
+            for (int i = 0; i < newIngredients.Count; i++)
             {
                 currentRoomIngredients[i] = newIngredients[i];
             }
 
+            // Save the newly generated ingredients
             GameStateManager.Instance.SaveRoomIngredients(roomName, currentRoomIngredients);
         }
 
-        // Log stored ingredients
+        // Log the loaded ingredients
         Debug.Log($"Room {roomName} - Loaded {currentRoomIngredients.Count} ingredients from saved data.");
 
-        // Filter out collected ingredients
+        // Filter out ingredients that have already been collected
         Dictionary<int, Ingredient> remainingIngredients = currentRoomIngredients
             .Where(kvp => !GameStateManager.Instance.IsIngredientCollected(kvp.Value.id))
             .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
-        // Log remaining ingredients
+        // Log the remaining ingredients
         Debug.Log($"Room {roomName} - Remaining Ingredients after filtering collected ones: {remainingIngredients.Count}");
 
+        // Spawn the remaining ingredients
         SpawnIngredients(remainingIngredients);
     }
 
+    /// <summary>
+    /// Generates a list of ingredients for the room based on the current puzzle and room name.
+    /// </summary>
+    /// <returns>A list of selected ingredients.</returns>
     List<Ingredient> GenerateIngredients()
     {
+        // Get all available ingredients from the puzzle
         List<Ingredient> availIngredients = Puzzle.Instance.GetAllIngredients();
 
-        if(availIngredients == null || availIngredients.Count == 0)
+        if (availIngredients == null || availIngredients.Count == 0)
         {
-            Debug.LogError("ingredient list is empty");
+            Debug.LogError("Ingredient list is empty");
             return new List<Ingredient>();
         }
 
-        // Filter ingredients based on room
+        // Filter ingredients based on the room name
         List<Ingredient> filteredIngredients = new List<Ingredient>();
-
-        if(roomName == "EastRoom")
+        if (roomName == "EastRoom")
         {
             filteredIngredients = availIngredients.Where(ing => ing.id >= 0 && ing.id <= 10).ToList();
         }
-        else if(roomName == "SouthRoom")
+        else if (roomName == "SouthRoom")
         {
             filteredIngredients = availIngredients.Where(ing => ing.id >= 11 && ing.id <= 28).ToList();
         }
-        else if(roomName == "WestRoom")
+        else if (roomName == "WestRoom")
         {
             filteredIngredients = availIngredients.Where(ing => ing.id >= 29 && ing.id <= 44).ToList();
         }
@@ -106,7 +130,7 @@ public class ItemSpawnPoints : MonoBehaviour
         // Select 5 random ingredients (1 correct, 4 incorrect)
         List<Ingredient> selectedIngredients = new List<Ingredient>();
 
-        // Pick one correct ingredient from the current dish (if applicable)
+        // Pick one correct ingredient from the current dish
         Ingredient correctIngredient = Puzzle.Instance.GetPastaDish().ingredients
             .Where(ing => filteredIngredients.Contains(ing)) // Ensure it's in the filtered list
             .OrderBy(x => Random.value)
@@ -121,20 +145,24 @@ public class ItemSpawnPoints : MonoBehaviour
         // Pick 4 incorrect ingredients from the filtered list
         selectedIngredients.AddRange(filteredIngredients.OrderBy(x => Random.value).Take(4));
 
-        // Shuffle order of selected ingredients and return
+        // Shuffle the selected ingredients and return
         return selectedIngredients.OrderBy(x => Random.value).ToList();
-
     }
 
+    /// <summary>
+    /// Spawns the given ingredients at their respective spawn points in the room.
+    /// </summary>
+    /// <param name="ingredientData">A dictionary of spawn point indices and their corresponding ingredients.</param>
     void SpawnIngredients(Dictionary<int, Ingredient> ingredientData)
     {
         Debug.Log($"Spawning {ingredientData.Count} ingredients in {roomName}");
 
-        foreach(var kvp in ingredientData)
+        foreach (var kvp in ingredientData)
         {
             int spawnPointIndex = kvp.Key;
             Ingredient ingredient = kvp.Value;
 
+            // Validate the spawn point index
             if (spawnPointIndex < 0 || spawnPointIndex >= spawnPoints.Length)
             {
                 Debug.LogWarning($"Invalid spawn point index {spawnPointIndex}, skipping.");
@@ -142,25 +170,26 @@ public class ItemSpawnPoints : MonoBehaviour
             }
 
             Transform spawnPoint = spawnPoints[spawnPointIndex];
-            Debug.Log($"Spawning {ingredient.name} at SpawnPoint[{spawnPointIndex}] {spawnPoint.position}");            
+            Debug.Log($"Spawning {ingredient.name} at SpawnPoint[{spawnPointIndex}] {spawnPoint.position}");
 
+            // Instantiate the ingredient GameObject
             GameObject ingredientObj = Instantiate(ingredientPrefab, spawnPoint.position, Quaternion.identity);
             SetIngredientToFront(ingredientObj);
             ingredientObj.name = ingredient.name;
 
+            // Set the ingredient data on the display component
             IngredientDisplay display = ingredientObj.GetComponent<IngredientDisplay>();
-            if(display != null)
+            if (display != null)
             {
                 display.SetIngredient(ingredient);
             }
 
+            // Set the ingredient ID on the pickup component
             Item pickup = ingredientObj.GetComponent<Item>();
-            if(pickup != null)
+            if (pickup != null)
             {
                 pickup.ingredientID = ingredient.id;
             }
         }
-
     }
-
 }
