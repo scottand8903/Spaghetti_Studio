@@ -10,7 +10,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5818999393762078035, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.28866667
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5818999393762078035, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5818999393762078035, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: -5818999393762078035, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5818999393762078035, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 1643004529448059727, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57,9 +73,33 @@ PrefabInstance:
       value: RangedEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 7616919692404458439, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616919692404458439, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+      propertyPath: m_Size.y
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616919692404458439, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+      objectReference: {fileID: 2770134640979271596, guid: 0f5bf2ca013627844bc4c601a0e525fa, type: 3}
+    - target: {fileID: 7616919692404458439, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616919692404458439, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616919692404458439, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616919692404458439, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -2267675953791291600, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
     m_RemovedGameObjects: []
