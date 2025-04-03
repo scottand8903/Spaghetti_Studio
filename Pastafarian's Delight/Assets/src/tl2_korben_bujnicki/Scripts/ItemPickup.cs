@@ -29,7 +29,7 @@ public class Item : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.P))
+        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
         {
             TryPickUp();
         }
