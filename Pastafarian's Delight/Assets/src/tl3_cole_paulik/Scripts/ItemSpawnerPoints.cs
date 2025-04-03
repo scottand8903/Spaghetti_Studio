@@ -7,8 +7,9 @@ public class ItemSpawnerPoints : MonoBehaviour
     // Array of spawn points where items can appear
     public Transform[] spawnPoints;
 
-    // Prefab for the item GameObject
-    public GameObject itemPrefab;
+    // Prefabs for the item GameObjects
+    public GameObject HealingItemPrefab;
+    public GameObject speedItemPrefab; // Added Speed Item Prefab
 
     // Dictionary to track spawned items and their positions
     private Dictionary<int, GameObject> spawnedItems = new Dictionary<int, GameObject>();
@@ -26,9 +27,18 @@ public class ItemSpawnerPoints : MonoBehaviour
         {
             Transform spawnPoint = spawnPoints[i];
 
-            // Instantiate the item at the spawn point
-            GameObject newItem = Instantiate(itemPrefab, spawnPoint.position, Quaternion.identity);
-            newItem.name = $"{itemPrefab.name}_{i + 1}";
+            // Randomly choose between the regular item and the speed item (50% chance for each)
+            GameObject itemToSpawn = (Random.value > 0.5f) ? HealingItemPrefab : speedItemPrefab;
+
+            if (itemToSpawn == null)
+            {
+                Debug.LogError("One or more item prefabs are not assigned!");
+                continue;
+            }
+
+            // Instantiate the chosen item at the spawn point
+            GameObject newItem = Instantiate(itemToSpawn, spawnPoint.position, Quaternion.identity);
+            newItem.name = $"{itemToSpawn.name}_{i + 1}";
 
             // Store reference to spawned item
             spawnedItems[i] = newItem;

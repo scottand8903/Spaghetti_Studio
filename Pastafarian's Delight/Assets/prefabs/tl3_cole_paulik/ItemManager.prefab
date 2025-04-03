@@ -50,4 +50,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  itemPrefab: {fileID: 8559950684509127608, guid: 94205cb1271f6e84993be138f5fb5dcd, type: 3}
+  HealingItemPrefab: {fileID: 8559950684509127608, guid: 94205cb1271f6e84993be138f5fb5dcd, type: 3}
+  speedItemPrefab: {fileID: 8248813114700347215, guid: e6d7ed9cbb1557c4fba5488fa73b355d, type: 3}

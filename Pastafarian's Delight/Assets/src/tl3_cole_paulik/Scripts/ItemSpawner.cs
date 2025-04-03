@@ -1,15 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-
 public class ItemSpawner : MonoBehaviour
 {
     [SerializeField] public Transform[] spawnPoints;
     [SerializeField] public GameObject itemPrefab;
+    [SerializeField] public GameObject speedItemPrefab; // New: Speed item prefab
     [SerializeField] public bool limitEnabled = false;
     [SerializeField] public int maxItems = 100;
     [SerializeField] protected float spawnInterval = 2f;
-    [SerializeField] private Dictionary<int, GameObject> spawnedItems = new Dictionary<int, GameObject>();
+    private Dictionary<int, GameObject> spawnedItems = new Dictionary<int, GameObject>();
 
     private void Start()
     {
@@ -18,9 +18,9 @@ public class ItemSpawner : MonoBehaviour
 
     public void SpawnItems(int count)
     {
-        if (itemPrefab == null)
+        if (itemPrefab == null || speedItemPrefab == null)
         {
-            Debug.LogError("Item Prefab is not assigned!");
+            Debug.LogError("One or more item prefabs are not assigned!");
             return;
         }
 
@@ -46,9 +46,12 @@ public class ItemSpawner : MonoBehaviour
             if (spawnedItems.ContainsKey(spawned))
                 continue;
 
-            GameObject newItem = Instantiate(itemPrefab, spawnPoint.position, Quaternion.identity);
-            newItem.name = $"{itemPrefab.name}_{spawned + 1}";
+            // Randomly decide which item to spawn (50% chance for each)
+            GameObject itemToSpawn = (Random.value > 0.5f) ? itemPrefab : speedItemPrefab;
             
+            GameObject newItem = Instantiate(itemToSpawn, spawnPoint.position, Quaternion.identity);
+            newItem.name = $"{itemToSpawn.name}_{spawned + 1}";
+
             spawnedItems.Add(spawned, newItem);
             spawned++;
 
