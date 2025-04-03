@@ -31,6 +31,8 @@ public class Enemy : MonoBehaviour
     protected NavMeshAgent agent;
     private float lastHitTime = 0f;
 
+
+    //contains all basic start information needed for enemies
     protected virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -44,6 +46,8 @@ public class Enemy : MonoBehaviour
         enemyhandler.setHealth(baseHealth);
     }
 
+
+    //sets the player trasform to the player's position
     protected void findPlayer()
 	{
 		if (player == null)
@@ -56,6 +60,8 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
+
+    //General enemy movement, allows them to wander while they don't have a target
 	protected void Wander(float timer, float wanderTimer, float wanderRadius, NavMeshAgent agent)
 	{
 		timer += Time.deltaTime;
