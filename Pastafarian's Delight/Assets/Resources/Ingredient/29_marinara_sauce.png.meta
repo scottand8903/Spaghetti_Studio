@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      29_marinara_sauce_0: -1108171756506610871
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
