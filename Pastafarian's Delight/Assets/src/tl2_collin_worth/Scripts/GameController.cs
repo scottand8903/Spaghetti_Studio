@@ -6,6 +6,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -100,6 +101,16 @@ public class GameController: MonoBehaviour
 
         BCModeToggle.onValueChanged.AddListener(BCModeChanged);
 
+        //Load Demo mode button
+        if(IsSceneValid("DemoMode"))
+        {
+            sDemoModeButton.onClick.AddListener(() => SceneManager.LoadScene("DemoMode"));
+        }
+        else
+        {
+            Debug.Log("Scene DemoMode does not exist");
+        }
+
         // PUZZLE MANAGER STUFF
         if(Puzzle.Instance != null)
         {
@@ -174,6 +185,20 @@ public class GameController: MonoBehaviour
         }
     }
 
+    private bool IsSceneValid(string sceneName)
+    {
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            string scenePath = SceneUtility.GetScenePathByBuildIndex(i);
+            string sceneNameFromPath = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+            if (sceneNameFromPath == sceneName)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     void BCModeChanged(bool isOn)
     {
         if (isOn)
@@ -186,6 +211,11 @@ public class GameController: MonoBehaviour
             BCMode = false;
             Debug.Log("setting BCMODE false");
         }
+    }
+
+    public void UpdateIngredient()
+    {
+        
     }
 
     
