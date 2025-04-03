@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6682863425319497547}
   - component: {fileID: 6672021927117663942}
   - component: {fileID: 7854456989233151448}
+  - component: {fileID: 7607810513306385901}
   m_Layer: 0
   m_Name: HealthItem
   m_TagString: Item
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.56, y: 2.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -129,8 +130,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.87}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1.28, y: 1.2}
+    newSize: {x: 2.56, y: 2.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -193,3 +194,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b01c9559f1920c419fc9f202ab9a248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7607810513306385901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8559950684509127608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8bbaae062e57d14fa15056000787d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthIncrease: 1
