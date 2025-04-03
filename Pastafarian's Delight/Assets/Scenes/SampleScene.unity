@@ -2723,7 +2723,7 @@ MonoBehaviour:
   mmQuit: {fileID: 419697252}
   mmSettings: {fileID: 705805935}
   sBackButton: {fileID: 1969159158}
-  sDemoModeButton: {fileID: 0}
+  sDemoModeButton: {fileID: 292885980}
   BCModeToggle: {fileID: 1213542255}
   pausePanel: {fileID: 1508763951}
   MainMenuPanel: {fileID: 1240330545}
