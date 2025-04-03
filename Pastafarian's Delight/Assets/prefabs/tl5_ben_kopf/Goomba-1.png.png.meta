@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Goomba-1.png_0: 7669245893146018542
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

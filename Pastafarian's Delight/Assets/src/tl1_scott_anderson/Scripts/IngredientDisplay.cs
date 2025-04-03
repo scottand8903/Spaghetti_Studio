@@ -17,7 +17,8 @@ public class IngredientDisplay : MonoBehaviour
     /// Sets the ingredient data and updates the display accordingly.
     /// </summary>
     /// <param name="ingredient">The ingredient data to display.</param>
-    public void SetIngredient(Ingredient ingredient)
+    /// <param name="ingredientObj">The ingredient object, needed to assign the sprite variable.</param>
+    public void SetIngredient(Ingredient ingredient, GameObject ingredientObj)
     {
         // Store the ingredient data.
         ingredientData = ingredient;
@@ -35,6 +36,13 @@ public class IngredientDisplay : MonoBehaviour
             if (loadedSprite != null)
             {
                 spriteRenderer.sprite = loadedSprite;
+            }
+
+            // Set the ingredient sprite on the pickup component
+            Item pickup = ingredientObj.GetComponent<Item>();
+            if (pickup != null)
+            {
+                pickup.itemSprite = loadedSprite;
             }
         }
 

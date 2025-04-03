@@ -181,7 +181,7 @@ public class ItemSpawnPoints : MonoBehaviour
             IngredientDisplay display = ingredientObj.GetComponent<IngredientDisplay>();
             if (display != null)
             {
-                display.SetIngredient(ingredient);
+                display.SetIngredient(ingredient, ingredientObj);
             }
 
             // Set the ingredient ID on the pickup component
