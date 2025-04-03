@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4376043755851139278}
   - component: {fileID: 7677193179430222548}
+  - component: {fileID: 6788309317194138134}
+  - component: {fileID: 4966731476752426752}
   - component: {fileID: 110721936570364228}
   - component: {fileID: 9141218130024456097}
   - component: {fileID: 3845480523786811223}
@@ -49,6 +51,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedIncrease: 5
   duration: 10
+--- !u!114 &6788309317194138134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248813114700347215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff5c62ecfe1d11489576118b4d87b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  itemName: 
+  description: 
+  isAvailable: 0
+  itemSprite: {fileID: 0}
+--- !u!114 &4966731476752426752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248813114700347215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b01c9559f1920c419fc9f202ab9a248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &110721936570364228
 Rigidbody2D:
   serializedVersion: 5

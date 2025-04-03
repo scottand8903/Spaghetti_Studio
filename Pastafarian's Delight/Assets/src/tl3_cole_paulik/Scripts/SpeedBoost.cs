@@ -5,12 +5,16 @@ public class SpeedBoost : PowerUp
 {
     public float speedIncrease = 5f; // Amount to increase speed
     public float duration = 10f; // Duration of speed boost
+    private static bool isSpeedBoostActive = false; // Prevents multiple instances
 
     public override void ApplyEffect(GameObject player)
     {
         if (PlayerController.Instance != null)
         {
-            PlayerController.Instance.StartCoroutine(ApplySpeedBoost());
+            if (!isSpeedBoostActive) // Apply only if no active boost
+            {
+                PlayerController.Instance.StartCoroutine(ApplySpeedBoost());
+            }
         }
         else
         {
@@ -25,8 +29,7 @@ public class SpeedBoost : PowerUp
         var playerController = PlayerController.Instance;
         if (playerController == null) yield break;
 
-        // Use reflection to access private 'moveSpeed' field
-        var moveSpeedField = typeof(PlayerController).GetField("moveSpeed", 
+        var moveSpeedField = typeof(PlayerController).GetField("moveSpeed",
             System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
 
         if (moveSpeedField == null)
@@ -34,6 +37,9 @@ public class SpeedBoost : PowerUp
             Debug.LogError("Failed to access moveSpeed field.");
             yield break;
         }
+
+        if (isSpeedBoostActive) yield break; // Prevent stacking
+        isSpeedBoostActive = true;
 
         float originalSpeed = (float)moveSpeedField.GetValue(playerController);
         float boostedSpeed = originalSpeed + speedIncrease;
@@ -48,5 +54,7 @@ public class SpeedBoost : PowerUp
         // Reset speed
         moveSpeedField.SetValue(playerController, originalSpeed);
         Debug.Log("Speed Boost Ended. Speed reset to: " + originalSpeed);
+
+        isSpeedBoostActive = false; // Allow new boosts after reset
     }
 }
