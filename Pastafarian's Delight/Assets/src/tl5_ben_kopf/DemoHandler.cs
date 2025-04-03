@@ -11,6 +11,8 @@ public class DemoModeManager : MonoBehaviour
 
     void Start()
     {
+        
+        GameController.Instance.SettingsPanel.SetActive(false);
         demoCanvas?.SetActive(true);
         demoVideoPlayer.Play();
         pressAnyButton.gameObject.SetActive(true);
@@ -21,8 +23,8 @@ public class DemoModeManager : MonoBehaviour
         if (Input.anyKeyDown)
         {
             pressAnyButton.gameObject.SetActive(false);
-
-            SceneManager.LoadScene("SampleScene");
+			GameController.Instance.MainMenuPanel.SetActive(true);
+			SceneManager.LoadScene("SampleScene");
         }
     }
 }

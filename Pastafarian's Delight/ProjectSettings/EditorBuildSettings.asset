@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/tl5_ben_kopf/EnemyTests.unity
     guid: c35248fbf8f18424193c1db6691ce8c9
   - enabled: 1
-    path: Assets/prefabs/tl5_ben_kopf/DemoScene.unity
+    path: Assets/prefabs/tl5_ben_kopf/DemoMode.unity
     guid: 2abe00848c25b544ba36a51fba6a948d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
