@@ -26,7 +26,7 @@
         },
         {
             "dishName": "Baked Ziti",
-            "ingredients": ["ziti", "marinara sauce", "mozzarella"]
+            "ingredients": ["ziti", "mozzarella", "marinara sauce"]
         },
         {
             "dishName": "Pasta Primavera",

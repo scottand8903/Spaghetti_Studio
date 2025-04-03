@@ -35,6 +35,7 @@ public class IngredientDisplay : MonoBehaviour
             // If the sprite is successfully loaded, assign it to the SpriteRenderer.
             if (loadedSprite != null)
             {
+                Debug.Log($"Loaded sprite for ingredient '{ingredientData.name}': {loadedSprite.name}");
                 spriteRenderer.sprite = loadedSprite;
             }
 

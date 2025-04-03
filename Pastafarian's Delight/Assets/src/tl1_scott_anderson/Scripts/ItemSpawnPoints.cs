@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System.Linq.Expressions;
 
 /// <summary>
 /// Handles the spawning of ingredients in specific rooms based on the current puzzle state.
@@ -106,20 +107,25 @@ public class ItemSpawnPoints : MonoBehaviour
         if (roomName == "EastRoom")
         {
             filteredIngredients = availIngredients.Where(ing => ing.id >= 0 && ing.id <= 10).ToList();
+            Debug.Log($"Filtered {filteredIngredients.Count} ingredients for EastRoom");
         }
         else if (roomName == "SouthRoom")
         {
             filteredIngredients = availIngredients.Where(ing => ing.id >= 11 && ing.id <= 28).ToList();
+            Debug.Log($"Filtered {filteredIngredients.Count} ingredients for SouthRoom");
         }
         else if (roomName == "WestRoom")
         {
             filteredIngredients = availIngredients.Where(ing => ing.id >= 29 && ing.id <= 44).ToList();
+            Debug.Log($"Filtered {filteredIngredients.Count} ingredients for WestRoom");
         }
         else
         {
             Debug.LogWarning($"Unknown room: {roomName}. Using all ingredients.");
             filteredIngredients = availIngredients;
         }
+
+        Debug.Log($"Room {roomName} - Total filtered ingredients: {filteredIngredients.Count}");
 
         if (filteredIngredients.Count == 0)
         {

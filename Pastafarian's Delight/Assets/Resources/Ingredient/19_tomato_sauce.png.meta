@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 731fb5fbc06047b2fa8bbee4a4a1075d
+guid: e8ef7d08701e49a62bc3e608f5b52db5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1602743802121752998
-    second: 20_marinara_sauce_0
+      213: -2186107570670042770
+    second: 19_tomato_sauce_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 20_marinara_sauce_0
+      name: 19_tomato_sauce_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a11d6f0ff61e3610800000000000000
-      internalID: 1602743802121752998
+      spriteID: e618b693fb269a1e0800000000000000
+      internalID: -2186107570670042770
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      20_marinara_sauce_0: 1602743802121752998
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

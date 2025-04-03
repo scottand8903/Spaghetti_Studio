@@ -182,12 +182,12 @@
         },
         {
             "id": 20,
-            "name": "Marinara Sauce",
+            "name": "Mozzarella",
             "riddles": [
-                "I'm red like tomato sauce, but lighter and quick, with garlic and herbs, I do the trick. What am I?",
-                "I’m simple and bright, with garlic I shine, over pasta or seafood, my taste is divine. What am I?"
+                "I’m stretchy and soft, on pizza I lay, melted to perfection, I make your day. What am I?",
+                "I’m white and mild, in caprese I sit, fresh or melted, I’m a cheesy hit. What am I?"
             ],
-            "sprite": "20_marinara_sauce"
+            "sprite": "0_spaghetti"
         },
         {
             "id": 21,
@@ -263,6 +263,15 @@
         },
         {
             "id": 29,
+            "name": "Marinara Sauce",
+            "riddles": [
+                "I'm red like tomato sauce, but lighter and quick, with garlic and herbs, I do the trick. What am I?",
+                "I’m simple and bright, with garlic I shine, over pasta or seafood, my taste is divine. What am I?"
+            ],
+            "sprite": "29_marinara_sauce"
+        },
+        {
+            "id": 30,
             "name": "Eggs",
             "riddles": [
                 "Crack my shell and find inside, a golden yolk, a tasty guide. What am I?",
@@ -271,7 +280,7 @@
             "sprite": "0_spaghetti"
         },
         {
-            "id": 30,
+            "id": 31,
             "name": "Parmesan",
             "riddles": [
                 "I’m hard and aged, I’m often shaved, on top of pasta, I’m always craved. What am I?",
@@ -280,7 +289,7 @@
             "sprite": "0_spaghetti"
         },
         {
-            "id": 31,
+            "id": 32,
             "name": "Chili Flakes",
             "riddles": [
                 "A little shake, a lot of heat, on pizza and pasta, I make them complete. What am I?",
@@ -289,7 +298,7 @@
             "sprite": "0_spaghetti"
         },
         {
-            "id": 32,
+            "id": 33,
             "name": "Milk",
             "riddles": [
                 "White and smooth, I help you grow, in coffee and cereal, I love to flow. What am I?",
@@ -298,7 +307,7 @@
             "sprite": "0_spaghetti"
         },
         {
-            "id": 33,
+            "id": 34,
             "name": "Ricotta",
             "riddles": [
                 "Soft and white, I’m creamy and light, in lasagna I hide, but I make it just right. What am I?",
@@ -307,7 +316,7 @@
             "sprite": "0_spaghetti"
         },
         {
-            "id": 34,
+            "id": 35,
             "name": "Garlic",
             "riddles": [
                 "I keep vampires far away, with pungent smell that loves to stay. What am I?",
@@ -315,15 +324,7 @@
             ],
             "sprite": "0_spaghetti"
         },
-        {
-            "id": 35,
-            "name": "Mozzarella",
-            "riddles": [
-                "I’m stretchy and soft, on pizza I lay, melted to perfection, I make your day. What am I?",
-                "I’m white and mild, in caprese I sit, fresh or melted, I’m a cheesy hit. What am I?"
-            ],
-            "sprite": "0_spaghetti"
-        },
+        
         {
             "id": 36,
             "name": "Zucchini",
