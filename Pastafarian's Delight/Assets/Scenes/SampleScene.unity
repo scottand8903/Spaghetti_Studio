@@ -1660,10 +1660,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4199004134832502777, guid: 5fc9badda99877c49a2985690d23f873, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -1883,6 +1879,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1301466844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1405762876 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6843470733886716393, guid: 2c60551e03cef48c5b3e3ff6652eae88, type: 3}
+  m_PrefabInstance: {fileID: 1622827310122105246}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1427556868 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 763503906144196635, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
@@ -2402,6 +2409,7 @@ MonoBehaviour:
   mmQuit: {fileID: 419697252}
   mmSettings: {fileID: 705805935}
   sBackButton: {fileID: 1969159158}
+  BCModeToggle: {fileID: 1405762876}
   pausePanel: {fileID: 1508763951}
   MainMenuPanel: {fileID: 1240330545}
   SettingsPanel: {fileID: 1938664627}
@@ -2418,6 +2426,7 @@ MonoBehaviour:
   ingredient3TXT: {fileID: 1437500166}
   lastDoorUsed: 
   GameRunning: 0
+  BCMode: 0
 --- !u!4 &1807658895
 Transform:
   m_ObjectHideFlags: 0
@@ -3408,6 +3417,10 @@ PrefabInstance:
     - target: {fileID: 6795981591700218330, guid: 2c60551e03cef48c5b3e3ff6652eae88, type: 3}
       propertyPath: m_Name
       value: Menus
+      objectReference: {fileID: 0}
+    - target: {fileID: 6843470733886716393, guid: 2c60551e03cef48c5b3e3ff6652eae88, type: 3}
+      propertyPath: m_IsOn
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8522302590157500102, guid: 2c60551e03cef48c5b3e3ff6652eae88, type: 3}
       propertyPath: audio

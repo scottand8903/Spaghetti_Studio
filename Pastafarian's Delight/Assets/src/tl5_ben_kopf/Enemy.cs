@@ -93,7 +93,7 @@ public class Enemy : MonoBehaviour
         {
 			lastHitTime = Time.time; //Tracks the last time the player was hit
 			Debug.Log(gameObject.name + " Player Hit " + lastHitTime);
-            PlayerController.Instance.updateHealth(-1); //Damages player
+            HealthSystem.Instance.updateHealth(-1); //Damages player
             enemyhandler.updateHealth(-1); // Damages enemy
             Debug.Log(enemyhandler.getHealth());
             if (enemyhandler.getHealth() <= 0)

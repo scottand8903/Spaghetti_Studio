@@ -9,7 +9,7 @@ public class HealthBoost : PowerUp
         PlayerController playerController = player.GetComponent<PlayerController>();
         if (playerController != null)
         {
-            playerController.updateHealth(healthIncrease);  // Call the existing updateHealth method
+            HealthSystem.Instance.updateHealth(healthIncrease);  // Call the existing updateHealth method
             Debug.Log("Health Boost applied! Increased by " + healthIncrease);
         }
 

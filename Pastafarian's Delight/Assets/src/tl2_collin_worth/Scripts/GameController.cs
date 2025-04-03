@@ -21,6 +21,7 @@ public class GameController: MonoBehaviour
     public Button mmQuit;
     public Button mmSettings;
     public Button sBackButton;
+    public Button sDemoModeButton;
     public Toggle BCModeToggle;
     public GameObject pausePanel;
     public GameObject MainMenuPanel;
