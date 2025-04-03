@@ -21,6 +21,7 @@ public class GameController: MonoBehaviour
     public Button mmQuit;
     public Button mmSettings;
     public Button sBackButton;
+    public Toggle BCModeToggle;
     public GameObject pausePanel;
     public GameObject MainMenuPanel;
     public GameObject SettingsPanel;
@@ -33,6 +34,7 @@ public class GameController: MonoBehaviour
 
     public string lastDoorUsed;
     public bool GameRunning;
+    public bool BCMode;
 
     // Private Variables
 
@@ -95,6 +97,8 @@ public class GameController: MonoBehaviour
             Debug.Log("s button doesnt exist");
         }
 
+        BCModeToggle.onValueChanged.AddListener(BCModeChanged);
+
         // PUZZLE MANAGER STUFF
         if(Puzzle.Instance != null)
         {
@@ -112,17 +116,7 @@ public class GameController: MonoBehaviour
         }
 
 
-        // Player Health test
-        if(PlayerController.Instance != null)
-        {
-            Debug.Log("currentHealth: " + PlayerController.Instance.GetHealth());
-            PlayerController.Instance.updateHealth(-1);
-            Debug.Log("currentHealth: " + PlayerController.Instance.GetHealth());
-        }
-        else
-        {
-            Debug.LogError("(GameController)PlayerController instance is not initialized!");
-        }
+    
 
     }
 
@@ -140,7 +134,7 @@ public class GameController: MonoBehaviour
                     ResetGame();
             break;
 
-            case 3: // Play Game
+            case 3: // Start Game
                     MainMenuPanel.SetActive(false);
                     HUD.SetActive(true);
                     GameRunning = true;
@@ -178,13 +172,27 @@ public class GameController: MonoBehaviour
                 }
         }
     }
-    
+
+    void BCModeChanged(bool isOn)
+    {
+        if (isOn)
+        {
+            BCMode = true;
+            Debug.Log("setting BCMODE true");
+        } 
+        else
+        {
+            BCMode = false;
+            Debug.Log("setting BCMODE false");
+        }
+    }
+
     
 
     public void updateHealthSprites(){
 
         for (int i = 0; i < healthSprites.Length; i++){
-            healthSprites[i].SetActive(i < PlayerController.Instance.GetHealth());
+            healthSprites[i].SetActive(i < HealthSystem.Instance.GetHealth());
         }
     }
 

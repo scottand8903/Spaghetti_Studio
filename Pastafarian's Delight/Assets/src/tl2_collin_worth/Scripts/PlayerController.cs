@@ -1,4 +1,59 @@
 using UnityEngine;
+using System.Collections;
+
+
+//////////////////////////////////////////////// Health System (Dynamic Binding) /////////////////////////
+///////////////////////////////////////
+public class HealthSystem 
+{
+    public static HealthSystem Instance { get; private set; }
+
+    public int MAX_HEALTH = 5;
+    public int currentHealth;
+
+    public HealthSystem()
+    {
+        if (Instance == null)
+        {
+            Instance = this; // Assign singleton instance
+        }
+        else
+        {
+            Debug.LogWarning("HealthSystemBC instance already exists!"); // Prevent duplicates
+        }
+
+        currentHealth = MAX_HEALTH;
+    }
+
+    public virtual void updateHealth(int healthChange){
+        if((currentHealth + healthChange) <= MAX_HEALTH){
+            currentHealth += healthChange;
+        }else{
+            currentHealth = MAX_HEALTH;
+        }
+        GameController.Instance.updateHealthSprites();
+
+        if(currentHealth < 1){
+            GameController.Instance.QuitGame(); // change to endGame later
+        }
+    }
+
+    public int GetHealth(){
+        return currentHealth;
+    }
+}
+
+public class HealthSystemBC : HealthSystem
+{
+
+    public HealthSystemBC() : base() { }
+
+    public override void updateHealth(int healthChange){
+        // Do nothing to health
+    }
+}
+////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 public class PlayerController : MonoBehaviour
 {
@@ -6,8 +61,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb = null; 
     private Vector3 moveDirection;
 
-    private int MAX_HEALTH = 5;
-    private int currentHealth;
 
     [SerializeField] private float moveSpeed = 10.0f;
 
@@ -27,18 +80,30 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentHealth = MAX_HEALTH;
+
+        StartCoroutine(WaitForGameRunning());
     }
 
     // Update is called once per frame
     void Update()
     {
         GetPlayerMovement();
+    }
 
+    private IEnumerator WaitForGameRunning()
+    {
+        yield return new WaitUntil(() => GameController.Instance.GameRunning);
+        
+        if(GameController.Instance.BCMode){
+            new HealthSystemBC();
+        }
+        else
+        {
+            new HealthSystem();
+        }
     }
 
     void GetPlayerMovement()
@@ -81,21 +146,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public int GetHealth(){
-        return currentHealth;
-    }
 
-    public void updateHealth(int healthChange){
-        if((currentHealth + healthChange) <= MAX_HEALTH){
-            currentHealth += healthChange;
-        }else{
-            currentHealth = MAX_HEALTH;
-        }
-        GameController.Instance.updateHealthSprites();
-
-        if(currentHealth < 1){
-            GameController.Instance.QuitGame(); // change to endGame later
-        }
-    }
+    
 //////
 }

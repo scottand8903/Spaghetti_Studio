@@ -63,9 +63,6 @@ public class InventorySystem : MonoBehaviour
             inventory[emptySlot] = id;
             inventorySlotsImages[emptySlot].sprite = itemSprite;
 
-            //SaveInventory();
-            //UpdateUI();
-
             Debug.Log("Item Added");
             return 1; // Successfully added
         }
