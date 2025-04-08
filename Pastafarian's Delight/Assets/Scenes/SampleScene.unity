@@ -3495,7 +3495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   ingredientID: 0
-  itemSprite: {fileID: -3753245452764387289, guid: 86f9be98b8307acac8124f4c3d33e9a6, type: 3}
+  itemSprite: {fileID: 3127376677415752078, guid: ccabf0cda99408b8eb33445fbbeecde9, type: 3}
 --- !u!61 &2119931754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3534,8 +3534,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.41, y: 2.41}
-    newSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 2.06, y: 2.34}
+    newSize: {x: 0.37, y: 0.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -3586,15 +3586,15 @@ SpriteRenderer:
   m_SortingLayerID: -1613473003
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3753245452764387289, guid: 86f9be98b8307acac8124f4c3d33e9a6, type: 3}
+  m_Sprite: {fileID: 3127376677415752078, guid: ccabf0cda99408b8eb33445fbbeecde9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.37, y: 0.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &2119931756
@@ -3607,7 +3607,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.1739533, y: -3.1626084, z: 0.39243987}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1301466844}
@@ -3857,6 +3857,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 83546044377995387, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 83546044377995387, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 83546044377995387, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 83546044377995387, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}

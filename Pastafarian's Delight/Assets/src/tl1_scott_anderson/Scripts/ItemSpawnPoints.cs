@@ -178,7 +178,7 @@ public class ItemSpawnPoints : MonoBehaviour
             Transform spawnPoint = spawnPoints[spawnPointIndex];
             Debug.Log($"Spawning {ingredient.name} at SpawnPoint[{spawnPointIndex}] {spawnPoint.position}");
 
-            // Instantiate the ingredient GameObject
+            // Instantiate the ingredient GameObject using the ingredient prefab
             GameObject ingredientObj = Instantiate(ingredientPrefab, spawnPoint.position, Quaternion.identity);
             SetIngredientToFront(ingredientObj);
             ingredientObj.name = ingredient.name;

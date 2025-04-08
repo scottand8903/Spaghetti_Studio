@@ -1,0 +1,20 @@
+# IngredientPrefab
+
+The `IngredientPrefab` is a GameObject used to represent ingredients in the game. It includes the following components:
+
+1. **Sprite Renderer**:
+   - Displays the visual representation of the ingredient using a sprite.
+   - The sprite is dynamically assigned based on the ingredient data.
+
+2. **Box Collider 2D**:
+   - Defines the physical boundaries of the ingredient for collision detection.
+   - Used for interactions such as picking up the ingredient.
+
+3. **IngredientDisplay Script**:
+   - Handles the visual representation and data binding of the ingredient.
+   - Dynamically sets the sprite and updates the GameObject's name based on the ingredient data.
+        - Matches the ingredient data's sprite key value to the name of the sprite in the Resources folder.
+
+4. **Item Script**:
+   - Stores metadata about the ingredient, such as its ID and sprite.
+   - Facilitates interactions with the ingredient, such as collecting it during gameplay.
