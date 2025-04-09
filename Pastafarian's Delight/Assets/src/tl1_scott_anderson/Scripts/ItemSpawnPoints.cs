@@ -180,8 +180,24 @@ public class ItemSpawnPoints : MonoBehaviour
 
             // Instantiate the ingredient GameObject using the ingredient prefab
             GameObject ingredientObj = Instantiate(ingredientPrefab, spawnPoint.position, Quaternion.identity);
-            SetIngredientToFront(ingredientObj);
             ingredientObj.name = ingredient.name;
+            Debug.Log($"Instantiated ingredient object: {ingredientObj.name}");
+
+            // Verify the hierarchy of the instantiated object
+            Transform labelTransform = ingredientObj.transform.Find("IngredientLabel/Canvas/IngredientName");
+            if (labelTransform != null)
+            {
+                Debug.Log($"Found IngredientName under {ingredientObj.name}");
+            }
+            else
+            {
+                Debug.LogError($"IngredientLabel/Canvas/IngredientName not found under {ingredientObj.name}");
+            }
+
+
+
+            SetIngredientToFront(ingredientObj);
+            
 
             // Set the ingredient data on the display component
             IngredientDisplay display = ingredientObj.GetComponent<IngredientDisplay>();

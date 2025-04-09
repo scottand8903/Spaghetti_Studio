@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,8 @@ public class IngredientDisplay : MonoBehaviour
 {
     // The SpriteRenderer component used to display the ingredient's sprite.
     public SpriteRenderer spriteRenderer;
+
+    public TextMeshProUGUI textMeshPro;
 
     // Stores the ingredient data associated with this display.
     private Ingredient ingredientData;
@@ -24,7 +27,18 @@ public class IngredientDisplay : MonoBehaviour
         ingredientData = ingredient;
 
         // Get the SpriteRenderer component attached to this GameObject.
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = ingredientObj.GetComponent<SpriteRenderer>();
+
+        // textMeshPro = GetComponentInChildren<TextMeshPro>();
+        Transform labelTransform = ingredientObj.transform.Find("IngredientLabel/Canvas/IngredientName");
+        if (labelTransform != null)
+        {
+            textMeshPro = labelTransform.GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.LogError("IngredientLabel not found in children.");
+        }
 
         // If the ingredient data is valid and has a sprite, load and set the sprite.
         if (ingredientData != null && !string.IsNullOrEmpty(ingredientData.sprite))
@@ -48,7 +62,25 @@ public class IngredientDisplay : MonoBehaviour
         }
 
         // Update the GameObject's name to match the ingredient's name.
-        gameObject.name = ingredient.name;
+        ingredientObj.name = ingredient.name;
+
+        if(textMeshPro != null)
+        {
+            textMeshPro.text = ingredient.name;
+            textMeshPro.fontSize = 36;
+            textMeshPro.color = Color.white;
+
+            RectTransform textTransform = textMeshPro.GetComponent<RectTransform>();
+            // RectTransform textTransform = textMeshPro.GetComponent<RectTransform>();
+            if (textTransform != null)
+            {
+                textTransform.localPosition = new Vector3(0, -spriteRenderer.bounds.size.y / 2 - 0.2f, 0);
+            }
+        }
+        else
+        {
+            Debug.LogError("TextMeshPro component not found in children.");
+        }
     }
 
     /// <summary>

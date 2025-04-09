@@ -38,6 +38,26 @@ public class Puzzle : PuzzleManager
     }
 
     /// <summary>
+    /// Creates the singleton instance of the Puzzle class.
+    /// </summary>
+    /// <param name="dishes">Array of available pasta dishes.</param>
+    /// <param name="loader">Ingredient loader for retrieving ingredient data.</param>
+    public static void CreateInstance(PastaDish[] dishes, IngredientLoader loader)
+    {
+        Debug.Log("Attempting to create Puzzle instance...");
+        if (_instance == null)
+        {
+            _instance = new Puzzle(dishes, loader);
+            Debug.Log("Puzzle instance created");
+        }
+        else
+        {
+            Debug.LogWarning("Puzzle instance already exists!");
+        }
+    }
+
+
+    /// <summary>
     /// Initializes a new instance of the Puzzle class.
     /// </summary>
     /// <param name="dishes">Array of available pasta dishes.</param>
@@ -62,24 +82,6 @@ public class Puzzle : PuzzleManager
         }
     }
 
-    /// <summary>
-    /// Creates the singleton instance of the Puzzle class.
-    /// </summary>
-    /// <param name="dishes">Array of available pasta dishes.</param>
-    /// <param name="loader">Ingredient loader for retrieving ingredient data.</param>
-    public static void CreateInstance(PastaDish[] dishes, IngredientLoader loader)
-    {
-        Debug.Log("Attempting to create Puzzle instance...");
-        if (_instance == null)
-        {
-            _instance = new Puzzle(dishes, loader);
-            Debug.Log("Puzzle instance created");
-        }
-        else
-        {
-            Debug.LogWarning("Puzzle instance already exists!");
-        }
-    }
 
     /// <summary>
     /// Gets the currently selected pasta dish.
