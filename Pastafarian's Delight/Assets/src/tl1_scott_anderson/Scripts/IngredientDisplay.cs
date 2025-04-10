@@ -42,7 +42,6 @@ public class IngredientDisplay : MonoBehaviour
             // Scale and position the canvas
             canvasComponent.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             canvasComponent.transform.localPosition = spawnPointPosition + new Vector3(0, -1f, -0.1f);
-            // new Vector3(0, spriteRenderer.bounds.size.y / 2 + 0.2f, -0.1f);
 
             // Match the sorting layer of the ingredient
             canvasComponent.sortingLayerName = spriteRenderer.sortingLayerName;
