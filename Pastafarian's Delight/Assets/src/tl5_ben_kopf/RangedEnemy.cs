@@ -11,6 +11,7 @@ public class RangedEnemy : Enemy
     protected override void Start()
     {
         base.Start();
+        agent.stoppingDistance = 0f;
     }
 
     // Update is called once per frame
@@ -43,6 +44,11 @@ public class RangedEnemy : Enemy
     private void RangedMovement(Transform target, NavMeshAgent agent)
     {
         float distanceToTarget = Vector2.Distance(transform.position, target.position);
+
+        Vector2 direction = (target.position - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
+
+        transform.rotation = Quaternion.Euler(0, 0, angle);
 
         if (distanceToTarget > stopDistance) // Move only if beyond stop distance
         {

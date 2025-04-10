@@ -1,3 +1,4 @@
+using Mono.Cecil;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -39,7 +40,19 @@ public class MeleeEnemy : Enemy
 
 	void MeleeMove(Transform target,NavMeshAgent agent)
 	{
-		agent.SetDestination((Vector3)target.position);
+        float distance = Vector2.Distance(player.position, transform.position);
+        if (distance > stopDistance)
+        {
+            agent.isStopped = false;
+            agent.SetDestination(player.position);
+        }
+        else
+        {
+            agent.isStopped = true; // Stop moving when close enough
+        }
+        Vector2 direction = (target.position - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
+		transform.rotation = Quaternion.Euler(0, 0, angle);
 	}
     //Collision Damage
     //protected override void OnCollisionEnter2D(Collision2D collision)

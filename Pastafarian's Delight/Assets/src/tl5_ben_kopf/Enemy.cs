@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float hitCooldown = 1f;
     public Transform player;
     public EnemyHandlerBC enemyhandler;
+    public float stopDistance = 2f;
 
     protected float speed;
     protected float health;
@@ -44,6 +45,7 @@ public class Enemy : MonoBehaviour
         findPlayer();
         enemyhandler = new EnemyHandler();
         enemyhandler.setHealth(baseHealth);
+        agent.stoppingDistance = stopDistance;
     }
 
 
