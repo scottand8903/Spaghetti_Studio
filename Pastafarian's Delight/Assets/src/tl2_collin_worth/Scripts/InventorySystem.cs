@@ -69,6 +69,12 @@ public class InventorySystem : MonoBehaviour
         return 0;
     }
 
+    public int[] GetInventoryIDs()
+    {
+        // Since it is a clone you will not beable to modify inventory with this function
+        return (int[])inventory.Clone();
+    }
+
     int nextEmpty()
     {
         for (int i = 0; i < MAX_SPACE; i++)
