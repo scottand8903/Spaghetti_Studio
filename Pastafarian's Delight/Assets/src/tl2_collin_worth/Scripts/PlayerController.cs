@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     // Private Variables
     private Rigidbody2D rb = null; 
     private Vector3 moveDirection;
+    private Animator animator;
 
 
     [SerializeField] private float moveSpeed = 10.0f;
@@ -85,12 +86,35 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         StartCoroutine(WaitForGameRunning());
+        animator = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         GetPlayerMovement();
+        
+        bool up = Input.GetKey(KeyCode.W);
+        bool down = Input.GetKey(KeyCode.S);
+        bool left = Input.GetKey(KeyCode.A);
+        bool right = Input.GetKey(KeyCode.D);
+
+        // Clear all first
+        animator.SetBool("walkingUp", false);
+        animator.SetBool("walkingDown", false);
+        animator.SetBool("walkingLeft", false);
+        animator.SetBool("walkingRight", false);
+
+        // Prioritize directions (up > down > left > right)
+        if (up)
+            animator.SetBool("walkingUp", true);
+        else if (down)
+            animator.SetBool("walkingDown", true);
+        else if (left)
+            animator.SetBool("walkingLeft", true);
+        else if (right)
+            animator.SetBool("walkingRight", true); 
     }
 
     private IEnumerator WaitForGameRunning()
