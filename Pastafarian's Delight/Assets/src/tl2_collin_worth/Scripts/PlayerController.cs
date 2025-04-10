@@ -132,33 +132,33 @@ public class PlayerController : MonoBehaviour
     }
 
     void GetPlayerMovement()
+{
+    bool pressingUp = Input.GetKey(KeyCode.W);
+    bool pressingLeft = Input.GetKey(KeyCode.A);
+    bool pressingDown = Input.GetKey(KeyCode.S);
+    bool pressingRight = Input.GetKey(KeyCode.D);
+
+    // Create a movement direction vector (x, y)
+    Vector2 movement = Vector2.zero;
+
+    if (pressingUp)
+        movement.y = moveSpeed;
+    if (pressingDown)
+        movement.y = -moveSpeed;
+    if (pressingRight)
+        movement.x = moveSpeed;
+    if (pressingLeft)
+        movement.x = -moveSpeed;
+
+    // Normalize the movement vector to prevent faster diagonal movement
+    if (movement.magnitude > 1) // To avoid dividing by 0
     {
-        bool pressingUp = Input.GetKey(KeyCode.W);
-        bool pressingLeft = Input.GetKey(KeyCode.A);
-        bool pressingDown = Input.GetKey(KeyCode.S);
-        bool pressingRight = Input.GetKey(KeyCode.D);
-
-        // Reset velocity each frame to handle movement correctly
-        rb.linearVelocity = Vector2.zero;
-
-        // Handle movement based on player input
-        if (pressingUp)
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, moveSpeed); // Move up
-        }
-        if (pressingDown)
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, -moveSpeed); // Move down
-        }
-        if (pressingRight)
-        {
-            rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y); // Move right
-        }
-        if (pressingLeft)
-        {
-            rb.linearVelocity = new Vector2(-moveSpeed, rb.linearVelocity.y); // Move left
-        }
+        movement.Normalize();
     }
+
+    // Apply the velocity based on the movement direction
+    rb.linearVelocity = movement * moveSpeed;  // Multiply by moveSpeed to maintain consistent speed
+}
 
     // Stop the player's movement on collision
     void OnCollisionEnter2D(Collision2D collision)
