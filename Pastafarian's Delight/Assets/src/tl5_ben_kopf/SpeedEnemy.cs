@@ -9,6 +9,7 @@ public class SpeedEnemy : MeleeEnemy
         agent.speed *= 2f;
         enemyhandler.setHealth(baseSpeedHealth);
         Debug.Log(gameObject.name + " spawned with " + health + " health.");
+        agent.stoppingDistance = 0f;
 
     }
 
