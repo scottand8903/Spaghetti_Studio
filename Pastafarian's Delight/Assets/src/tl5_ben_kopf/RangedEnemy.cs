@@ -6,7 +6,7 @@ using static Enemy;
 
 public class RangedEnemy : Enemy
 {
-    [SerializeField] private float stopDistance = 5.0f; // Distance at which enemy stops moving
+    [SerializeField] private float maxDistance = 5.0f; // Distance at which enemy stops moving
     [SerializeField] private float tooClose = 3.0f;
     protected override void Start()
     {
@@ -50,7 +50,7 @@ public class RangedEnemy : Enemy
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        if (distanceToTarget > stopDistance) // Move only if beyond stop distance
+        if (distanceToTarget > maxDistance) // Move only if beyond stop distance
         {
             agent.SetDestination(target.position);
         }
@@ -58,11 +58,11 @@ public class RangedEnemy : Enemy
         {
             // Move away from the player
             Vector2 retreatDirection = (transform.position - target.position).normalized;
-            Vector3 retreatPosition = transform.position + (Vector3)retreatDirection * stopDistance;
+            Vector3 retreatPosition = transform.position + (Vector3)retreatDirection * maxDistance;
 
             // Ensure the enemy can move to the new position
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(retreatPosition, out hit, stopDistance, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(retreatPosition, out hit, maxDistance, NavMesh.AllAreas))
             {
                 agent.SetDestination(hit.position);
             }

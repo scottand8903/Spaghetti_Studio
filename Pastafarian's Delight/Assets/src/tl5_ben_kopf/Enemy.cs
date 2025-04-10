@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour
         findPlayer();
         enemyhandler = new EnemyHandler();
         enemyhandler.setHealth(baseHealth);
+        enemyhandler.OnDeath += Die;
         agent.stoppingDistance = stopDistance;
     }
 
@@ -98,10 +99,6 @@ public class Enemy : MonoBehaviour
             HealthSystem.Instance.updateHealth(-1); //Damages player
             enemyhandler.updateHealth(-1); // Damages enemy
             Debug.Log(enemyhandler.getHealth());
-            if (enemyhandler.getHealth() <= 0)
-            {
-                Die();
-            }
         }
 
         // Check if the enemy collided with a wall
@@ -148,7 +145,10 @@ public class Enemy : MonoBehaviour
         //add animator stuff here when that happens
         Destroy(gameObject);
     }
-
+	private void OnDestroy()
+	{
+        enemyhandler.OnDeath -= Die;
+	}
 }
 
 

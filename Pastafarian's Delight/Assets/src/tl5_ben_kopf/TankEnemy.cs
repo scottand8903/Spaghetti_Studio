@@ -8,7 +8,6 @@ public class TankEnemy : MeleeEnemy
     {
         base.Start();
         enemyhandler.setHealth(baseTankHealth);
-        Debug.Log(gameObject.name + " spawned with " + health + " health.");
 
     }
 
