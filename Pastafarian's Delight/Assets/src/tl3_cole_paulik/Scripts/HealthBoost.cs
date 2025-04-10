@@ -2,20 +2,27 @@ using UnityEngine;
 
 public class HealthBoost : PowerUp
 {
-    public int healthIncrease = 1;  // Default value
+    private IPowerUpEffect effect;
+
+    private void Awake()
+    {
+        // DYNAMIC BINDING — change this chain to alter behavior without editing other code
+        IPowerUpEffect baseEffect = new BasicHealthBoost();
+        effect = new EffectLoggerDecorator(new HealthMultiplierDecorator(baseEffect, 1));
+    }
 
     public override void ApplyEffect(GameObject player)
     {
-        if (HealthSystem.Instance != null) 
-        {
-            HealthSystem.Instance.updateHealth(healthIncrease);  // Call the existing updateHealth method
-            Debug.Log("Health Boost applied! Increased by " + healthIncrease);
-        }
-        else
-        {
-            Debug.LogError("HealthSystem instance not found!");
-        }
+        effect.Apply(player);
+        Destroy(gameObject);
+    }
 
-        Destroy(gameObject);  // Remove the power-up after use
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            effect.Apply(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

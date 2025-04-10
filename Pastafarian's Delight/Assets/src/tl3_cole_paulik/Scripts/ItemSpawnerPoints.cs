@@ -10,6 +10,7 @@ public class ItemSpawnerPoints : MonoBehaviour
     // Prefabs for the item GameObjects
     public GameObject HealingItemPrefab;
     public GameObject speedItemPrefab; // Added Speed Item Prefab
+    public GameObject regenerationPowerUpPrefab;
 
     // Dictionary to track spawned items and their positions
     private Dictionary<int, GameObject> spawnedItems = new Dictionary<int, GameObject>();
@@ -27,8 +28,8 @@ public class ItemSpawnerPoints : MonoBehaviour
         {
             Transform spawnPoint = spawnPoints[i];
 
-            // Randomly choose between the regular item and the speed item (50% chance for each)
-            GameObject itemToSpawn = (Random.value > 0.5f) ? HealingItemPrefab : speedItemPrefab;
+            // Randomly choose between three item types
+            GameObject itemToSpawn = GetRandomItem();
 
             if (itemToSpawn == null)
             {
@@ -44,6 +45,24 @@ public class ItemSpawnerPoints : MonoBehaviour
             spawnedItems[i] = newItem;
 
             Debug.Log($"Spawned {newItem.name} at {spawnPoint.position}");
+        }
+    }
+
+    // Method to randomly choose between three items
+    private GameObject GetRandomItem()
+    {
+        // Randomly choose between three items
+        int randomIndex = Random.Range(0, 3); // 0, 1, or 2
+        switch (randomIndex)
+        {
+            case 0:
+                return HealingItemPrefab;
+            case 1:
+                return speedItemPrefab;
+            case 2:
+                return regenerationPowerUpPrefab;
+            default:
+                return HealingItemPrefab; // Fallback, should not happen
         }
     }
 

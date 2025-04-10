@@ -509,7 +509,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cuteGuy_0: 4968558750069741777
+      cuteGuy_1: -4635732638700568370
+      cuteGuy_10: -88226982777945534
+      cuteGuy_11: -4253517922100975305
+      cuteGuy_12: -1819460435912667205
+      cuteGuy_13: -2323873517002907100
+      cuteGuy_14: 8699180336505692261
+      cuteGuy_15: -8884530040039649856
+      cuteGuy_2: -7081687694030628854
+      cuteGuy_3: -5316363217092164325
+      cuteGuy_4: -924872812822255368
+      cuteGuy_5: 2843753802163475187
+      cuteGuy_6: -7733320820444153807
+      cuteGuy_7: 6741928065799166695
+      cuteGuy_8: 5022007551231195216
+      cuteGuy_9: 7734938186418927864
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
