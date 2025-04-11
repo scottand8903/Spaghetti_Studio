@@ -53,7 +53,7 @@ MonoBehaviour:
   itemName: 
   description: 
   isAvailable: 0
-  itemSprite: {fileID: -9019422963520589230, guid: 3a1224cc1d272ed478773e05664503c5, type: 3}
+  itemSprite: {fileID: -9019422963520589230, guid: 4ee578d9305d38d409581ece552095c5, type: 3}
 --- !u!114 &-7732543376700378038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ SpriteRenderer:
   m_SortingLayerID: -1613473003
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9019422963520589230, guid: 3a1224cc1d272ed478773e05664503c5, type: 3}
+  m_Sprite: {fileID: -9019422963520589230, guid: 4ee578d9305d38d409581ece552095c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
