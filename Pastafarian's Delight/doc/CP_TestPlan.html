@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Test Plan</title>
+    </head>
+
+<body style= "background-color:#FFFFFF;">
+
+<H1>Question:</H1>
+ 
+Walk me through your test plan. Give an example where a test case later found a bug in your code by things a teammate added later. (Or explain why you chose a test case specifically because you wanted to ensure that a teammate would know if they broke your code.)
+
+<H1>Explanation:</H1>
+<ul>
+
+<li>I noticed that when Collin changed the way that health was called it messed with my already existing code. So I had to change to the my code and tests to use the new updateHealth functions. </li>
+
+<li>I also had issues of getting the healing items to work and through testing I was able to see I was updating the health, but it was never getting called so I was able to fix that. </li> 
+	  
+<li>I also had a few other boundary tests where I would spawn lots of items until a maximum and I also would test whether or not I would be able to apply speed boosts past a certain point. </li>
+<ul>
+      <li>I noticed that I was unable to spawn items past the maximum</li>
+
+      <li>I also noticed that my speed boost was not stopping at the maximum value and would keep increasing.</li>
+</ul>
+</ul>
+
+<H1>Test Plan:</H1>
+<ul>
+
+<li><a href="./CP_BoundaryTests.html" target="_blank" rel="noopener noreferrer">Boundary Tests</a></li>
+<li><a href="./CP_StressTest.html" target="_blank" rel="noopener noreferrer">Stress Test</a></li>
+
+</ul>
+</body>
+
+</html>

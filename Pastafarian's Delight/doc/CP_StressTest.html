@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Boundary Tests</title>
+    </head>
+
+<body style= "background-color:#FFFFFF;">
+
+<pre>
+
+using NUnit.Framework;
+using UnityEngine;
+using System.Collections;
+using UnityEngine.TestTools;
+
+public class ItemSpawnerStressTests
+{
+    private GameObject spawnerObject;
+    private ItemSpawner itemSpawner;
+
+    private const float spawnTimeThreshold = 1f; // Performance limit (in seconds)
+    private int spawnBatchSize = 10; // Start small, increase over time
+    private int totalSpawnedItems = 0; // Track actual count
+    private const int maxTestItems = 100000; // Prevent Unity from crashing
+
+    [SetUp]
+    public void Setup()
+    {
+        spawnerObject = new GameObject();
+        itemSpawner = spawnerObject.AddComponent<ItemSpawner>();
+        itemSpawner.itemPrefab = new GameObject(); // Mock prefab (empty GameObject)
+        itemSpawner.limitEnabled = false; // Allow unlimited item spawning
+    }
+
+    [UnityTest]
+    public IEnumerator StressTest_FindBreakingPoint()
+    {
+        bool isBreaking = false;
+
+        while (!isBreaking)
+        {
+            yield return null; // Allow Unity to process before timing
+
+            float startTime = Time.realtimeSinceStartup;
+
+            // Spawn a batch of items
+            itemSpawner.SpawnItems(spawnBatchSize);
+
+            yield return null; // Ensure Unity updates objects before measuring time
+
+            float spawnDuration = Time.realtimeSinceStartup - startTime;
+            totalSpawnedItems = itemSpawner.transform.childCount; // Get actual count
+
+            Debug.Log($"Spawned {spawnBatchSize} items in {spawnDuration} seconds. Total: {totalSpawnedItems}");
+
+            // Stop if it takes too long OR we reach safety cap
+            if (spawnDuration > spawnTimeThreshold || totalSpawnedItems >= maxTestItems)
+            {
+                isBreaking = true;
+                Debug.LogError($"Breaking point reached at {totalSpawnedItems} items. Spawn took {spawnDuration} sec.");
+            }
+            else
+            {
+                spawnBatchSize += 10; // Gradually increase stress
+            }
+
+            yield return new WaitForSeconds(0.1f); // Prevent instant overload
+        }
+
+        Debug.Log($"Test complete. Final count: {totalSpawnedItems} items.");
+    }
+
+    [TearDown]
+    public void Teardown()
+    {
+        Object.Destroy(spawnerObject);
+    }
+}
+
+</pre>
+</body>
+</html>
