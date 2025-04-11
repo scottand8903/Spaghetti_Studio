@@ -1,18 +1,9 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Pastafarian's Delight/Assets/Mad Scientist's Games/2D Kit - Top View Interior/Interior/4. Kitchen/150 ppi/Bake.png.meta
 guid: 4ee578d9305d38d409581ece552095c5
 TextureImporter:
   internalIDToNameTable: []
-========
-guid: 3a1224cc1d272ed478773e05664503c5
-TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -9019422963520589230
-    second: RegenerationItem_0
->>>>>>>> 814279ffe3a433c5963982c2d48bd2f426c5e8a7:Pastafarian's Delight/Assets/Resources/PowerUps/RegenerationItem.png.meta
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -29,9 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -49,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -63,80 +57,35 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
-  platformSettings:
-  - serializedVersion: 3
-    buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings: []
   spriteSheet:
     serializedVersion: 2
-<<<<<<<< HEAD:Pastafarian's Delight/Assets/Mad Scientist's Games/2D Kit - Top View Interior/Interior/4. Kitchen/150 ppi/Bake.png.meta
     sprites: []
-========
-    sprites:
-    - serializedVersion: 2
-      name: RegenerationItem_0
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 5
-        width: 78
-        height: 110
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 252ba540a9294d280800000000000000
-      internalID: -9019422963520589230
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
->>>>>>>> 814279ffe3a433c5963982c2d48bd2f426c5e8a7:Pastafarian's Delight/Assets/Resources/PowerUps/RegenerationItem.png.meta
     outline: []
+    customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-<<<<<<<< HEAD:Pastafarian's Delight/Assets/Mad Scientist's Games/2D Kit - Top View Interior/Interior/4. Kitchen/150 ppi/Bake.png.meta
-  spritePackingTag: 
-========
     spriteCustomMetadata:
       entries: []
     nameFileIdTable: {}
   mipmapLimitGroupName: 
->>>>>>>> 814279ffe3a433c5963982c2d48bd2f426c5e8a7:Pastafarian's Delight/Assets/Resources/PowerUps/RegenerationItem.png.meta
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 238263
-  packageName: 2D Kit - Top View Interior
-  packageVersion: 1.0.0
-  assetPath: Assets/Mad Scientist's Games/2D Kit - Top View Interior/Interior/4.
-    Kitchen/150 ppi/Bake.png
-  uploadId: 545550
