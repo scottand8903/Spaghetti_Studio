@@ -28,10 +28,23 @@ public class PuzzleManager
     /// <returns>A randomly selected PastaDish object, or null if no dishes are available.</returns>
     public virtual PastaDish PickPastaDish()
     {
-        if (pastaDishes.Count > 0)
+        bool levelOneDish = true;
+        if (pastaDishes.Count > 0 && levelOneDish)
         {
             // Return a random dish from the list.
+            levelOneDish = false;
             return pastaDishes[Random.Range(0, pastaDishes.Count)];
+        }
+        else if(pastaDishes.Count > 0 && !levelOneDish)
+        {
+            PastaDish newDish;
+            do
+            {
+                // Pick a random dish from the list.
+                newDish = pastaDishes[Random.Range(0, pastaDishes.Count)];
+            } while (newDish == Puzzle.Instance.currentDish);
+            // Return a random dish from the list.
+            return newDish;
         }
         else
         {
@@ -41,3 +54,5 @@ public class PuzzleManager
         }
     }
 }
+
+

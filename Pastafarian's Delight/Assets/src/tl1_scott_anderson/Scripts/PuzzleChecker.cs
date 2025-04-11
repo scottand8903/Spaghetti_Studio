@@ -4,10 +4,30 @@ using System.Linq;
 
 public class PuzzleChecker : MonoBehaviour
 {
+    private bool isPlayerInRange = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CheckIfCorrect();
+        if (collision.CompareTag("Player"))
+        {
+            isPlayerInRange = true;
+        }
+        // CheckIfCorrect();
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isPlayerInRange = false;
+        }
+    }
+    private void Update()
+    {
+        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
+        {
+            CheckIfCorrect();
+        }
     }
 
     public void CheckIfCorrect()
@@ -40,12 +60,25 @@ public class PuzzleChecker : MonoBehaviour
 
         // If all 3 slots match
         Debug.Log("All 3 ingredients in the first 3 slots match the current dish!");
-        ConfirmMatch();
-    }
-
-    private void ConfirmMatch()
-    {
         Debug.Log("Puzzle complete.");
+
+        SelectNewPuzzle();
     }
 
+    private void SelectNewPuzzle()
+    {
+        Puzzle.Instance.currentDish = Puzzle.Instance.PickPastaDish();
+
+        if(Puzzle.Instance.currentDish != null)
+        {
+            Debug.Log($"New puzzle selected: {Puzzle.Instance.currentDish.dishName}");
+
+            GameStateManager.Instance.ResetAllRooms();
+            GameStateManager.Instance.ResetCollectedIngredients();
+        }
+        else
+        {
+            Debug.LogError("No new puzzle was selected");
+        }
+    }
 }
