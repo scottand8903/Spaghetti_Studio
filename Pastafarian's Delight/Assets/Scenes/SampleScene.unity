@@ -1043,7 +1043,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.640367, y: -0.439114, z: -24.22264}
+  m_LocalPosition: {x: 1.2117223, y: -0.43910435, z: -24.222641}
   m_LocalScale: {x: 3.7037034, y: 3.7037034, z: 3.7037034}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2728,10 +2728,12 @@ MonoBehaviour:
   mmSettings: {fileID: 705805935}
   sBackButton: {fileID: 1969159158}
   sDemoModeButton: {fileID: 292885980}
+  dQuitButton: {fileID: 1622827310122105249}
   BCModeToggle: {fileID: 1213542255}
   pausePanel: {fileID: 1508763951}
   MainMenuPanel: {fileID: 1240330545}
   SettingsPanel: {fileID: 1938664627}
+  DeathScreen: {fileID: 1622827310122105248}
   HUD: {fileID: 1955994758}
   healthSprites:
   - {fileID: 290973113}
@@ -3492,7 +3494,7 @@ Transform:
   m_GameObject: {fileID: 2076733611}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -334.1, y: -206.1, z: 0}
+  m_LocalPosition: {x: -332.9, y: -206.1, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3539,7 +3541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f1806eb08a44b25a9edd705955e109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
 --- !u!61 &2076733616
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4186,6 +4187,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8997174911946299749, guid: 2c60551e03cef48c5b3e3ff6652eae88, type: 3}
   m_PrefabInstance: {fileID: 1622827310122105246}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1622827310122105248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3959877109234493520, guid: 2c60551e03cef48c5b3e3ff6652eae88, type: 3}
+  m_PrefabInstance: {fileID: 1622827310122105246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1622827310122105249 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9149178904908708394, guid: 2c60551e03cef48c5b3e3ff6652eae88, type: 3}
+  m_PrefabInstance: {fileID: 1622827310122105246}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5526229541259344348
 PrefabInstance:
   m_ObjectHideFlags: 0

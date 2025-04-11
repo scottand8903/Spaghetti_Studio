@@ -34,7 +34,7 @@ public class HealthSystem
         GameController.Instance.updateHealthSprites();
 
         if(currentHealth < 1){
-            GameController.Instance.QuitGame(); // change to endGame later
+            GameController.Instance.endGame();
         }
     }
 
@@ -61,22 +61,21 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb = null; 
     private Vector3 moveDirection;
     private Animator animator;
-
-
-    [SerializeField] private float moveSpeed = 10.0f;
+    private float moveSpeed = 10.0f;
 
 
     public static PlayerController Instance { get; private set; }
 
     void Awake()
     {
-        if (Instance == null)
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Prevent duplication
+            return;
+        }else
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-        }else
-        {
-            Destroy(gameObject);
         }
     }
 

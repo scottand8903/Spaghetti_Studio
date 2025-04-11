@@ -23,10 +23,12 @@ public class GameController: MonoBehaviour
     public Button mmSettings;
     public Button sBackButton;
     public Button sDemoModeButton;
+    public Button dQuitButton;
     public Toggle BCModeToggle;
     public GameObject pausePanel;
     public GameObject MainMenuPanel;
     public GameObject SettingsPanel;
+    public GameObject DeathScreen;
     public GameObject HUD;
     public GameObject[] healthSprites;
     public TextMeshProUGUI dishNameTXT;
@@ -75,6 +77,7 @@ public class GameController: MonoBehaviour
         SettingsPanel.SetActive(false);
         pausePanel.SetActive(false);
         HUD.SetActive(false);
+        DeathScreen.SetActive(false);
         
 
 
@@ -100,6 +103,7 @@ public class GameController: MonoBehaviour
         }
 
         BCModeToggle.onValueChanged.AddListener(BCModeChanged);
+        dQuitButton.onClick.AddListener(QuitGame);
 
         //Load Demo mode button
         if(IsSceneValid("DemoMode"))
@@ -225,6 +229,14 @@ public class GameController: MonoBehaviour
         for (int i = 0; i < healthSprites.Length; i++){
             healthSprites[i].SetActive(i < HealthSystem.Instance.GetHealth());
         }
+    }
+
+    public void endGame(){
+        HUD.SetActive(false);
+        DeathScreen.SetActive(true);
+        Time.timeScale = 0f;
+        GameRunning = false;
+
     }
 
     public void Resume(){
