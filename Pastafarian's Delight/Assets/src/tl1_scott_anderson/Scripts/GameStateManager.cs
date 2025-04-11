@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 /// <summary>
 /// Manages the game state, including tracking ingredients in rooms and collected ingredients.
@@ -77,5 +78,20 @@ public class GameStateManager : MonoBehaviour
     public bool IsIngredientCollected(int ingredientID)
     {
         return collectedIngredients.Contains(ingredientID);
+    }
+
+    public void ResetCollectedIngredients()
+    {
+        collectedIngredients.Clear();
+        Debug.Log("Collected ingredients reset.");
+    }
+
+    public void ResetAllRooms()
+    {
+        foreach(var roomName in roomIngredients.Keys.ToList())
+        {
+            roomIngredients[roomName].Clear();
+            Debug.Log($"All ingredients in room {roomName} have been reset.");
+        }
     }
 }

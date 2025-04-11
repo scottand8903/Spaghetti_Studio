@@ -158,7 +158,7 @@ MonoBehaviour:
   - {fileID: 2082281118}
   - {fileID: 1331083590}
   spawnInterval: 0.1
-  maxEnemies: 20
+  maxEnemies: 5
   currentEnemyCount: 0
 --- !u!4 &171578564
 Transform:
