@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healing Power Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 2em;
+      background-color: #f9f9f9;
+      color: #000;
+    }
+    ul {
+      list-style: disc;
+      padding-left: 2em;
+    }
+    ul ul {
+      list-style: circle;
+      padding-left: 2em;
+    }
+    .section {
+      margin-top: 1.5em;
+    }
+  </style>
+</head>
+<body>
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+  <!-- Left side: Info -->
+  <div style="flex: 1; padding-right: 2em;">
+    <h1>Healing Power Up</h1>
+    <div class="rating">★★★★★ (12 reviews)</div>
+    <p><strong>Author:</strong> Cole Paulik</p>
+    <p class="price">$0.99</p>
+    <p class="version">Version: 1.0</p>
+  </div>
+
+  <!-- Right side: Embedded video -->
+  <div style="flex: 1;">
+    <video width="100%" height="215" controls>
+	  <source src="CP_HealingItemPrefab.mp4" type="video/mp4">
+	  Your browser does not support the video tag.
+	</video>
+  </div>
+</div>
+
+
+  <div class="section">
+    <h2>Description</h2>
+    <p>This prefab allows you to add a Healing Power Up in Unity. It includes essential components for increasing the players’ health.</p>
+  </div>
+
+  <div class="section">
+    <h2>Components</h2>
+    <ul>
+      <li><strong>Game Item Script</strong>
+        <ul>
+          <li>Base for the power up.</li>
+          <li>Can set the id, itemName, description, isAvailable, and itemSprite.</li>
+          <li>Debug logs when item is available and when item is collided with.</li>
+        </ul>
+      </li>
+      <li><strong>Power Up Script</strong>
+        <ul>
+          <li>Base classes for the power up.</li>
+          <li>Debug logs when powerup has been applied to player.</li>
+          <li>Can modify the values for the healing item.</li>
+        </ul>
+      </li>
+      <li><strong>Health Boost Script</strong>
+        <ul>
+          <li>Main script for applying health boost.</li>
+          <li>When a player collides with the object it increases their health.</li>
+        </ul>
+      </li>
+      <li><strong>Sprite Renderer</strong>
+        <ul>
+          <li>Displays the healing sprite.</li>
+          <li>Customize the healing sprite with the Sprite Renderer component.</li>
+          <li>Ensure that the sorting layer is appropriate to display the healing sprite.</li>
+        </ul>
+      </li>
+      <li><strong>Box Collider 2D</strong>
+        <ul>
+          <li>Provides a collision boundary around the healing item.</li>
+          <li>Set the dimensions to match the size of the sprite for accurate collision.</li>
+        </ul>
+      </li>
+      <li><strong>Rigidbody 2D</strong>
+        <ul>
+          <li>Manages the sprite’s physics.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Setup Instructions</h2>
+    <p>Drag the Healing Item prefab into the scene. Ensure the Game Item, Power Up, and Health Boost scripts are configured with appropriate settings for healing values. Adjust the Box Collider 2D appropriately to ensure accurate collision detection. Test the Healing item in play mode to confirm behavior.</p>
+  </div>
+
+  <div class="section">
+    <h2>Requirements</h2>
+    <p>Unity 6000.0.36f1 or later</p>
+  </div>
+
+</body>
+</html>
