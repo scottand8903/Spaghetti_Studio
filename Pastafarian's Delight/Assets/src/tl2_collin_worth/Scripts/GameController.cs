@@ -16,6 +16,7 @@ using UnityEditor;
 public class GameController: MonoBehaviour
 {
     // Public Variables
+    public GameObject ingredientAnswers;
     public Button mmStartGame;
     public Button pmToMainMenu;
     public Button pmResume;
@@ -78,6 +79,7 @@ public class GameController: MonoBehaviour
         pausePanel.SetActive(false);
         HUD.SetActive(false);
         DeathScreen.SetActive(false);
+        ingredientAnswers.SetActive(false);
         
 
 
@@ -209,11 +211,13 @@ public class GameController: MonoBehaviour
         {
             BCMode = true;
             Debug.Log("setting BCMODE true");
+            ingredientAnswers.SetActive(true);
         } 
         else
         {
             BCMode = false;
             Debug.Log("setting BCMODE false");
+            ingredientAnswers.SetActive(false);
         }
     }
 

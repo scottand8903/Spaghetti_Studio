@@ -7,7 +7,7 @@ public class InventorySystem : MonoBehaviour
     public Sprite emptyImage;
     public Sprite[] itemSprites;
     public int[] inventory;
-    private int MAX_SPACE = 5;
+    private int MAX_SPACE = 3;
 
     public static InventorySystem Instance { get; private set; }
 
@@ -85,6 +85,13 @@ public class InventorySystem : MonoBehaviour
             }
         }
         return -1;
+    }
+
+    public void wipeInventory(){
+        for(int i = 0; i < MAX_SPACE; i ++){
+            inventory[i] = 0;
+            inventorySlotsImages[i].sprite = emptyImage;
+        }
     }
 
     void SaveInventory()
