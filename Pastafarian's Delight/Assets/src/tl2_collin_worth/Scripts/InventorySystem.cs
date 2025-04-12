@@ -6,7 +6,7 @@ public class InventorySystem : MonoBehaviour
     public Image[] inventorySlotsImages;
     public Sprite emptyImage;
     public Sprite[] itemSprites;
-    private int[] inventory;
+    public int[] inventory;
     private int MAX_SPACE = 5;
 
     public static InventorySystem Instance { get; private set; }

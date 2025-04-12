@@ -147,6 +147,11 @@ public class ItemSpawnPoints : MonoBehaviour
             selectedIngredients.Add(correctIngredient);
             filteredIngredients.Remove(correctIngredient);
         }
+        //Collin///
+        string ingredientName = correctIngredient.name;
+        Debug.Log("sending" + ingredientName);
+        RiddleDisplay.DisplayRiddle(ingredientName);
+        ////
 
         // Pick 4 incorrect ingredients from the filtered list
         selectedIngredients.AddRange(filteredIngredients.OrderBy(x => Random.value).Take(4));
