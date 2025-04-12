@@ -1,0 +1,22 @@
+Purpose:
+The enemy.cs file is a bare-bones starting point for a robust enemy tree. It handles all of the common variables and necessary code, like object deletion, player location, and collision. 
+
+Included functions:
+Start(): The start function initializes all of your common variables, such as health and speed. It also subscribes to an OnDeath event. This is also a virtual function
+findPlayer(): This function finds a game object tagged with the player tag and sets the player transform variable equal to the transform of the found object
+Wander(): This function allows your enemys to randomly wander in a given radius within your rooms. This does require nav mesh to be set up.
+OnCollisionEnter2D(): This handles all common enemy collision. This is a virtual function.
+getSpeed(): returns the enemy's speed
+updateEnemySpeed(float speed): sets the speed of the enemy to a given value.
+TakeDamage(float damage): updates the enemy health with a given value, numbers must be negative for the enemy to take the damage.
+Die(): destroys the game object.
+
+How to use:
+If you install this prefab, you will need to do some work to truly notice its benefits. You will need to make your own class of enemy that is a subclass of Enemy, which will give you access to all functions inside of this class.
+You will want to implement your Update() functions inside of your enemy augmentation classes, but very little base work will need to be done inside of those classes. 
+
+Requirements:
+You will need to have Nav Mesh functional to use this prefab, since it requires it for all of it's movment. You will also need to install the EnemyHandler prefab that I have also made to handle enemy health and death. 
+
+Summary:
+This prefab is made to give you a great launching point for a robust and dynamic enemy system, with a lot of the base level tedious stuff taken care of, you can focus on what makes your enemies great!
