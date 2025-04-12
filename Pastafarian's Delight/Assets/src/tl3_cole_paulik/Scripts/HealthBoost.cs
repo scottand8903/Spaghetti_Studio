@@ -6,7 +6,7 @@ public class HealthBoost : PowerUp
 
     private void Awake()
     {
-        // DYNAMIC BINDING — change this chain to alter behavior without editing other code
+        // DYNAMIC BINDING
         IPowerUpEffect baseEffect = new BasicHealthBoost();
         effect = new EffectLoggerDecorator(new HealthMultiplierDecorator(baseEffect, 1));
     }

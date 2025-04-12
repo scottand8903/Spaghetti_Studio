@@ -13,8 +13,8 @@ public class PowerUp : MonoBehaviour
     }
 }
 
-// === Decorators and Core Effect Logic ===
 
+// === Decorators and Core Effect Logic ===
 public class BasicHealthBoost : IPowerUpEffect
 {
     public virtual void Apply(GameObject player)
