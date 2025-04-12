@@ -43,5 +43,5 @@ public class SpikyTrap : MonoBehaviour
             }
         }
     }
-}
 
+}

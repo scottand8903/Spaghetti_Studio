@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 1142207882}
   - component: {fileID: 1142207881}
   - component: {fileID: 1142207880}
-  - component: {fileID: 1142207879}
+  - component: {fileID: 1142207883}
   m_Layer: 0
   m_Name: Ravioli
   m_TagString: Untagged
@@ -874,18 +874,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1142207879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142207878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ee1dde9f4878f643b25ac5383a53b5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1142207880
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1002,6 +990,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1142207883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142207878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232b8e9c50644a54bab2afce93f14b06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1211230557 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2667677539318512233, guid: 39817220df98c1bab995cb6d69b1d4fb, type: 3}
