@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpeedEnemy : MeleeEnemy
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //Overriding start to set speed health and move speed
     protected override void Start()
     {
         base.Start();
@@ -12,8 +12,4 @@ public class SpeedEnemy : MeleeEnemy
 
     }
 
-    //protected override void OnCollisionEnter2D(Collision2D collision)
-    //{
-       // base.OnCollisionEnter2D(collision);
-    //}
 }

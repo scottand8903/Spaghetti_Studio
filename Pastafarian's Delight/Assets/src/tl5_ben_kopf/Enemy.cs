@@ -5,19 +5,19 @@ using System;
 public class Enemy : MonoBehaviour
 {
     
-    [SerializeField] protected float baseSpeed = 3.0f;
-    [SerializeField] protected float baseHealth = 3.0f;
+    [SerializeField] protected float baseSpeed = 3.0f; //Speed for base class of enemies
+    [SerializeField] protected float baseHealth = 3.0f; //Health for base class of enemies
     [SerializeField] protected float baseSpeedHealth = 1.5f; //Health of the fast enemies
     [SerializeField] protected float baseTankHealth = 5.0f; // Health of the tank enemies
-    [SerializeField] protected float viewDistance = 15.0f;
-    [SerializeField] protected float agroRange = 5.0f;
+    [SerializeField] protected float viewDistance = 15.0f; //How far an enemy will chase once player is targeted
+    [SerializeField] protected float agroRange = 5.0f; //Once within this range the player will become the targer
     [SerializeField] protected string enemyType = "None";
-    [SerializeField] protected float wanderTimer = 3.0f;
-    [SerializeField] protected float wanderRadius = 10f;
-    [SerializeField] protected float hitCooldown = 1f;
-    public Transform player;
-    public EnemyHandlerBC enemyhandler;
-    public float stopDistance = 2f;
+    [SerializeField] protected float wanderTimer = 3.0f; //Interval between change in wander points
+    [SerializeField] protected float wanderRadius = 10f; //Radius of enemy wander
+    [SerializeField] protected float hitCooldown = 1f; //Time between collision hits
+    public Transform player; //Player location
+    public EnemyHandlerBC enemyhandler; //Manages enemy health
+    public float stopDistance = 2f; //Distance away from the player enemies stop
 
     protected float speed;
     protected float health;
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     protected float timer;
     
 
-    protected Transform target = null;
+    protected Transform target = null; //Target for aggro range
     protected Rigidbody2D rb = null;
     protected NavMeshAgent agent;
     private float lastHitTime = 0f;
@@ -37,20 +37,20 @@ public class Enemy : MonoBehaviour
     protected virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
+        agent.updateRotation = false; //Keeps the enemy from roatating
         agent.updateUpAxis = false;
         rb = GetComponent<Rigidbody2D>();
         agent.speed = baseSpeed;
         timer = wanderTimer;
         findPlayer();
-        enemyhandler = new EnemyHandler();
+        enemyhandler = new EnemyHandler(); //Makes a new enemy handler
         enemyhandler.setHealth(baseHealth);
-        enemyhandler.OnDeath += Die;
+        enemyhandler.OnDeath += Die; //Subscribing to the enemyhandler OnDeath event with the Die function
         agent.stoppingDistance = stopDistance;
     }
 
 
-    //sets the player trasform to the player's position
+    //sets the player transform to the player's position
     protected void findPlayer()
 	{
 		if (player == null)
@@ -131,6 +131,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //Public funciton for the enemy to take damage
     public void TakeDamage(float damage)
     {
         enemyhandler.updateHealth(damage);
@@ -139,6 +140,8 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
+
+    //Destroys the game object when called
     protected void Die()
     {
         Debug.Log(gameObject.name + "Died with " + health + " health");
@@ -147,7 +150,7 @@ public class Enemy : MonoBehaviour
     }
 	private void OnDestroy()
 	{
-        enemyhandler.OnDeath -= Die;
+        enemyhandler.OnDeath -= Die; //Unsubscribe from the event
 	}
 }
 

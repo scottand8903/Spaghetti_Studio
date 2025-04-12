@@ -3,7 +3,7 @@ using UnityEngine;
 public class TankEnemy : MeleeEnemy
 {
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Overriding start to set tanks health
     protected override void Start()
     {
         base.Start();
@@ -11,8 +11,4 @@ public class TankEnemy : MeleeEnemy
 
     }
 
-    //protected override void OnCollisionEnter2D(Collision2D collision)
-    //{
-     //   base.OnCollisionEnter2D(collision);
-    //}
 }

@@ -10,21 +10,21 @@ public class EnemyHandlerBC
 	public event Action OnDeath;
 
     //Sets health to 1 so enemies are easier to kill in BC mode
-	public virtual float getHealth()
+	public float getHealth()
     {
         Debug.Log("Get Health called from super class");
-        health = 1;
         return health;
     }
     public virtual void setHealth(float nhealth)
     {
         Debug.Log("Set Health called from super class");
-        health = nhealth;
+        health = 1;
     }
     public virtual void updateHealth(float damage)
     {
         Debug.Log("Update Health called from super class");
-        health += damage;
+        Die();
+        //health += damage;
     }
 	protected void Die()
 	{
@@ -35,11 +35,6 @@ public class EnemyHandlerBC
 
 public class EnemyHandler : EnemyHandlerBC
 {
-    public override float getHealth()
-    {
-        Debug.Log("Get Health called from sub class");
-        return base.health;
-    }
     public override void setHealth(float nhealth)
     {
         Debug.Log("Set Health called from sub class"); 

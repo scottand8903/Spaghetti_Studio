@@ -41,9 +41,11 @@ public class EnemySpawnerMelee : MonoBehaviour
 
     private GameObject GetRandomEnemyPrefab()
     {
+        //Selectes a numer in a range to determine random enemies
         int randomChoice = Random.Range(0, 3); // 0-3 for 4 enemy types
 
-        if (randomChoice == 0) return meleeEnemyPrefab;
+        //It will return a different enemy prefab based on the random number selected
+        if (randomChoice == 0) return meleeEnemyPrefab; 
         if (randomChoice == 1) return tankMeleeEnemyPrefab;
         return speedMeleeEnemyPrefab;
     }

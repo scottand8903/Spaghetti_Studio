@@ -14,9 +14,9 @@ public class RangedEnemy : Enemy
         agent.stoppingDistance = 0f;
     }
 
-    // Update is called once per frame
     private void Update()
     {
+        //Handles the ranged enemies wander movment and player position
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         if (player != null)
         {
@@ -41,6 +41,7 @@ public class RangedEnemy : Enemy
     }
     
 
+    //Ranged enemy movment logic once a target is acquired
     private void RangedMovement(Transform target, NavMeshAgent agent)
     {
         float distanceToTarget = Vector2.Distance(transform.position, target.position);
@@ -73,10 +74,4 @@ public class RangedEnemy : Enemy
         }
     }
 
-
-    //Collision Damage
-  //  protected override void OnCollisionEnter2D(Collision2D collision)
-   // {
-    //    base.OnCollisionEnter2D(collision);
-   // }
 }
