@@ -7,24 +7,16 @@ using UnityEngine;
 /// </summary>
 public class Puzzle : PuzzleManager
 {
-    /// <summary>
     /// Singleton instance of the Puzzle class.
-    /// </summary>
     private static Puzzle _instance;
 
-    /// <summary>
     /// The currently selected pasta dish.
-    /// </summary>
     public PastaDish currentDish;
 
-    /// <summary>
     /// Loader for retrieving ingredient data.
-    /// </summary>
     private IngredientLoader ingredientLoader;
 
-    /// <summary>
     /// Gets the singleton instance of the Puzzle class.
-    /// </summary>
     public static Puzzle Instance
     {
         get
@@ -72,11 +64,7 @@ public class Puzzle : PuzzleManager
 
         currentDish = PickPastaDish();
 
-        if (currentDish != null)
-        {
-            // PrintCurrentDish();
-        }
-        else
+        if (currentDish == null)
         {
             Debug.LogError("No dish was selected");
         }
@@ -125,11 +113,11 @@ public class Puzzle : PuzzleManager
         Debug.Log($"Selected Pasta Dish: {currentDish.dishName}");
         foreach (Ingredient ingredient in currentDish.ingredients)
         {
-            Debug.Log($"Ingredient: {ingredient.name}  (ID: {ingredient.id})");
+            // Debug.Log($"Ingredient: {ingredient.name}  (ID: {ingredient.id})");
 
             for (int i = 0; i < ingredient.riddles.Length; i++)
             {
-                Debug.Log($"Riddle {i + 1}: {ingredient.riddles[i]}");
+                // Debug.Log($"Riddle {i + 1}: {ingredient.riddles[i]}");
             }
         }
     }

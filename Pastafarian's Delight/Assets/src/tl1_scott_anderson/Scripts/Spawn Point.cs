@@ -23,7 +23,7 @@ public class SpawnPoint : MonoBehaviour
             if(player != null)
             {
                 player.transform.position = transform.position;
-                Debug.Log("player spawned at: " + spawnName);
+                // Debug.Log("player spawned at: " + spawnName);
             }
         }
     }

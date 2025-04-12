@@ -34,13 +34,13 @@ public class PuzzleChecker : MonoBehaviour
     {
         if(InventorySystem.Instance == null)
         {
-            Debug.Log("InventorySystem instance is null");
+            Debug.LogError("InventorySystem instance is null");
             return;
         }
 
         if(Puzzle.Instance.currentDish == null)
         {
-            Debug.Log("Current dish is null");
+            Debug.LogError("Current dish is null");
             return;
         }
 

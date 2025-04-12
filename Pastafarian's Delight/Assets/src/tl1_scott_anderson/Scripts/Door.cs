@@ -21,7 +21,7 @@ public class Door : MonoBehaviour
         // Check if the collider belongs to the player.
         if(other.CompareTag("Player"))
         {
-            Debug.Log("player entered : " + doorName);
+            // Debug.Log("player entered : " + doorName);
 
             // Store the name of the last door used in the GameController.
             GameController.Instance.lastDoorUsed = doorName;

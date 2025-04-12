@@ -73,7 +73,7 @@ public class ItemSpawnPoints : MonoBehaviour
         }
 
         // Log the loaded ingredients
-        Debug.Log($"Room {roomName} - Loaded {currentRoomIngredients.Count} ingredients from saved data.");
+        // Debug.Log($"Room {roomName} - Loaded {currentRoomIngredients.Count} ingredients from saved data.");
 
         // Filter out ingredients that have already been collected
         Dictionary<int, Ingredient> remainingIngredients = currentRoomIngredients
@@ -81,7 +81,7 @@ public class ItemSpawnPoints : MonoBehaviour
             .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
         // Log the remaining ingredients
-        Debug.Log($"Room {roomName} - Remaining Ingredients after filtering collected ones: {remainingIngredients.Count}");
+        // Debug.Log($"Room {roomName} - Remaining Ingredients after filtering collected ones: {remainingIngredients.Count}");
 
         // Spawn the remaining ingredients
         SpawnIngredients(remainingIngredients);
@@ -107,17 +107,17 @@ public class ItemSpawnPoints : MonoBehaviour
         if (roomName == "EastRoom")
         {
             filteredIngredients = availIngredients.Where(ing => ing.id >= 0 && ing.id <= 10).ToList();
-            Debug.Log($"Filtered {filteredIngredients.Count} ingredients for EastRoom");
+            // Debug.Log($"Filtered {filteredIngredients.Count} ingredients for EastRoom");
         }
         else if (roomName == "SouthRoom")
         {
             filteredIngredients = availIngredients.Where(ing => ing.id >= 11 && ing.id <= 28).ToList();
-            Debug.Log($"Filtered {filteredIngredients.Count} ingredients for SouthRoom");
+            // Debug.Log($"Filtered {filteredIngredients.Count} ingredients for SouthRoom");
         }
         else if (roomName == "WestRoom")
         {
             filteredIngredients = availIngredients.Where(ing => ing.id >= 29 && ing.id <= 44).ToList();
-            Debug.Log($"Filtered {filteredIngredients.Count} ingredients for WestRoom");
+            // Debug.Log($"Filtered {filteredIngredients.Count} ingredients for WestRoom");
         }
         else
         {
@@ -125,7 +125,7 @@ public class ItemSpawnPoints : MonoBehaviour
             filteredIngredients = availIngredients;
         }
 
-        Debug.Log($"Room {roomName} - Total filtered ingredients: {filteredIngredients.Count}");
+        // Debug.Log($"Room {roomName} - Total filtered ingredients: {filteredIngredients.Count}");
 
         if (filteredIngredients.Count == 0)
         {
@@ -149,7 +149,7 @@ public class ItemSpawnPoints : MonoBehaviour
         }
         //Collin///
         string ingredientName = correctIngredient.name;
-        Debug.Log("sending" + ingredientName);
+        // Debug.Log("sending" + ingredientName);
         RiddleDisplay.DisplayRiddle(ingredientName);
         ////
 
@@ -166,7 +166,7 @@ public class ItemSpawnPoints : MonoBehaviour
     /// <param name="ingredientData">A dictionary of spawn point indices and their corresponding ingredients.</param>
     void SpawnIngredients(Dictionary<int, Ingredient> ingredientData)
     {
-        Debug.Log($"Spawning {ingredientData.Count} ingredients in {roomName}");
+        // Debug.Log($"Spawning {ingredientData.Count} ingredients in {roomName}");
 
         foreach (var kvp in ingredientData)
         {

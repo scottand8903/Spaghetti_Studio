@@ -36,7 +36,7 @@ public class PastaDishLoader : MonoBehaviour
         {
             // Initialize the puzzle with the loaded dishes and ingredients
             Puzzle.CreateInstance(loadedDishes, ingredientLoader);
-            Debug.Log($"Loaded {loadedDishes.Length} pasta dishes into the puzzle");
+            // Debug.Log($"Loaded {loadedDishes.Length} pasta dishes into the puzzle");
         }
         else
         {

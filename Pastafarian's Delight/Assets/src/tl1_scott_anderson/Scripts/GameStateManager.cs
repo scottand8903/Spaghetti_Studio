@@ -41,7 +41,7 @@ public class GameStateManager : MonoBehaviour
     public void SaveRoomIngredients(string roomName, Dictionary<int, Ingredient> ingredientData)
     {
         roomIngredients[roomName] = new Dictionary<int, Ingredient>(ingredientData); // Deep copy the data
-        Debug.Log($"Saving {ingredientData.Count} ingredients for {roomName}");
+        // Debug.Log($"Saving {ingredientData.Count} ingredients for {roomName}");
     }
 
     /// <summary>
@@ -83,7 +83,7 @@ public class GameStateManager : MonoBehaviour
     public void ResetCollectedIngredients()
     {
         collectedIngredients.Clear();
-        Debug.Log("Collected ingredients reset.");
+        // Debug.Log("Collected ingredients reset.");
     }
 
     public void ResetAllRooms()
@@ -91,7 +91,7 @@ public class GameStateManager : MonoBehaviour
         foreach(var roomName in roomIngredients.Keys.ToList())
         {
             roomIngredients[roomName].Clear();
-            Debug.Log($"All ingredients in room {roomName} have been reset.");
+            // Debug.Log($"All ingredients in room {roomName} have been reset.");
         }
     }
 }
