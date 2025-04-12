@@ -922,6 +922,7 @@ MonoBehaviour:
   - {fileID: -8527568592950175283, guid: 9c8281c71143945a9b8adb500655f88e, type: 3}
   - {fileID: -8527568592950175283, guid: 9c8281c71143945a9b8adb500655f88e, type: 3}
   - {fileID: -8527568592950175283, guid: 9c8281c71143945a9b8adb500655f88e, type: 3}
+  inventory: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4762,6 +4763,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5885307563995685382, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5526229541259344351}
     - targetCorrespondingSourceObject: {fileID: 6514443268436656960, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 92135868}
@@ -4801,6 +4805,19 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9076798010811224904, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
   m_PrefabInstance: {fileID: 5526229541259344348}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5526229541259344351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955994758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06887746401ea4297b6ce30870841d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riddleTextBox: {fileID: 1282474888}
 --- !u!1001 &8337663537013351752
 PrefabInstance:
   m_ObjectHideFlags: 0
