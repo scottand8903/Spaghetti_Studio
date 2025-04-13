@@ -2,24 +2,48 @@ using UnityEngine;
 
 public class PlayBackgroundMusic : MonoBehaviour
 {
-    private static PlayBackgroundMusic instance = null;
-    private AudioSource audio;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-            return;
-        }
-        if (instance == this) return;
-        Destroy(gameObject);
-    }
+    public AudioSource backgroundAudio;  // Assign this in Inspector
+    private bool isPaused = false;
 
     void Start()
     {
-        audio = GetComponent<AudioSource>();
-        audio.Play();
+        if (backgroundAudio != null)
+        {
+            backgroundAudio.Play();
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+    }
+
+    void TogglePause()
+    {
+        if (!isPaused)
+        {
+            Time.timeScale = 0f;
+
+            // Pause audio
+            if (backgroundAudio != null && backgroundAudio.isPlaying)
+            {
+                backgroundAudio.Pause();
+            }
+        }
+        else
+        {
+            Time.timeScale = 1f;
+
+            // Resume audio
+            if (backgroundAudio != null && !backgroundAudio.isPlaying)
+            {
+                backgroundAudio.UnPause();
+            }
+        }
+
+        isPaused = !isPaused;
     }
 }
