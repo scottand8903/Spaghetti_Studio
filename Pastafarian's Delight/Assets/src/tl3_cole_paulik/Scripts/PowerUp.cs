@@ -5,24 +5,24 @@ public interface IPowerUpEffect
     void Apply(GameObject player);
 }
 
-public class PowerUp : MonoBehaviour
+// Base class with a virtual method (NOT derived from MonoBehaviour)
+public class PowerUpEffectBase : IPowerUpEffect
 {
-    public virtual void ApplyEffect(GameObject player)
+    public virtual void Apply(GameObject player)
     {
-        Debug.Log("PowerUp applied to " + player.name);
+        Debug.Log("Default Apply() from PowerUpEffectBase");
     }
 }
 
-
-// === Decorators and Core Effect Logic ===
-public class BasicHealthBoost : IPowerUpEffect
+// Derived class that uses override to change behavior dynamically
+public class BasicHealthBoost : PowerUpEffectBase
 {
-    public virtual void Apply(GameObject player)
+    public override void Apply(GameObject player)
     {
         if (HealthSystem.Instance != null)
         {
             HealthSystem.Instance.updateHealth(1);
-            Debug.Log("Basic Health Boost applied!");
+            Debug.Log("Overridden Apply() from BasicHealthBoost");
         }
         else
         {
@@ -31,6 +31,7 @@ public class BasicHealthBoost : IPowerUpEffect
     }
 }
 
+// Decorator that logs the effect application
 public class EffectLoggerDecorator : IPowerUpEffect
 {
     private readonly IPowerUpEffect _baseEffect;
@@ -47,6 +48,7 @@ public class EffectLoggerDecorator : IPowerUpEffect
     }
 }
 
+// Decorator that calls the base effect multiple times based on a multiplier
 public class HealthMultiplierDecorator : IPowerUpEffect
 {
     private readonly IPowerUpEffect _baseEffect;

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Minecraft-Stone-Block_0: 8352463592873904618
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
