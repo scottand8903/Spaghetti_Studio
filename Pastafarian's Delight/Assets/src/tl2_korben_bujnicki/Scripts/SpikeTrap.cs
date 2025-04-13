@@ -1,10 +1,19 @@
 using UnityEngine;
 using System.Collections;
 
-public class SpikyTrap : MonoBehaviour
+//public class SpikyTrap : MonoBehaviour //comment out for dynamic
+public class SpikyTrap : Trap
+
 {
     private bool isPlayerTouching = false;
     private Coroutine damageCoroutine;
+    //comment in for dynamic: 
+    public override void ActivateTrap()
+    {
+        Debug.Log("SpikyTrap activated!");
+        // Specific SpikyTrap logic
+    }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
