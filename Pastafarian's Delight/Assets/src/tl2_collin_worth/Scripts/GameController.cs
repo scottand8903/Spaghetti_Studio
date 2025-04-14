@@ -1,7 +1,8 @@
 // UI script 
 // mm - main menu element
 // pm - pause menun element
-
+// s - settings element
+// d - death screen element
 
 using UnityEngine;
 using TMPro;
@@ -82,7 +83,7 @@ public class GameController: MonoBehaviour
         ingredientAnswers.SetActive(false);
         
 
-
+        // Initialize buttons
         if (mmQuit != null && mmStartGame != null && mmSettings != null){
             mmQuit.onClick.AddListener(() => OnButtonClick(1));
             mmStartGame.onClick.AddListener(() => OnButtonClick(3));
@@ -103,7 +104,13 @@ public class GameController: MonoBehaviour
         }else{
             Debug.Log("s button doesnt exist");
         }
-
+        if(dQuitButton != null){
+            dQuitButton.onClick.AddListener(() => OnButtonClick(1));
+        }else{
+            Debug.Log("d button doesnt exist");
+        }
+        
+        // Initialize health sprites
         BCModeToggle.onValueChanged.AddListener(BCModeChanged);
         dQuitButton.onClick.AddListener(QuitGame);
 
@@ -138,6 +145,12 @@ public class GameController: MonoBehaviour
 
     }
 
+    // Called when a button is clicked displays correct menu
+    // 1 = Quit Game
+    // 2 = Main Menu
+    // 3 = Start Game
+    // 4 = Resume
+    // 5 = Settings
     void OnButtonClick(int button)
     {
         switch(button){
@@ -191,6 +204,7 @@ public class GameController: MonoBehaviour
         }
     }
 
+    // Check if the scene is valid
     private bool IsSceneValid(string sceneName)
     {
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
@@ -205,6 +219,7 @@ public class GameController: MonoBehaviour
         return false;
     }
 
+    // Toggles BCMode on/off from the toggle switch
     void BCModeChanged(bool isOn)
     {
         if (isOn)
@@ -221,19 +236,14 @@ public class GameController: MonoBehaviour
         }
     }
 
-    public void UpdateIngredient()
-    {
-        
-    }
-
-    
-
+    // Updates the health sprites based on the current health
     public void updateHealthSprites(){
 
         for (int i = 0; i < healthSprites.Length; i++){
             healthSprites[i].SetActive(i < HealthSystem.Instance.GetHealth());
         }
     }
+    
 
     public void endGame(){
         HUD.SetActive(false);
@@ -242,7 +252,8 @@ public class GameController: MonoBehaviour
         GameRunning = false;
 
     }
-
+    
+    // Resumes the game
     public void Resume(){
         pausePanel.SetActive(false);
         HUD.SetActive(true);
@@ -250,6 +261,7 @@ public class GameController: MonoBehaviour
         GameRunning = true;
     }
 
+    // Pauses the game
     public void Pause(){
         pausePanel.SetActive(true);
         HUD.SetActive(false);
@@ -257,6 +269,7 @@ public class GameController: MonoBehaviour
         GameRunning = false;
     }
 
+    // Quits the game
     public void QuitGame(){
         Application.Quit(); // For Built version of game
         #if UNITY_EDITOR

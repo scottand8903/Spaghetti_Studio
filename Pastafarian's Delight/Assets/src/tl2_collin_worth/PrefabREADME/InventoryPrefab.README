@@ -1,0 +1,27 @@
+// Inventory Prefab //
+
+Inventory System
+  This is the logic for the Inventory It should be have a Inventory System script attached to it and the feilds filled 
+  with required elements from the Inventory Bar listed bellow
+
+Inventory Bar
+
+Contains:
+  3 Boarders:
+    This is the outline you want to frame your sprite and are done individualy
+    so that it is modular depending on how many inventory slots you need
+  
+  Each Boarder contains a slot
+    this is what you will asign to the Invenoty system and where you want the sprite
+    of the item in the inventory to be displayed
+
+Feel free to place these wherever and add more or less its made to be compleatly
+modular!!!!!!!!!
+
+![example of layout](prefabImages/hiar.png)
+
+![example of Inventory bar](prefabImages/bar.png)
+
+
+
+
