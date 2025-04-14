@@ -3,32 +3,33 @@ using UnityEngine;
 // Base MonoBehaviour class for power ups
 public class PowerUp : MonoBehaviour
 {
+    // Virtual method to apply the effect to the player
     public virtual void ApplyEffect(GameObject player)
     {
         Debug.Log("PowerUp applied to " + player.name);
     }
 }
 
-// MonoBehaviour that uses dynamic binding to select the correct health boost effect
+// Health boost power-up using decorators and dynamic binding
 public class HealthBoost : PowerUp
 {
     private IPowerUpEffect effect;
 
     private void Awake()
     {
-        // DYNAMIC BINDING: Although baseRef is of type PowerUpEffectBase,
-        // it is assigned an instance of BasicHealthBoost, which overrides Apply().
+        // Create base effect and wrap it in decorators
         PowerUpEffectBase baseRef = new BasicHealthBoost();
-        // Wrap the effect with decorators:
         effect = new EffectLoggerDecorator(new HealthMultiplierDecorator(baseRef, 1));
     }
 
+    // Override the ApplyEffect method
     public override void ApplyEffect(GameObject player)
     {
         effect.Apply(player);
         Destroy(gameObject);
     }
 
+    // Trigger effect when colliding with player
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
