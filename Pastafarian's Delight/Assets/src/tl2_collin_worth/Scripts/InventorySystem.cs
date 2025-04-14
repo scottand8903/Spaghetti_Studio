@@ -3,12 +3,18 @@ using UnityEngine.UI;
 
 public class InventorySystem : MonoBehaviour
 {
+    // Public Variables
     public Image[] inventorySlotsImages;
     public Sprite emptyImage;
     public Sprite[] itemSprites;
     public int[] inventory;
+
+    // Private Variables
+
+    // This is the maximum number of slots in the inventory
     private int MAX_SPACE = 3;
 
+    // Initialize the singleton instance
     public static InventorySystem Instance { get; private set; }
 
     void Awake()
@@ -29,6 +35,7 @@ public class InventorySystem : MonoBehaviour
         initInventory();
     }
 
+
     void initInventory()
     {
         // Check if inventory data exists in PlayerPrefs
@@ -48,6 +55,8 @@ public class InventorySystem : MonoBehaviour
         UpdateUI();
     }
 
+    // Adds an item to the inventory
+    // Returns 0 if inventory is full, 1 if item is added
     public int addItem(int id, Sprite itemSprite)
     {
         Debug.Log("Trying to add item");
@@ -69,28 +78,32 @@ public class InventorySystem : MonoBehaviour
         return 0;
     }
 
+    // Returns the ID of the item in the inventory at the given index
     public int[] GetInventoryIDs()
     {
         // Since it is a clone you will not beable to modify inventory with this function
         return (int[])inventory.Clone();
     }
 
+    // Returns the Id of the inventory slot that is empty 
+    // Returns -1 if no empty slots are found
     int nextEmpty()
     {
         for (int i = 0; i < MAX_SPACE; i++)
         {
             if (inventory[i] == 0)
             {
-                return i;
+                return i; // Found an empty slot
             }
         }
-        return -1;
+        return -1; // No empty slots
     }
 
+    // Removes all items from the inventory
     public void wipeInventory(){
         for(int i = 0; i < MAX_SPACE; i ++){
             inventory[i] = 0;
-            inventorySlotsImages[i].sprite = emptyImage;
+            inventorySlotsImages[i].sprite = emptyImage; // Make this whatevery you want has to be somthing tho
         }
     }
 
@@ -114,6 +127,7 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    // Used when initializing Inventory
     void UpdateUI()
     {
         for (int i = 0; i < MAX_SPACE; i++)
