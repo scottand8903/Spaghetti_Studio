@@ -8,22 +8,16 @@ public class MeleeAttack : MonoBehaviour
     public LayerMask enemyLayers;
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            Attack();
- 
-        }
-    }
+    
         
-    void Attack()
+    public void Attack()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach(Collider2D enemy in hitEnemies)
         {
             Debug.Log("We Hit");
+            enemy.GetComponent<Enemy>().TakeDamage(-1);
         }
     }
 
