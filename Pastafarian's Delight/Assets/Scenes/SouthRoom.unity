@@ -906,6 +906,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1688549652453259728, guid: 40c370395e770bb98b4dc45eb4ce1c09, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4914240976984303984, guid: 11f906b883b7a96479d9d2d3b214859a, type: 3}
     - target: {fileID: 3635495909872175775, guid: 40c370395e770bb98b4dc45eb4ce1c09, type: 3}
       propertyPath: m_Name
       value: Enviroment
