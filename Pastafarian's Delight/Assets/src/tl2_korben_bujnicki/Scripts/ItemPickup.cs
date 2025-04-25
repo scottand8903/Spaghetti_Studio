@@ -43,6 +43,7 @@ public class Item : MonoBehaviour
             if (result == 1)
             {
                 Debug.Log("Item picked up and added to inventory!");
+                SoundFXManager.Instance.PlaySound("Chomp"); // Play pickup sound
                 GameStateManager.Instance.CollectIngredient(ingredientID);
                 Destroy(gameObject); // Remove item from the scene
             }

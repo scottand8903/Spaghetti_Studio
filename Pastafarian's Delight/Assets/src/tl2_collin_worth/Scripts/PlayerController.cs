@@ -27,6 +27,12 @@ public class HealthSystem
 
     public virtual void updateHealth(int healthChange){
         if((currentHealth + healthChange) <= MAX_HEALTH){
+            if(healthChange < 0){
+                SoundFXManager.Instance.PlaySound("Playerhit");
+            }
+            else{
+                SoundFXManager.Instance.PlaySound("Heal");
+            }
             currentHealth += healthChange;
         }else{
             currentHealth = MAX_HEALTH;
