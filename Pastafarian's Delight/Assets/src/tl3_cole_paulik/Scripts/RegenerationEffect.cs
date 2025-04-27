@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Regeneration effect that restores health over time
 public class RegenerationEffect : IPowerUpEffect
 {
-    private float regenerationAmount;  // Amount of health to regenerate per second
-    private float duration;            // Duration of the regeneration effect
-    private float elapsedTime;         // Time elapsed since the effect started
+    private float regenerationAmount;
+    private float duration;
+    private float elapsedTime;
 
     public RegenerationEffect(float regenerationAmount, float duration)
     {
@@ -38,9 +39,9 @@ public class RegenerationEffect : IPowerUpEffect
 
         while (elapsedTime < duration)
         {
-            healthSystem.updateHealth((int)regenerationAmount);  // Regenerate health
-            elapsedTime += Time.deltaTime;  // Increment elapsed time
-            yield return null;  // Wait for the next frame
+            healthSystem.updateHealth((int)regenerationAmount);
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
         Debug.Log("Regeneration effect ended.");
     }

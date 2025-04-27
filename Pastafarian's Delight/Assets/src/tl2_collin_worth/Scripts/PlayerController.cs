@@ -27,6 +27,12 @@ public class HealthSystem
 
     public virtual void updateHealth(int healthChange){
         if((currentHealth + healthChange) <= MAX_HEALTH){
+            if(healthChange < 0){
+                SoundFXManager.Instance.PlaySound("Playerhit");
+            }
+            else{
+                SoundFXManager.Instance.PlaySound("Heal");
+            }
             currentHealth += healthChange;
         }else{
             currentHealth = MAX_HEALTH;
@@ -117,6 +123,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("walkingRight", true); 
     }
 
+    // Wait for the game to start before initializing the health system
     private IEnumerator WaitForGameRunning()
     {
         yield return new WaitUntil(() => GameController.Instance.GameRunning);
@@ -130,8 +137,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Get player movement input and apply it to the Rigidbody
     void GetPlayerMovement()
-{
+    {
     bool pressingUp = Input.GetKey(KeyCode.W);
     bool pressingLeft = Input.GetKey(KeyCode.A);
     bool pressingDown = Input.GetKey(KeyCode.S);
@@ -169,8 +177,4 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
         }
     }
-
-
-    
-//////
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Represents a general game item that can be picked up
 public class GameItem : MonoBehaviour
 {
     [SerializeField] public int id;
@@ -25,7 +26,7 @@ public class GameItem : MonoBehaviour
                 powerUp.ApplyEffect(collision.gameObject);
             }
 
-            Destroy(gameObject); // Remove item after collection
+            Destroy(gameObject);
         }
     }
 }

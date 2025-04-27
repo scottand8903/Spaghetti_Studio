@@ -62,6 +62,8 @@ public class PuzzleChecker : MonoBehaviour
         Debug.Log("All 3 ingredients in the first 3 slots match the current dish!");
         Debug.Log("Puzzle complete.");
 
+        
+
         SelectNewPuzzle();
     }
 
@@ -75,6 +77,10 @@ public class PuzzleChecker : MonoBehaviour
 
             GameStateManager.Instance.ResetAllRooms();
             GameStateManager.Instance.ResetCollectedIngredients();
+
+            // Clear the inventory
+            InventorySystem.Instance.wipeInventory();
+
         }
         else
         {
