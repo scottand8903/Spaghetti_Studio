@@ -162,6 +162,8 @@ public class GameController: MonoBehaviour
             case 2: // MainMenu
                     pausePanel.SetActive(false);
                     MainMenuPanel.SetActive(true);
+                    InventorySystem.Instance.wipeInventory();
+                    SceneManager.LoadScene("SampleScene");
                     ResetGame();
             break;
 
