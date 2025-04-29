@@ -37,12 +37,16 @@ public class RegenerationEffect : IPowerUpEffect
             yield break;
         }
 
-        while (elapsedTime < duration)
+        float healInterval = 0.5f; // Heal once every second
+        int totalHeals = Mathf.FloorToInt(duration / healInterval);
+        int healAmountPerTick = Mathf.RoundToInt(regenerationAmount);
+
+        for (int i = 0; i < totalHeals; i++)
         {
-            healthSystem.updateHealth((int)regenerationAmount);
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            healthSystem.updateHealth(healAmountPerTick);
+            yield return new WaitForSeconds(healInterval);
         }
+
         Debug.Log("Regeneration effect ended.");
     }
 }
