@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7630565344415725807}
   - component: {fileID: 1985729862212536349}
   m_Layer: 0
-  m_Name: Dart
+  m_Name: MeatBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
