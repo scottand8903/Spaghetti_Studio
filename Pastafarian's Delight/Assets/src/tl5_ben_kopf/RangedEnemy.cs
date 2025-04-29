@@ -8,10 +8,14 @@ public class RangedEnemy : Enemy
 {
     [SerializeField] private float maxDistance = 5.0f; // Distance at which enemy stops moving
     [SerializeField] private float tooClose = 3.0f;
+    [SerializeField] private float attackRange = 5.0f;
+
+    private RangedAttack rangedAttack;
     protected override void Start()
     {
         base.Start();
         agent.stoppingDistance = 0f;
+        rangedAttack = GetComponent<RangedAttack>();
     }
 
     private void Update()
@@ -36,7 +40,13 @@ public class RangedEnemy : Enemy
         }
         if (target != null)
         {
+            float distanceToTarget = Vector2.Distance(transform.position, target.position);
+            if (distanceToTarget <= attackRange)
+            {
+                rangedAttack.TryFireAt(target);
+            }
             RangedMovement(target, agent);
+            
         }
     }
     
@@ -50,6 +60,7 @@ public class RangedEnemy : Enemy
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
+
 
         if (distanceToTarget > maxDistance) // Move only if beyond stop distance
         {

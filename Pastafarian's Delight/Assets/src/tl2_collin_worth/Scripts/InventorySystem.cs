@@ -107,6 +107,29 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    public void removeItem(int id)
+    {
+        for (int i = 0; i < MAX_SPACE; i++)
+        {
+            if (inventory[i] == id)
+            {
+                inventory[i] = 0; // Remove item
+                inventorySlotsImages[i].sprite = emptyImage; // Reset the image to empty
+                break;
+            }
+        }
+    }
+
+    public void removeItemAtIndex(int index)
+    {
+        if (index >= 0 && index < MAX_SPACE)
+        {
+            inventory[index] = 0; // Remove item
+            inventorySlotsImages[index].sprite = emptyImage; // Reset the image to empty
+        }
+    }
+
+
     void SaveInventory()
     {
         // Save the inventory to PlayerPrefs
