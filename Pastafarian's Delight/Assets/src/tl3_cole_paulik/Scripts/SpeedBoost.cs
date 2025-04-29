@@ -8,8 +8,8 @@ public class SpeedBoost : PowerUp
     private void Awake()
     {
         // Setup chain: Basic -> DurationExtended -> Logger
-        IPowerUpEffect baseEffect = new BasicSpeedBoost(5f, 10f); // +5 speed for 10s
-        effect = new EffectLoggerDecorator(new DurationExtenderDecorator(baseEffect, 5f)); // extends to 15s and logs
+        IPowerUpEffect baseEffect = new BasicSpeedBoost(1f, 3f); // +2 speed for 5s
+        effect = new EffectLoggerDecorator(new DurationExtenderDecorator(baseEffect, 1f)); // extends to 10s and logs
     }
 
     public override void ApplyEffect(GameObject player)
@@ -87,7 +87,7 @@ public class SpeedBoost : PowerUp
             // If the base effect is a BasicSpeedBoost, extend its duration
             if (baseEffect is BasicSpeedBoost baseSpeedBoost)
             {
-                IPowerUpEffect boosted = new BasicSpeedBoost(5f, 10f + extraDuration);
+                IPowerUpEffect boosted = new BasicSpeedBoost(1f, 2f + extraDuration);
                 boosted.Apply(player);
             }
             else
