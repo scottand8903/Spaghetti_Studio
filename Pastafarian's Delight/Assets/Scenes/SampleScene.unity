@@ -4413,6 +4413,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2854819457156862544, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7441961575386531069, guid: 769b018c132c3fe4bba2f2c50822b12e, type: 3}
     - target: {fileID: 3231039151088271545, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -717
@@ -4421,6 +4425,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3565965546230506664, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7441961575386531069, guid: 769b018c132c3fe4bba2f2c50822b12e, type: 3}
     - target: {fileID: 3919512661402726266, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -717
@@ -4437,6 +4445,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1804145247
       objectReference: {fileID: 0}
+    - target: {fileID: 5284298596169182941, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7441961575386531069, guid: 769b018c132c3fe4bba2f2c50822b12e, type: 3}
     - target: {fileID: 5354572381813987644, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -4577,6 +4589,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1804145247
       objectReference: {fileID: 0}
+    - target: {fileID: 7144707466464633139, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7441961575386531069, guid: 769b018c132c3fe4bba2f2c50822b12e, type: 3}
     - target: {fileID: 7157787816023564813, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
       propertyPath: m_SortingLayer
       value: 6
@@ -4681,6 +4697,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8981478395947962444, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7441961575386531069, guid: 769b018c132c3fe4bba2f2c50822b12e, type: 3}
     - target: {fileID: 9076798010811224904, guid: 71eb5585d1d008caea263ff631331f4c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
