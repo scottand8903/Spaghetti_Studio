@@ -171,7 +171,7 @@ MonoBehaviour:
   attackPoint: {fileID: 1812490738}
   attackRate: 2
   offset: -90
-  shotRate: 0.5
+  shotRate: 5
 --- !u!212 &77308486
 SpriteRenderer:
   m_ObjectHideFlags: 0
