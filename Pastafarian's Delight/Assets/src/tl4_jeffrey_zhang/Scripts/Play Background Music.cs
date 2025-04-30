@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class PlayBackgroundMusic : MonoBehaviour
 {
-    public AudioSource backgroundAudio;  // <- This is linked in Unity’s Inspector
+    public AudioSource backgroundAudio;  // <- This is linked in Unityï¿½s Inspector
+
     private bool isPaused = false;
 
     // Called automatically by Unity when the scene starts
