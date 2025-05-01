@@ -12,8 +12,6 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 #endif
 
-
-
 public class GameController: MonoBehaviour
 {
     // Public Variables
@@ -44,9 +42,6 @@ public class GameController: MonoBehaviour
 
     // Private Variables
 
-
-
-
     public static GameController Instance { get; private set; }
 
     void Awake()
@@ -60,18 +55,32 @@ public class GameController: MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
+    public void SetDishAndIngredients()
+    {
+        if (Puzzle.Instance != null)
+        {
+            // Display dish and ingredients
+            dishNameTXT.text = Puzzle.Instance.currentDish.dishName;
+            ingredient1TXT.text = Puzzle.Instance.currentDish.ingredients[0].name;
+            ingredient2TXT.text = Puzzle.Instance.currentDish.ingredients[1].name;
+            ingredient3TXT.text = Puzzle.Instance.currentDish.ingredients[2].name;
+        }
+        else
+        {
+            Debug.LogError("(GameController) Puzzle instance is not initialized!");
+        }
+    }
 
     void Start()
     {
-
         // Initialize Game
         Debug.Log("GameController Start called");
 
         if (MainMenuPanel == null) Debug.LogError("MainMenuPanel is NOT assigned!");
         if (pausePanel == null) Debug.LogError("pausePanel is NOT assigned!");
         if (HUD == null) Debug.LogError("HUD is NOT assigned!");
-        if (SettingsPanel== null) Debug.LogError("SettingsPanel is NOT assigned!");
+        if (SettingsPanel == null) Debug.LogError("SettingsPanel is NOT assigned!");
 
         GameRunning = false;
         Pause();
@@ -81,41 +90,50 @@ public class GameController: MonoBehaviour
         HUD.SetActive(false);
         DeathScreen.SetActive(false);
         ingredientAnswers.SetActive(false);
-        
 
         // Initialize buttons
-        if (mmQuit != null && mmStartGame != null && mmSettings != null){
+        if (mmQuit != null && mmStartGame != null && mmSettings != null)
+        {
             mmQuit.onClick.AddListener(() => OnButtonClick(1));
             mmStartGame.onClick.AddListener(() => OnButtonClick(3));
             mmSettings.onClick.AddListener(() => OnButtonClick(5));
         }
-        else{
+        else
+        {
             Debug.Log("mm button doesnt exist");
         }
-        if (pmToMainMenu != null && pmResume != null){
+        if (pmToMainMenu != null && pmResume != null)
+        {
             pmToMainMenu.onClick.AddListener(() => OnButtonClick(2));
             pmResume.onClick.AddListener(() => OnButtonClick(4));
         }
-        else{
+        else
+        {
             Debug.Log("pm button doesnt exist");
         }
-        if(sBackButton != null){
+        if (sBackButton != null)
+        {
             sBackButton.onClick.AddListener(() => OnButtonClick(6));
-        }else{
+        }
+        else
+        {
             Debug.Log("s button doesnt exist");
         }
-        if(dQuitButton != null){
+        if (dQuitButton != null)
+        {
             dQuitButton.onClick.AddListener(() => OnButtonClick(1));
-        }else{
+        }
+        else
+        {
             Debug.Log("d button doesnt exist");
         }
-        
+
         // Initialize health sprites
         BCModeToggle.onValueChanged.AddListener(BCModeChanged);
         dQuitButton.onClick.AddListener(QuitGame);
 
-        //Load Demo mode button
-        if(IsSceneValid("DemoMode"))
+        // Load Demo mode button
+        if (IsSceneValid("DemoMode"))
         {
             sDemoModeButton.onClick.AddListener(() => SceneManager.LoadScene("DemoMode"));
         }
@@ -124,25 +142,8 @@ public class GameController: MonoBehaviour
             Debug.Log("Scene DemoMode does not exist");
         }
 
-        // PUZZLE MANAGER STUFF
-        if(Puzzle.Instance != null)
-        {
-            
-            // Display dish and ingredients
-            dishNameTXT.text = Puzzle.Instance.currentDish.dishName;
-            ingredient1TXT.text = Puzzle.Instance.currentDish.ingredients[0].name;
-            ingredient2TXT.text = Puzzle.Instance.currentDish.ingredients[1].name;
-            ingredient3TXT.text = Puzzle.Instance.currentDish.ingredients[2].name;
-
-        }
-        else
-        {
-            Debug.LogError("(GameController)Puzzle instance is not initialized!");
-        }
-
-
-    
-
+        // Call the new function to set dish and ingredients
+        SetDishAndIngredients();
     }
 
     // Called when a button is clicked displays correct menu

@@ -78,8 +78,12 @@ public class PuzzleChecker : MonoBehaviour
             GameStateManager.Instance.ResetAllRooms();
             GameStateManager.Instance.ResetCollectedIngredients();
 
+
             // Clear the inventory
             InventorySystem.Instance.wipeInventory();
+
+            // Update the DishUI
+            GameController.Instance.SetDishAndIngredients();
 
         }
         else
