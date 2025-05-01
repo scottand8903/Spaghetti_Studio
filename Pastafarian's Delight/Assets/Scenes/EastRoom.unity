@@ -759,6 +759,10 @@ PrefabInstance:
       value: ItemManager
       objectReference: {fileID: 0}
     - target: {fileID: 9035948349916392425, guid: 4f2ad3f563846a6428d9a149ca66f3b0, type: 3}
+      propertyPath: attackBuffPrefab
+      value: 
+      objectReference: {fileID: 881479716087870298, guid: 04b9c39c39a549346b8eab2441c4dff2, type: 3}
+    - target: {fileID: 9035948349916392425, guid: 4f2ad3f563846a6428d9a149ca66f3b0, type: 3}
       propertyPath: spawnPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
