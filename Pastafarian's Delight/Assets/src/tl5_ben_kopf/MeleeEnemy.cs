@@ -7,11 +7,11 @@ using static Enemy;
 
 public class MeleeEnemy : Enemy
 {
-    private MeleeAttack meleeAttack;
+    private EnemyMeleeAttack meleeAttack;
     protected override void Start()
     {
         base.Start();
-        meleeAttack = GetComponent<MeleeAttack>();
+        meleeAttack = GetComponent<EnemyMeleeAttack>();
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class MeleeEnemy : Enemy
             MeleeMove(target, agent);
             if (Vector2.Distance(transform.position, player.position) <= stopDistance)
             {
-                meleeAttack?.Attack(); // Only call Attack when in range
+                meleeAttack.Attack(target); // Only call Attack when in range
             }
         }
     }

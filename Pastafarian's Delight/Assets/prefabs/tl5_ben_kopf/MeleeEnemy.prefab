@@ -109,6 +109,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6126104360696232386, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
       insertIndex: 2
       addedObject: {fileID: 5986703839167783594}
+    - targetCorrespondingSourceObject: {fileID: 6126104360696232386, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2633593231185146111}
   m_SourcePrefab: {fileID: 100100000, guid: c88845473725d554bb21153bc91d7bb4, type: 3}
 --- !u!1 &501354679249227260 stripped
 GameObject:
@@ -139,3 +142,17 @@ MonoBehaviour:
   hitCooldown: 1
   player: {fileID: 0}
   stopDistance: 2
+--- !u!114 &2633593231185146111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501354679249227260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d6bff5c22fe7db43a9706e2fafb9f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 1
+  damage: 1
