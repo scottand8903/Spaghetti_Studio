@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WestRoom.unity
     guid: b5a4343fdce42ab42bccb639cc63a8f2
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainRoom.unity
     guid: 65d91f91fa7ceb13bbe7d1ff767a5392
   - enabled: 1
