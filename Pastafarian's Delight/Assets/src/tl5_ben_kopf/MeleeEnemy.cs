@@ -7,9 +7,11 @@ using static Enemy;
 
 public class MeleeEnemy : Enemy
 {
+    private MeleeAttack meleeAttack;
     protected override void Start()
     {
         base.Start();
+        meleeAttack = GetComponent<MeleeAttack>();
     }
 
     // Update is called once per frame
@@ -33,10 +35,14 @@ public class MeleeEnemy : Enemy
 			Wander(timer, wanderTimer, wanderRadius, agent);
 		}
 		if(target != null)
-		{
-			MeleeMove(target,agent);
-		}
-	}
+        {
+            MeleeMove(target, agent);
+            if (Vector2.Distance(transform.position, player.position) <= stopDistance)
+            {
+                meleeAttack?.Attack(); // Only call Attack when in range
+            }
+        }
+    }
 
 	void MeleeMove(Transform target,NavMeshAgent agent)
 	{
